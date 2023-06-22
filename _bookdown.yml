@@ -1,0 +1,34 @@
+book_filename: "R_bootcamp"
+new_session: true
+before_chapter_script: _common.R
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+output_dir: docs
+rmd_files:
+  ["index.Rmd",
+  "Introduction.Rmd",
+  "Module_1.Rmd",
+  "Module_2.Rmd",
+  "Module_3.Rmd",
+  "Module_4.Rmd",
+  "Problem_set_1.Rmd",
+  "PS1_solutions.Rmd",
+  "Module_5.Rmd",
+  "Module_6.Rmd",
+  "Module_7.Rmd",
+  "Problem_set_2.Rmd",
+  "PS2_solutions.Rmd",
+  "Module_8.Rmd",
+  "Module_9.Rmd",
+  "Module_10.Rmd",
+  "Module_11.Rmd",
+  "Problem_set_3.Rmd",
+  "PS3_solutions.Rmd",
+  "Module_12.Rmd",
+  "Module_13.Rmd",
+  "Module_14.Rmd",
+  "Problem_set_4.Rmd",
+  "PS4_solutions.Rmd"]
+  

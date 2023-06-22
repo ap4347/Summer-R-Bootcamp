@@ -1,0 +1,272 @@
+
+# PS 2 Solutions {-}
+
+&nbsp;
+
+```{r}
+
+library(tidyverse)
+
+Dataset_1 <- as_tibble(read.csv("C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_1.csv"))
+
+Dataset_2 <- as_tibble(read.csv("C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_2.csv"))
+
+Dataset_3 <- as_tibble(read.csv("C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_3.csv"))
+
+```
+
+&nbsp;
+
+1. In **Dataset_1** the `area` variable is spread across multiple columns that represent values of the `state` variable. Transform/Tidy the dataset as follows: move the column names (IL-WI) to the `state` variable and the column values to the `area` variable. Then, remove all the missing value from the dataset. Name the new dataset `data1`.
+
+```{r}
+
+data1 <- Dataset_1 %>%
+  pivot_longer(IL:WI, names_to="state", values_to="area", values_drop_na=T)
+data1
+```
+
+&nbsp;
+
+2. In **Dataset_2** the `race` variable combines information about the total population for each racial group, given in following order: White, Black, American Indians, Asians, Other. Pull apart this column into multiple columns, by splitting wherever a separator character appers. Name these variables `popwhite`, `popblack`, `popamerindian`, `popasian`, and `popother`, respectively. Name the new dataset `data2`.
+
+```{r}
+data2 <- Dataset_2 %>%
+  separate(race, into=c("popwhite", "popblack", "popamerindian", "popasian", "popother"), sep="/", convert=T)
+data2
+```
+
+&nbsp;
+
+3. Merge `data1` and `data2`: they should be joined by the `state` variable and the output result should contain all the observation from `data1`, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain? 
+
+   Repeat the above procedure again by joining the datasets by the `state` and `county` variables.
+   
+```{r}
+out3_1 <- data1 %>%
+  left_join(data2, by="state")
+out3_1
+dim_desc(out3_1)
+out3_1 %>%
+  summarize(across(everything(), ~sum(is.na(.))))
+```
+
+```{r}
+out3_2 <- data1 %>%
+  left_join(data2, by=c("state", "county"))
+out3_2
+dim_desc(out3_2)
+out3_2 %>%
+  summarize(across(everything(), ~sum(is.na(.))))
+```
+   
+&nbsp;
+
+4. Merge `data1` and `data2`: they should be joined by the `state` variable and the output result should contain all the observation from `data2`, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain? 
+
+   Repeat the above procedure again by joining the datasets by the `state` and `county` variables.
+
+```{r}
+out4_1 <- data1 %>%
+  right_join(data2, by="state")
+out4_1
+dim_desc(out4_1)
+out4_1 %>%
+  summarize(across(everything(), ~sum(is.na(.))))
+```
+
+
+```{r}
+out4_2 <- data1 %>%
+  right_join(data2, by=c("state","county"))
+out4_2
+dim_desc(out4_2)
+out4_2 %>%
+  summarize(across(everything(), ~sum(is.na(.))))
+```
+
+&nbsp;
+
+5. Merge `data1` and `data2`: they should be joined by the `state` variable and the output result should contain all the observation from both `data1` and `data2`, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain? 
+
+   Repeat the above procedure again by joining the datasets by the `state` and `county` variables.
+   
+```{r}
+out5_1 <- data1 %>%
+  full_join(data2, by="state")
+out5_1
+dim_desc(out5_1)
+out5_1 %>%
+  summarize(across(everything(), ~sum(is.na(.))))
+```
+
+
+```{r}
+out5_2 <- data1 %>%
+  full_join(data2, by=c("state","county"))
+out5_2
+dim_desc(out5_2)
+out5_2 %>%
+  summarize(across(everything(), ~sum(is.na(.))))
+```
+   
+&nbsp;
+
+6. Join `data1` and `data2` by the `state` and `county` variables such that the unmatched rows in either input dataset are not included in the result. Name the output dataset `data`.
+
+```{r}
+data <- data1 %>%
+  inner_join(data2, by=c("state","county"))
+data
+```
+
+&nbsp;
+
+7. Remove `PID` and `category` from `data` by selecting all variables except these two. Then, remove all duplicates from the dataset.
+
+```{r}
+data <- data %>%
+  select(!c(PID, category)) %>%
+  distinct()
+data
+```
+
+&nbsp;
+
+8. Add a new variable to the dataset (name it `popdensity`), which represents a population density in each county (in order to compute a population density you need to divide the total population by the corresponding area).
+
+   Then, for each racial group, add a new variable to the dataset that will represent the percentage of the total population that belongs to this group (name them `percwhite`, `percblack`, `percamerindan`, `percasian`, and `percother`, respectively).
+   
+```{r}
+data <- data %>%
+  mutate(popdensity=poptotal/area, 
+         percwhite=100*popwhite/poptotal,
+         percblack=100*popblack/poptotal,
+         percamerindian=100*popamerindian/poptotal,
+         percasian=100*popasian/poptotal,
+         percother=100*popother/poptotal)
+data[8:13]
+```
+
+&nbsp;
+
+9. Join `data` and `Dataset_3` by the `state` and `county` variables such that the unmatched rows in either input dataset are not included in the result.
+
+```{r}
+data3 <- Dataset_3
+data3
+data <- data %>%
+  inner_join(data3, by=c("state","county"))
+data
+```
+
+&nbsp;
+
+10. Add new variables to the dataset that correspond to the `percbelowpoverty` and `percadultpoverty` variables and represent the actual number of people that belong to these groups. Name these variables `popcbelowpoverty`, and `popcadultpoverty`, respectively.
+
+```{r}
+data <- data %>%
+  mutate(popcbelowpoverty=poptotal*percbelowpoverty,
+         popcadultpoverty=popadults*percadultpoverty)
+data[24:26]
+```
+
+&nbsp;
+
+11. Move the `inmetro` variable to the end of the dataset; change the position of the `poptotal` variable so that it comes after the `area` variables; change the position of the `popdensity` variable so that it comes after the `poptotal` variables.
+
+```{r}
+data <- data %>%
+  relocate(inmetro, .after=last_col()) %>%
+  relocate(poptotal, .after=area) %>%
+  relocate(popdensity, .after=poptotal)
+data[3:8]
+data[23:26]
+```
+
+&nbsp;
+
+12. What is the biggest/smallest state by the total population? What is the biggest/smallest state by the total area? What is the average population density in each state? In each state, compare the population densities of counties that are in metro area to counties that are not. Hint: you might want to use the grouping functions.
+
+The state with minimum total population is "WI", the state with maximum total population is "IL".
+
+
+```{r}
+data %>%
+  group_by(state) %>%
+  summarise(tot_pop = sum(poptotal)) %>%
+  arrange(tot_pop)
+```
+
+The state with minimum total area is "IN", the state with maximum total area is "MI".
+
+```{r}
+data %>%
+  group_by(state) %>%
+  summarise(tot_area = sum(area)) %>%
+  arrange(tot_area)
+```
+
+```{r}
+data %>%
+  group_by(state) %>%
+  summarise(avg_popdensity = mean(popdensity))
+```
+
+```{r}
+data %>%
+  group_by(state, inmetro) %>%
+  summarise(avg_popdensity = mean(popdensity))
+```
+
+&nbsp;
+
+13. In all states combined, what is the average percentage of each racial group? In each state separately, what is the average percentage of each racial group? In each state separately, compare the average percentage of each racial group in metro areas to non-metro areas. Discuss the results you obtained.
+
+```{r}
+data %>%
+  summarise(across(percwhite:percother, ~mean(.x)))
+```
+
+```{r}
+data %>%
+  group_by(state) %>%
+  summarise(across(percwhite:percother, ~mean(.x)))
+```
+
+Percentages of white are higher in non-metro area. Percentages of black are higher in metro area. Percentages of American indian are higher in non-metro area. Percentages of Asian are higher in metro area. Percentages of other race groups are higher in metro area.
+
+```{r}
+data %>%
+  group_by(state, inmetro) %>%
+  summarise(across(percwhite:percother, ~mean(.x)))
+```
+
+
+&nbsp;
+
+14. For each, state calculate the average percentage of the total population who are below poverty. Now using the same measurement, compare the metro areas to non-metro areas in each state. What do you observe? Now filter out counties with less than 50000 population and repeat the previous step. What do you observe?
+
+
+```{r}
+data %>%
+  group_by(state) %>%
+  summarise(mean(percbelowpoverty))
+```
+
+Percentages below poverty are higher in non-metro area.
+
+```{r}
+data %>%
+  group_by(state, inmetro) %>%
+  summarise(mean(percbelowpoverty))
+```
+
+The significance of the percentages of below-poverty in non-metro area higher than that of metro area becomes less.
+
+```{r}
+data %>%
+  filter(poptotal >= 50000) %>%
+  group_by(state, inmetro) %>%
+  summarise(mean(percbelowpoverty))
+```

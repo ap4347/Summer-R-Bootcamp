@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Problem Set 2 | Summer R Bootcamp</title>
+<meta name="author" content="Alex Pijyan">
+<meta name="description" content="  You will be working with the datasets containing demographic information of midwest counties from 2000 US census. Dataset_1, Dataset_2, and Dataset_3 are available on Courseworks.   Dataset_1...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Problem Set 2 | Summer R Bootcamp">
+<meta property="og:type" content="book">
+<meta property="og:description" content="  You will be working with the datasets containing demographic information of midwest counties from 2000 US census. Dataset_1, Dataset_2, and Dataset_3 are available on Courseworks.   Dataset_1...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Problem Set 2 | Summer R Bootcamp">
+<meta name="twitter:description" content="  You will be working with the datasets containing demographic information of midwest counties from 2000 US census. Dataset_1, Dataset_2, and Dataset_3 are available on Courseworks.   Dataset_1...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Summer R Bootcamp</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="module-1.html">Module 1</a></li>
+<li><a class="" href="module-2.html">Module 2</a></li>
+<li><a class="" href="module-3.html">Module 3</a></li>
+<li><a class="" href="module-4.html">Module 4</a></li>
+<li><a class="" href="problem-set-1.html">Problem Set 1</a></li>
+<li><a class="" href="ps-1-solutions.html">PS 1 Solutions</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="module-5.html">Module 5</a></li>
+<li><a class="" href="module-6.html">Module 6</a></li>
+<li><a class="" href="module-7.html">Module 7</a></li>
+<li><a class="active" href="problem-set-2.html">Problem Set 2</a></li>
+<li><a class="" href="ps-2-solutions.html">PS 2 Solutions</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="module-8.html">Module 8</a></li>
+<li><a class="" href="module-9.html">Module 9</a></li>
+<li><a class="" href="module-10.html">Module 10</a></li>
+<li><a class="" href="module-11.html">Module 11</a></li>
+<li><a class="" href="problem-set-3.html">Problem Set 3</a></li>
+<li><a class="" href="ps-3-solutions.html">PS 3 Solutions</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="module-12.html">Module 12</a></li>
+<li><a class="" href="module-13.html">Module 13</a></li>
+<li><a class="" href="module-14.html">Module 14</a></li>
+<li><a class="" href="problem-set-4.html">Problem Set 4</a></li>
+<li><a class="" href="ps-4-solutions.html">PS 4 Solutions</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="problem-set-2" class="section level1 unnumbered">
+<h1>Problem Set 2<a class="anchor" aria-label="anchor" href="#problem-set-2"><i class="fas fa-link"></i></a>
+</h1>
+<p> </p>
+<p>You will be working with the datasets containing demographic information of midwest counties from 2000 US census. <strong>Dataset_1</strong>, <strong>Dataset_2</strong>, and <strong>Dataset_3</strong> are available on Courseworks.</p>
+<p> </p>
+<p><strong>Dataset_1</strong> contains the following variables:</p>
+<ul>
+<li>
+<strong>PID</strong> - Unique county identifier</li>
+<li>
+<strong>county</strong> - County name</li>
+<li>
+<strong>area</strong> - Area of county (units unknown). This variable is spread across 5 columns (IL - WI)</li>
+<li>
+<strong>poptotal</strong> - Total population</li>
+<li>
+<strong>state</strong> - State to which county belongs to</li>
+</ul>
+<p> </p>
+<p><strong>Dataset_2</strong> contains the following variables:</p>
+<ul>
+<li>
+<strong>PID</strong> - Unique county identifier</li>
+<li>
+<strong>county</strong> - County name</li>
+<li>
+<strong>race</strong> - Total population for each racial group (White, Black, American Indians, Asians, Other races)</li>
+<li>
+<strong>inmetro</strong> - A factor with levels 0 and 1 to indicate whether county considered in a metro area</li>
+<li>
+<strong>category</strong> - Miscellaneous</li>
+</ul>
+<p> </p>
+<p><strong>Dataset_3</strong> contains the following variables:</p>
+<ul>
+<li>
+<strong>PID</strong> - Unique county identifier</li>
+<li>
+<strong>county</strong> - County name</li>
+<li>
+<strong>popadults</strong> - Number of adults</li>
+<li>
+<strong>perchsd</strong> - Percent of population with high school diploma</li>
+<li>
+<strong>percollege</strong> - Percent of college educated population</li>
+<li>
+<strong>percprof</strong> - Percent of population with professional degree</li>
+<li>
+<strong>percbelowpoverty</strong> - Percent of population below poverty line</li>
+<li>
+<strong>percchildbelowpovert</strong> - Percent of children below poverty line</li>
+<li>
+<strong>percadultpoverty</strong> - Percent of adults below poverty line</li>
+<li>
+<strong>percelderlypoverty</strong> - Percent of elderly below poverty line</li>
+</ul>
+<p> </p>
+<p>Note: The original description of the dataset was not documented and the current descriptions here (provided by <code>tidyverse</code> package) are based on speculation.</p>
+<p> </p>
+<div id="problem-1-2" class="section level2 unnumbered">
+<h2>Problem 1<a class="anchor" aria-label="anchor" href="#problem-1-2"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>In <strong>Dataset_1</strong> the <code>area</code> variable is spread across multiple columns that represent values of the <code>state</code> variable. Transform/Tidy the dataset as follows: move the column names (IL-WI) to the <code>state</code> variable and the column values to the <code>area</code> variable. Then, remove all the missing value from the dataset. Name the new dataset <code>data1</code>.</li>
+</ol>
+<p> </p>
+<ol start="2" style="list-style-type: decimal">
+<li>In <strong>Dataset_2</strong> the <code>race</code> variable combines information about the total population for each racial group, given in following order: White, Black, American Indians, Asians, Other. Pull apart this column into multiple columns, by splitting wherever a separator character appers. Name these variables <code>popwhite</code>, <code>popblack</code>, <code>popamerindian</code>, <code>popasian</code>, and <code>popother</code>, respectively. Name the new dataset <code>data2</code>.</li>
+</ol>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<p>Merge <code>data1</code> and <code>data2</code>: they should be joined by the <code>state</code> variable and the output result should contain all the observation from <code>data1</code>, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain?</p>
+<p>Repeat the above procedure again by joining the datasets by the <code>state</code> and <code>county</code> variables.</p>
+</li>
+</ol>
+<p> </p>
+<ol start="4" style="list-style-type: decimal">
+<li>
+<p>Merge <code>data1</code> and <code>data2</code>: they should be joined by the <code>state</code> variable and the output result should contain all the observation from <code>data2</code>, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain?</p>
+<p>Repeat the above procedure again by joining the datasets by the <code>state</code> and <code>county</code> variables.</p>
+</li>
+</ol>
+<p> </p>
+<ol start="5" style="list-style-type: decimal">
+<li>
+<p>Merge <code>data1</code> and <code>data2</code>: they should be joined by the <code>state</code> variable and the output result should contain all the observation from both <code>data1</code> and <code>data2</code>, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain?</p>
+<p>Repeat the above procedure again by joining the datasets by the <code>state</code> and <code>county</code> variables.</p>
+</li>
+</ol>
+<p> </p>
+<ol start="6" style="list-style-type: decimal">
+<li>Join <code>data1</code> and <code>data2</code> by the <code>state</code> and <code>county</code> variables such that the unmatched rows in either input dataset are not included in the result. Name the output dataset <code>data</code>.</li>
+</ol>
+<p> </p>
+<ol start="7" style="list-style-type: decimal">
+<li>Remove <code>PID</code> and <code>category</code> from <code>data</code> by selecting all variables except these two. Then, remove all duplicates from the dataset.</li>
+</ol>
+<p> </p>
+<ol start="8" style="list-style-type: decimal">
+<li>
+<p>Add a new variable to the dataset (name it <code>popdensity</code>), which represents a population density in each county (in order to compute a population density you need to divide the total population by the corresponding area).</p>
+<p>Then, for each racial group, add a new variable to the dataset that will represent the percentage of the total population that belongs to this group (name them <code>percwhite</code>, <code>percblack</code>, <code>percamerindan</code>, <code>percasian</code>, and <code>percother</code>, respectively).</p>
+</li>
+</ol>
+<p> </p>
+<ol start="9" style="list-style-type: decimal">
+<li>Join <code>data</code> and <code>Dataset_3</code> by the <code>state</code> and <code>county</code> variables such that the unmatched rows in either input dataset are not included in the result.</li>
+</ol>
+<p> </p>
+<ol start="10" style="list-style-type: decimal">
+<li>Add new variables to the dataset that correspond to the <code>percbelowpoverty</code> and <code>percadultpoverty</code> variables and represent the actual number of people that belong to these groups. Name these variables <code>popcbelowpoverty</code>, and <code>popcadultpoverty</code>, respectively.</li>
+</ol>
+<p> </p>
+<ol start="11" style="list-style-type: decimal">
+<li>Move the <code>inmetro</code> variable to the end of the dataset; change the position of the <code>poptotal</code> variable so that it comes after the <code>area</code> variables; change the position of the <code>popdensity</code> variable so that it comes after the <code>poptotal</code> variables.</li>
+</ol>
+<p> </p>
+<ol start="12" style="list-style-type: decimal">
+<li>What is the biggest/smallest state by the total population? What is the biggest/smallest state by the total area? What is the average population density in each state? In each state, compare the population densities of counties that are in metro area to counties that are not. Hint: you might want to use the grouping functions.</li>
+</ol>
+<p> </p>
+<ol start="13" style="list-style-type: decimal">
+<li>In all states combined, what is the average percentage of each racial group? In each state separately, what is the average percentage of each racial group? In each state separately, compare the average percentage of each racial group in metro areas to non-metro areas. Discuss the results you obtained.</li>
+</ol>
+<p> </p>
+<ol start="14" style="list-style-type: decimal">
+<li>For each, state calculate the average percentage of the total population who are below poverty. Now using the same measurement, compare the metro areas to non-metro areas in each state. What do you observe? Now filter out counties with less than 50000 population and repeat the previous step. What do you observe?</li>
+</ol>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="module-7.html">Module 7</a></div>
+<div class="next"><a href="ps-2-solutions.html">PS 2 Solutions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#problem-set-2">Problem Set 2</a></li>
+<li><a class="nav-link" href="#problem-1-2">Problem 1</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/Problem_set_2.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/Problem_set_2.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2023-06-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

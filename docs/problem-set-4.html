@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Problem Set 4 | Summer R Bootcamp</title>
+<meta name="author" content="Alex Pijyan">
+<meta name="description" content="  Problem 1 In this problem use functions from the apply() family of functions whenever you think you need loops.   Create a function (name it fun1) that takes three arguments n, miu, and sd...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="Problem Set 4 | Summer R Bootcamp">
+<meta property="og:type" content="book">
+<meta property="og:description" content="  Problem 1 In this problem use functions from the apply() family of functions whenever you think you need loops.   Create a function (name it fun1) that takes three arguments n, miu, and sd...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Problem Set 4 | Summer R Bootcamp">
+<meta name="twitter:description" content="  Problem 1 In this problem use functions from the apply() family of functions whenever you think you need loops.   Create a function (name it fun1) that takes three arguments n, miu, and sd...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Summer R Bootcamp</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="module-1.html">Module 1</a></li>
+<li><a class="" href="module-2.html">Module 2</a></li>
+<li><a class="" href="module-3.html">Module 3</a></li>
+<li><a class="" href="module-4.html">Module 4</a></li>
+<li><a class="" href="problem-set-1.html">Problem Set 1</a></li>
+<li><a class="" href="ps-1-solutions.html">PS 1 Solutions</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="module-5.html">Module 5</a></li>
+<li><a class="" href="module-6.html">Module 6</a></li>
+<li><a class="" href="module-7.html">Module 7</a></li>
+<li><a class="" href="problem-set-2.html">Problem Set 2</a></li>
+<li><a class="" href="ps-2-solutions.html">PS 2 Solutions</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="module-8.html">Module 8</a></li>
+<li><a class="" href="module-9.html">Module 9</a></li>
+<li><a class="" href="module-10.html">Module 10</a></li>
+<li><a class="" href="module-11.html">Module 11</a></li>
+<li><a class="" href="problem-set-3.html">Problem Set 3</a></li>
+<li><a class="" href="ps-3-solutions.html">PS 3 Solutions</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="module-12.html">Module 12</a></li>
+<li><a class="" href="module-13.html">Module 13</a></li>
+<li><a class="" href="module-14.html">Module 14</a></li>
+<li><a class="active" href="problem-set-4.html">Problem Set 4</a></li>
+<li><a class="" href="ps-4-solutions.html">PS 4 Solutions</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="problem-set-4" class="section level1 unnumbered">
+<h1>Problem Set 4<a class="anchor" aria-label="anchor" href="#problem-set-4"><i class="fas fa-link"></i></a>
+</h1>
+<p> </p>
+<div id="problem-1-3" class="section level2 unnumbered">
+<h2>Problem 1<a class="anchor" aria-label="anchor" href="#problem-1-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>In this problem use functions from the <code><a href="https://rdrr.io/r/base/apply.html">apply()</a></code> family of functions whenever you think you need <code>loops</code>.</p>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Create a function (name it <code>fun1</code>) that takes three arguments <em>n</em>, <em>miu</em>, and <em>sd</em> (where <em>n</em> is the number of randomly generated numbers, <em>miu</em> is the mean value of the distribution that numbers come from, and <em>sd</em> is the standard deviation of that distribution) and does the following:</p>
+<ul>
+<li>First it generates <em>n</em> random numbers from a normal distribution with mean = <em>miu</em> and standard deviation = <em>sd</em>
+</li>
+<li>Then it populates an empty matrix as follows: if <em>n</em> is divisible by 2 but not by 3, it fills a matrix by row, having 2 rows and <em>n/2</em> columns; if <em>n</em> is divisible by 3 but not by 2, it fills a matrix by column, having 3 columns and <em>n/3</em> rows; if <em>n</em> is divisible by 2 and by 3, it fills a matrix by row, having 6 rows and <em>n/6</em> columns; else it fills by row and has only one column</li>
+<li>And returns a vector of mean values of each column in the matrix if none of the randomly generated numbers are negative; it returns a vector of median values of each row in the matrix if some of the randomly generated numbers are negative.</li>
+</ul>
+<p>Test your function with (<em>n</em> = 50, <em>miu</em> = 0.5, <em>sd</em> = 2)</p>
+</li>
+</ol>
+<p> </p>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<p>Create a function (name it <code>fun2</code>) that will take one argument <em>n</em>, which represents a number of trials in your simulation. Your function should simulate a process of rolling an unfair die with the following probability distribution: “1” - 0.1, “2” - 0.3, “3” - 0.2, “4” - 0.05, “5” - 0.3, “6” - 0.05. It should report the results of <em>n</em> trials by returning the frequency table of the outcomes (for example, how many times you got “1”, “2”, and so on).</p>
+<p>Test your function with <em>n</em> = 100.</p>
+</li>
+</ol>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<p>Create a function (name it <code>fun3</code>) that will take one argument <em>n</em>, which represents a number of trials in your simulation. Your function should simulate a process of rolling two fair dice. It should report the results of <em>n</em> trials by returning vectors of outcomes from both dice (name them <code>Die1</code> and <code>Die2</code>, respectively) and a vector that compares outcomes obtained from <code>Die1</code> and <code>Die2</code> (name it <code>comparison</code>). <code>comparison</code> vector should be created as follows: it should be created using <code><a href="https://rdrr.io/r/base/mapply.html">mapply()</a></code> function and should be a factor with three levels (“Die1 &gt; Die2”, “Die1 &lt; Die2”, “Die1 = Die2”). For instance, if the outcome of <code>Die1</code> is 5 and the outcome of <code>Die2</code> is 4, then it should produce “Die1 &gt; Die2”.</p>
+<p>Test your function with <em>n</em> = 30.</p>
+</li>
+</ol>
+<p> </p>
+</div>
+<div id="problem-2-2" class="section level2 unnumbered">
+<h2>Problem 2<a class="anchor" aria-label="anchor" href="#problem-2-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Once again, you will be working with the <code>ames_housing.csv</code> dataset. It contains information about the homes sold in Ames, Iowa, between 2006 and 2010. The dataset includes 18 variables and covers a wide range of home characteristics. For the purpose of this assignment, you are going to work with the following variables:</p>
+<ul>
+<li>
+<strong>Sales_Price</strong> - Sale Price</li>
+<li>
+<strong>Neighborhood</strong> - Physical locations within Ames city limits</li>
+<li>
+<strong>Roof_Style</strong> - Type of roof</li>
+<li>
+<strong>Fence</strong> - Fence quality</li>
+<li>
+<strong>TotRms_AbvGrd</strong> - Total rooms above grade (does not include bathrooms)</li>
+<li>
+<strong>Gr_Liv_Area</strong> - Above grade(ground) living area square feet</li>
+</ul>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li>John is a new real estate agent in the area. A friend of his, who worked in this area before, told him that the average price for houses sold in the area is $210,000. John feels a bit skeptical about this claim and wants to test it. Perform an appropriate statistical procedure to test this claim. Use the <span class="math inline">\(\alpha = 0.05\)</span> significance level to make a conclusion. State the null and alternative hypotheses. What is the test statistic? What are the degrees of freedom? What is the p-value? What did you conclude?</li>
+</ol>
+<p> </p>
+<ol start="2" style="list-style-type: decimal">
+<li>John has been in this industry for quite some time. Over the course of past 10 years, he’s noticed that a type of roof that houses have can somehow define the fence quality. In other words, he thinks that these two features (<code>Roof_Style</code> and <code>Fence</code> variables in the dataset) are somehow related. Test his hypothesis based on the sample data at the <span class="math inline">\(\alpha = 0.01\)</span> significance level. State the null and alternative hypotheses. What is the test statistic? What are the degrees of freedom? What is the p-value? What did you conclude?</li>
+</ol>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li>John is specifically interested in two neighborhoods: <code>North_Ames</code> and <code>College_Creek</code>. He did some research prior his arrival and he thinks that on average houses in the <code>College_Creek</code> neighborhood are $50,000 more expensive than the houses sold in the <code>North_Ames</code> neighborhood. Test his hypothesis at the <span class="math inline">\(\alpha = 0.02\)</span> significance level. State the null and alternative hypotheses. What is the test statistic? What are the degrees of freedom? What is the p-value? What did you conclude?</li>
+</ol>
+<p> </p>
+<ol start="4" style="list-style-type: decimal">
+<li>
+<p>John decides to split all homes in the dataset into the following three groups based on the total number of rooms above the ground: <code>"2-4"</code>, <code>"5-8"</code>, and <code>"9 or more"</code>. He believes that 10% of homes belong to the <code>"2-4"</code> category, 85% belong to the <code>"5-8"</code> category, and the remaining 5% belong to the <code>"9 or more"</code> category. Test his hypothesis using the appropriate statistical procedure at the <span class="math inline">\(\alpha = 0.01\)</span> significance level. State the null and alternative hypotheses. What is the test statistic? What are the degrees of freedom? What is the p-value? What did you conclude?</p>
+<p>Before you perform the test, you need to add a new variable to the dataset (name it <code>Rooms</code>) using the splitting rule proposed by John. In other words, you need to create a factor variable with 3 levels by converting the <code>TotRms_AbvGrd</code> variable. (Hint: you might want to check out the <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> function from <code>dpyr</code> package).</p>
+</li>
+</ol>
+<p> </p>
+</div>
+<div id="problem-3-2" class="section level2 unnumbered">
+<h2>Problem 3<a class="anchor" aria-label="anchor" href="#problem-3-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Tri-City Office Equipment Corporation sells an imported copier on a franchise basis and performs preventive maintenance and repair service on this copier. The data in <strong>copier_maintenance.txt</strong> (available on Courseworks) were collected from 45 recent calls on users to perform routine preventive maintenance service; for each observation, they recorded the number of copiers serviced (<strong>Copiers</strong>, predictor) and the total number of minutes spent by the service person (<strong>Minutes</strong>, response).</p>
+<ol style="list-style-type: decimal">
+<li>Fit the least squares linear regression model.</li>
+</ol>
+<p> </p>
+<ol start="2" style="list-style-type: decimal">
+<li>Display summary of the model obtained in part 1.</li>
+</ol>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li>Plot the data and overlay the linear regression function you obtained in part 1.</li>
+</ol>
+<p> </p>
+<ol start="4" style="list-style-type: decimal">
+<li>Obtain a point estimate of the mean service time when 7 copiers are serviced.</li>
+</ol>
+<p> </p>
+<ol start="5" style="list-style-type: decimal">
+<li>Obtain a 95% confidence interval for the slope.</li>
+</ol>
+<p> </p>
+<ol start="6" style="list-style-type: decimal">
+<li>Obtain a 95% confidence interval for the mean service time when 7 copiers are serviced.</li>
+</ol>
+<p> </p>
+<ol start="7" style="list-style-type: decimal">
+<li>Obtain a 95% prediction interval for the mean service time when 7 copiers are serviced.</li>
+</ol>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="module-14.html">Module 14</a></div>
+<div class="next"><a href="ps-4-solutions.html">PS 4 Solutions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#problem-set-4">Problem Set 4</a></li>
+<li><a class="nav-link" href="#problem-1-3">Problem 1</a></li>
+<li><a class="nav-link" href="#problem-2-2">Problem 2</a></li>
+<li><a class="nav-link" href="#problem-3-2">Problem 3</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/Problem_set_4.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/Problem_set_4.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2023-06-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

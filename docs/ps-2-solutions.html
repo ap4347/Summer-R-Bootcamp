@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>PS 2 Solutions | Summer R Bootcamp</title>
+<meta name="author" content="Alex Pijyan">
+<meta name="description" content="  library(tidyverse) #&gt; ── Attaching packages ─────────────────── tidyverse 1.3.2 ── #&gt; ✔ ggplot2 3.3.6   ✔ purrr  0.3.5 #&gt; ✔ tibble 3.1.8   ✔ dplyr  1.0.10 #&gt; ✔ tidyr  1.2.1   ✔ stringr 1.4.1 #&gt;...">
+<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta property="og:title" content="PS 2 Solutions | Summer R Bootcamp">
+<meta property="og:type" content="book">
+<meta property="og:description" content="  library(tidyverse) #&gt; ── Attaching packages ─────────────────── tidyverse 1.3.2 ── #&gt; ✔ ggplot2 3.3.6   ✔ purrr  0.3.5 #&gt; ✔ tibble 3.1.8   ✔ dplyr  1.0.10 #&gt; ✔ tidyr  1.2.1   ✔ stringr 1.4.1 #&gt;...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PS 2 Solutions | Summer R Bootcamp">
+<meta name="twitter:description" content="  library(tidyverse) #&gt; ── Attaching packages ─────────────────── tidyverse 1.3.2 ── #&gt; ✔ ggplot2 3.3.6   ✔ purrr  0.3.5 #&gt; ✔ tibble 3.1.8   ✔ dplyr  1.0.10 #&gt; ✔ tidyr  1.2.1   ✔ stringr 1.4.1 #&gt;...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Summer R Bootcamp</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html">Introduction</a></li>
+<li><a class="" href="module-1.html">Module 1</a></li>
+<li><a class="" href="module-2.html">Module 2</a></li>
+<li><a class="" href="module-3.html">Module 3</a></li>
+<li><a class="" href="module-4.html">Module 4</a></li>
+<li><a class="" href="problem-set-1.html">Problem Set 1</a></li>
+<li><a class="" href="ps-1-solutions.html">PS 1 Solutions</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="module-5.html">Module 5</a></li>
+<li><a class="" href="module-6.html">Module 6</a></li>
+<li><a class="" href="module-7.html">Module 7</a></li>
+<li><a class="" href="problem-set-2.html">Problem Set 2</a></li>
+<li><a class="active" href="ps-2-solutions.html">PS 2 Solutions</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="module-8.html">Module 8</a></li>
+<li><a class="" href="module-9.html">Module 9</a></li>
+<li><a class="" href="module-10.html">Module 10</a></li>
+<li><a class="" href="module-11.html">Module 11</a></li>
+<li><a class="" href="problem-set-3.html">Problem Set 3</a></li>
+<li><a class="" href="ps-3-solutions.html">PS 3 Solutions</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="module-12.html">Module 12</a></li>
+<li><a class="" href="module-13.html">Module 13</a></li>
+<li><a class="" href="module-14.html">Module 14</a></li>
+<li><a class="" href="problem-set-4.html">Problem Set 4</a></li>
+<li><a class="" href="ps-4-solutions.html">PS 4 Solutions</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ps-2-solutions" class="section level1 unnumbered">
+<h1>PS 2 Solutions<a class="anchor" aria-label="anchor" href="#ps-2-solutions"><i class="fas fa-link"></i></a>
+</h1>
+<p> </p>
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; ── Attaching packages ─────────────────── tidyverse 1.3.2 ──</span></span>
+<span><span class="co">#&gt; ✔ ggplot2 3.3.6      ✔ purrr   0.3.5 </span></span>
+<span><span class="co">#&gt; ✔ tibble  3.1.8      ✔ dplyr   1.0.10</span></span>
+<span><span class="co">#&gt; ✔ tidyr   1.2.1      ✔ stringr 1.4.1 </span></span>
+<span><span class="co">#&gt; ✔ readr   2.1.3      ✔ forcats 0.5.2 </span></span>
+<span><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
+<span><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
+<span><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
+<span></span>
+<span><span class="va">Dataset_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_1.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Dataset_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_2.csv"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">Dataset_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_3.csv"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li>In <strong>Dataset_1</strong> the <code>area</code> variable is spread across multiple columns that represent values of the <code>state</code> variable. Transform/Tidy the dataset as follows: move the column names (IL-WI) to the <code>state</code> variable and the column values to the <code>area</code> variable. Then, remove all the missing value from the dataset. Name the new dataset <code>data1</code>.</li>
+</ol>
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">data1</span> <span class="op">&lt;-</span> <span class="va">Dataset_1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="va">IL</span><span class="op">:</span><span class="va">WI</span>, names_to<span class="op">=</span><span class="st">"state"</span>, values_to<span class="op">=</span><span class="st">"area"</span>, values_drop_na<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span>
+<span><span class="va">data1</span></span>
+<span><span class="co">#&gt; # A tibble: 457 × 5</span></span>
+<span><span class="co">#&gt;      PID county    poptotal state  area</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;        &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1   561 ADAMS        66090 IL    0.052</span></span>
+<span><span class="co">#&gt;  2   562 ALEXANDER    10626 IL    0.014</span></span>
+<span><span class="co">#&gt;  3   563 BOND         14991 IL    0.022</span></span>
+<span><span class="co">#&gt;  4   564 BOONE        30806 IL    0.017</span></span>
+<span><span class="co">#&gt;  5   565 BROWN         5836 IL    0.018</span></span>
+<span><span class="co">#&gt;  6   566 BUREAU       35688 IL    0.05 </span></span>
+<span><span class="co">#&gt;  7   567 CALHOUN       5322 IL    0.017</span></span>
+<span><span class="co">#&gt;  8   568 CARROLL      16805 IL    0.027</span></span>
+<span><span class="co">#&gt;  9   569 CASS         13437 IL    0.024</span></span>
+<span><span class="co">#&gt; 10   570 CHAMPAIGN   173025 IL    0.058</span></span>
+<span><span class="co">#&gt; # … with 447 more rows</span></span></code></pre></div>
+<p> </p>
+<ol start="2" style="list-style-type: decimal">
+<li>In <strong>Dataset_2</strong> the <code>race</code> variable combines information about the total population for each racial group, given in following order: White, Black, American Indians, Asians, Other. Pull apart this column into multiple columns, by splitting wherever a separator character appers. Name these variables <code>popwhite</code>, <code>popblack</code>, <code>popamerindian</code>, <code>popasian</code>, and <code>popother</code>, respectively. Name the new dataset <code>data2</code>.</li>
+</ol>
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">Dataset_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/separate.html">separate</a></span><span class="op">(</span><span class="va">race</span>, into<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"popwhite"</span>, <span class="st">"popblack"</span>, <span class="st">"popamerindian"</span>, <span class="st">"popasian"</span>, <span class="st">"popother"</span><span class="op">)</span>, sep<span class="op">=</span><span class="st">"/"</span>, convert<span class="op">=</span><span class="cn">T</span><span class="op">)</span></span>
+<span><span class="va">data2</span></span>
+<span><span class="co">#&gt; # A tibble: 487 × 9</span></span>
+<span><span class="co">#&gt;    county    state popwhite popblack popam…¹ popas…² popot…³</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;    &lt;int&gt;    &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1 ADAMS     IL       63917     1702      98     249     124</span></span>
+<span><span class="co">#&gt;  2 ALEXANDER IL        7054     3496      19      48       9</span></span>
+<span><span class="co">#&gt;  3 BOND      IL       14477      429      35      16      34</span></span>
+<span><span class="co">#&gt;  4 BOONE     IL       29344      127      46     150    1139</span></span>
+<span><span class="co">#&gt;  5 BROWN     IL        5264      547      14       5       6</span></span>
+<span><span class="co">#&gt;  6 BUREAU    IL       35157       50      65     195     221</span></span>
+<span><span class="co">#&gt;  7 CALHOUN   IL        5298        1       8      15       0</span></span>
+<span><span class="co">#&gt;  8 CARROLL   IL       16519      111      30      61      84</span></span>
+<span><span class="co">#&gt;  9 CASS      IL       13384       16       8      23       6</span></span>
+<span><span class="co">#&gt; 10 CHAMPAIGN IL      146506    16559     331    8033    1596</span></span>
+<span><span class="co">#&gt; # … with 477 more rows, 2 more variables: inmetro &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   category &lt;chr&gt;, and abbreviated variable names</span></span>
+<span><span class="co">#&gt; #   ¹​popamerindian, ²​popasian, ³​popother</span></span></code></pre></div>
+<p> </p>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<p>Merge <code>data1</code> and <code>data2</code>: they should be joined by the <code>state</code> variable and the output result should contain all the observation from <code>data1</code>, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain?</p>
+<p>Repeat the above procedure again by joining the datasets by the <code>state</code> and <code>county</code> variables.</p>
+</li>
+</ol>
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out3_1</span> <span class="op">&lt;-</span> <span class="va">data1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">data2</span>, by<span class="op">=</span><span class="st">"state"</span><span class="op">)</span></span>
+<span><span class="va">out3_1</span></span>
+<span><span class="co">#&gt; # A tibble: 46,825 × 13</span></span>
+<span><span class="co">#&gt;      PID count…¹ popto…² state  area count…³ popwh…⁴ popbl…⁵</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1   561 ADAMS     66090 IL    0.052 ADAMS     63917    1702</span></span>
+<span><span class="co">#&gt;  2   561 ADAMS     66090 IL    0.052 ALEXAN…    7054    3496</span></span>
+<span><span class="co">#&gt;  3   561 ADAMS     66090 IL    0.052 BOND      14477     429</span></span>
+<span><span class="co">#&gt;  4   561 ADAMS     66090 IL    0.052 BOONE     29344     127</span></span>
+<span><span class="co">#&gt;  5   561 ADAMS     66090 IL    0.052 BROWN      5264     547</span></span>
+<span><span class="co">#&gt;  6   561 ADAMS     66090 IL    0.052 BUREAU    35157      50</span></span>
+<span><span class="co">#&gt;  7   561 ADAMS     66090 IL    0.052 CALHOUN    5298       1</span></span>
+<span><span class="co">#&gt;  8   561 ADAMS     66090 IL    0.052 CARROLL   16519     111</span></span>
+<span><span class="co">#&gt;  9   561 ADAMS     66090 IL    0.052 CASS      13384      16</span></span>
+<span><span class="co">#&gt; 10   561 ADAMS     66090 IL    0.052 CHAMPA…  146506   16559</span></span>
+<span><span class="co">#&gt; # … with 46,815 more rows, 5 more variables:</span></span>
+<span><span class="co">#&gt; #   popamerindian &lt;int&gt;, popasian &lt;int&gt;, popother &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   inmetro &lt;int&gt;, category &lt;chr&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   names ¹​county.x, ²​poptotal, ³​county.y, ⁴​popwhite,</span></span>
+<span><span class="co">#&gt; #   ⁵​popblack</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/dim_desc.html">dim_desc</a></span><span class="op">(</span><span class="va">out3_1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "[46,825 x 13]"</span></span>
+<span><span class="va">out3_1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 13</span></span>
+<span><span class="co">#&gt;     PID county.x popto…¹ state  area count…² popwh…³ popbl…⁴</span></span>
+<span><span class="co">#&gt;   &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1     0        0       0     0     0       0       0       0</span></span>
+<span><span class="co">#&gt; # … with 5 more variables: popamerindian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popasian &lt;int&gt;, popother &lt;int&gt;, inmetro &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   category &lt;int&gt;, and abbreviated variable names</span></span>
+<span><span class="co">#&gt; #   ¹​poptotal, ²​county.y, ³​popwhite, ⁴​popblack</span></span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out3_2</span> <span class="op">&lt;-</span> <span class="va">data1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span><span class="op">(</span><span class="va">data2</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"state"</span>, <span class="st">"county"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">out3_2</span></span>
+<span><span class="co">#&gt; # A tibble: 527 × 12</span></span>
+<span><span class="co">#&gt;      PID county  popto…¹ state  area popwh…² popbl…³ popam…⁴</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1   561 ADAMS     66090 IL    0.052   63917    1702      98</span></span>
+<span><span class="co">#&gt;  2   561 ADAMS     66090 IL    0.052   63917    1702      98</span></span>
+<span><span class="co">#&gt;  3   562 ALEXAN…   10626 IL    0.014    7054    3496      19</span></span>
+<span><span class="co">#&gt;  4   562 ALEXAN…   10626 IL    0.014    7054    3496      19</span></span>
+<span><span class="co">#&gt;  5   563 BOND      14991 IL    0.022   14477     429      35</span></span>
+<span><span class="co">#&gt;  6   563 BOND      14991 IL    0.022   14477     429      35</span></span>
+<span><span class="co">#&gt;  7   564 BOONE     30806 IL    0.017   29344     127      46</span></span>
+<span><span class="co">#&gt;  8   564 BOONE     30806 IL    0.017   29344     127      46</span></span>
+<span><span class="co">#&gt;  9   565 BROWN      5836 IL    0.018    5264     547      14</span></span>
+<span><span class="co">#&gt; 10   565 BROWN      5836 IL    0.018    5264     547      14</span></span>
+<span><span class="co">#&gt; # … with 517 more rows, 4 more variables: popasian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popother &lt;int&gt;, inmetro &lt;int&gt;, category &lt;chr&gt;, and</span></span>
+<span><span class="co">#&gt; #   abbreviated variable names ¹​poptotal, ²​popwhite,</span></span>
+<span><span class="co">#&gt; #   ³​popblack, ⁴​popamerindian</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/dim_desc.html">dim_desc</a></span><span class="op">(</span><span class="va">out3_2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "[527 x 12]"</span></span>
+<span><span class="va">out3_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 12</span></span>
+<span><span class="co">#&gt;     PID county poptotal state  area popwhite popbl…¹ popam…²</span></span>
+<span><span class="co">#&gt;   &lt;int&gt;  &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1     0      0        0     0     0        0       0       0</span></span>
+<span><span class="co">#&gt; # … with 4 more variables: popasian &lt;int&gt;, popother &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   inmetro &lt;int&gt;, category &lt;int&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   names ¹​popblack, ²​popamerindian</span></span></code></pre></div>
+<p> </p>
+<ol start="4" style="list-style-type: decimal">
+<li>
+<p>Merge <code>data1</code> and <code>data2</code>: they should be joined by the <code>state</code> variable and the output result should contain all the observation from <code>data2</code>, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain?</p>
+<p>Repeat the above procedure again by joining the datasets by the <code>state</code> and <code>county</code> variables.</p>
+</li>
+</ol>
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out4_1</span> <span class="op">&lt;-</span> <span class="va">data1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">data2</span>, by<span class="op">=</span><span class="st">"state"</span><span class="op">)</span></span>
+<span><span class="va">out4_1</span></span>
+<span><span class="co">#&gt; # A tibble: 46,825 × 13</span></span>
+<span><span class="co">#&gt;      PID count…¹ popto…² state  area count…³ popwh…⁴ popbl…⁵</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1   561 ADAMS     66090 IL    0.052 ADAMS     63917    1702</span></span>
+<span><span class="co">#&gt;  2   561 ADAMS     66090 IL    0.052 ALEXAN…    7054    3496</span></span>
+<span><span class="co">#&gt;  3   561 ADAMS     66090 IL    0.052 BOND      14477     429</span></span>
+<span><span class="co">#&gt;  4   561 ADAMS     66090 IL    0.052 BOONE     29344     127</span></span>
+<span><span class="co">#&gt;  5   561 ADAMS     66090 IL    0.052 BROWN      5264     547</span></span>
+<span><span class="co">#&gt;  6   561 ADAMS     66090 IL    0.052 BUREAU    35157      50</span></span>
+<span><span class="co">#&gt;  7   561 ADAMS     66090 IL    0.052 CALHOUN    5298       1</span></span>
+<span><span class="co">#&gt;  8   561 ADAMS     66090 IL    0.052 CARROLL   16519     111</span></span>
+<span><span class="co">#&gt;  9   561 ADAMS     66090 IL    0.052 CASS      13384      16</span></span>
+<span><span class="co">#&gt; 10   561 ADAMS     66090 IL    0.052 CHAMPA…  146506   16559</span></span>
+<span><span class="co">#&gt; # … with 46,815 more rows, 5 more variables:</span></span>
+<span><span class="co">#&gt; #   popamerindian &lt;int&gt;, popasian &lt;int&gt;, popother &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   inmetro &lt;int&gt;, category &lt;chr&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   names ¹​county.x, ²​poptotal, ³​county.y, ⁴​popwhite,</span></span>
+<span><span class="co">#&gt; #   ⁵​popblack</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/dim_desc.html">dim_desc</a></span><span class="op">(</span><span class="va">out4_1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "[46,825 x 13]"</span></span>
+<span><span class="va">out4_1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 13</span></span>
+<span><span class="co">#&gt;     PID county.x popto…¹ state  area count…² popwh…³ popbl…⁴</span></span>
+<span><span class="co">#&gt;   &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1     0        0       0     0     0       0       0       0</span></span>
+<span><span class="co">#&gt; # … with 5 more variables: popamerindian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popasian &lt;int&gt;, popother &lt;int&gt;, inmetro &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   category &lt;int&gt;, and abbreviated variable names</span></span>
+<span><span class="co">#&gt; #   ¹​poptotal, ²​county.y, ³​popwhite, ⁴​popblack</span></span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out4_2</span> <span class="op">&lt;-</span> <span class="va">data1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">right_join</a></span><span class="op">(</span><span class="va">data2</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"state"</span>,<span class="st">"county"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">out4_2</span></span>
+<span><span class="co">#&gt; # A tibble: 527 × 12</span></span>
+<span><span class="co">#&gt;      PID county  popto…¹ state  area popwh…² popbl…³ popam…⁴</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1   561 ADAMS     66090 IL    0.052   63917    1702      98</span></span>
+<span><span class="co">#&gt;  2   561 ADAMS     66090 IL    0.052   63917    1702      98</span></span>
+<span><span class="co">#&gt;  3   562 ALEXAN…   10626 IL    0.014    7054    3496      19</span></span>
+<span><span class="co">#&gt;  4   562 ALEXAN…   10626 IL    0.014    7054    3496      19</span></span>
+<span><span class="co">#&gt;  5   563 BOND      14991 IL    0.022   14477     429      35</span></span>
+<span><span class="co">#&gt;  6   563 BOND      14991 IL    0.022   14477     429      35</span></span>
+<span><span class="co">#&gt;  7   564 BOONE     30806 IL    0.017   29344     127      46</span></span>
+<span><span class="co">#&gt;  8   564 BOONE     30806 IL    0.017   29344     127      46</span></span>
+<span><span class="co">#&gt;  9   565 BROWN      5836 IL    0.018    5264     547      14</span></span>
+<span><span class="co">#&gt; 10   565 BROWN      5836 IL    0.018    5264     547      14</span></span>
+<span><span class="co">#&gt; # … with 517 more rows, 4 more variables: popasian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popother &lt;int&gt;, inmetro &lt;int&gt;, category &lt;chr&gt;, and</span></span>
+<span><span class="co">#&gt; #   abbreviated variable names ¹​poptotal, ²​popwhite,</span></span>
+<span><span class="co">#&gt; #   ³​popblack, ⁴​popamerindian</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/dim_desc.html">dim_desc</a></span><span class="op">(</span><span class="va">out4_2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "[527 x 12]"</span></span>
+<span><span class="va">out4_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 12</span></span>
+<span><span class="co">#&gt;     PID county poptotal state  area popwhite popbl…¹ popam…²</span></span>
+<span><span class="co">#&gt;   &lt;int&gt;  &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1     0      0        0     0     0        0       0       0</span></span>
+<span><span class="co">#&gt; # … with 4 more variables: popasian &lt;int&gt;, popother &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   inmetro &lt;int&gt;, category &lt;int&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   names ¹​popblack, ²​popamerindian</span></span></code></pre></div>
+<p> </p>
+<ol start="5" style="list-style-type: decimal">
+<li>
+<p>Merge <code>data1</code> and <code>data2</code>: they should be joined by the <code>state</code> variable and the output result should contain all the observation from both <code>data1</code> and <code>data2</code>, regardless of whether they match or not. What are the dimensions of the output? How many missing values does it contain?</p>
+<p>Repeat the above procedure again by joining the datasets by the <code>state</code> and <code>county</code> variables.</p>
+</li>
+</ol>
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out5_1</span> <span class="op">&lt;-</span> <span class="va">data1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">data2</span>, by<span class="op">=</span><span class="st">"state"</span><span class="op">)</span></span>
+<span><span class="va">out5_1</span></span>
+<span><span class="co">#&gt; # A tibble: 46,825 × 13</span></span>
+<span><span class="co">#&gt;      PID count…¹ popto…² state  area count…³ popwh…⁴ popbl…⁵</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1   561 ADAMS     66090 IL    0.052 ADAMS     63917    1702</span></span>
+<span><span class="co">#&gt;  2   561 ADAMS     66090 IL    0.052 ALEXAN…    7054    3496</span></span>
+<span><span class="co">#&gt;  3   561 ADAMS     66090 IL    0.052 BOND      14477     429</span></span>
+<span><span class="co">#&gt;  4   561 ADAMS     66090 IL    0.052 BOONE     29344     127</span></span>
+<span><span class="co">#&gt;  5   561 ADAMS     66090 IL    0.052 BROWN      5264     547</span></span>
+<span><span class="co">#&gt;  6   561 ADAMS     66090 IL    0.052 BUREAU    35157      50</span></span>
+<span><span class="co">#&gt;  7   561 ADAMS     66090 IL    0.052 CALHOUN    5298       1</span></span>
+<span><span class="co">#&gt;  8   561 ADAMS     66090 IL    0.052 CARROLL   16519     111</span></span>
+<span><span class="co">#&gt;  9   561 ADAMS     66090 IL    0.052 CASS      13384      16</span></span>
+<span><span class="co">#&gt; 10   561 ADAMS     66090 IL    0.052 CHAMPA…  146506   16559</span></span>
+<span><span class="co">#&gt; # … with 46,815 more rows, 5 more variables:</span></span>
+<span><span class="co">#&gt; #   popamerindian &lt;int&gt;, popasian &lt;int&gt;, popother &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   inmetro &lt;int&gt;, category &lt;chr&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   names ¹​county.x, ²​poptotal, ³​county.y, ⁴​popwhite,</span></span>
+<span><span class="co">#&gt; #   ⁵​popblack</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/dim_desc.html">dim_desc</a></span><span class="op">(</span><span class="va">out5_1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "[46,825 x 13]"</span></span>
+<span><span class="va">out5_1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 13</span></span>
+<span><span class="co">#&gt;     PID county.x popto…¹ state  area count…² popwh…³ popbl…⁴</span></span>
+<span><span class="co">#&gt;   &lt;int&gt;    &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;int&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1     0        0       0     0     0       0       0       0</span></span>
+<span><span class="co">#&gt; # … with 5 more variables: popamerindian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popasian &lt;int&gt;, popother &lt;int&gt;, inmetro &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   category &lt;int&gt;, and abbreviated variable names</span></span>
+<span><span class="co">#&gt; #   ¹​poptotal, ²​county.y, ³​popwhite, ⁴​popblack</span></span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">out5_2</span> <span class="op">&lt;-</span> <span class="va">data1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">full_join</a></span><span class="op">(</span><span class="va">data2</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"state"</span>,<span class="st">"county"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">out5_2</span></span>
+<span><span class="co">#&gt; # A tibble: 527 × 12</span></span>
+<span><span class="co">#&gt;      PID county  popto…¹ state  area popwh…² popbl…³ popam…⁴</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1   561 ADAMS     66090 IL    0.052   63917    1702      98</span></span>
+<span><span class="co">#&gt;  2   561 ADAMS     66090 IL    0.052   63917    1702      98</span></span>
+<span><span class="co">#&gt;  3   562 ALEXAN…   10626 IL    0.014    7054    3496      19</span></span>
+<span><span class="co">#&gt;  4   562 ALEXAN…   10626 IL    0.014    7054    3496      19</span></span>
+<span><span class="co">#&gt;  5   563 BOND      14991 IL    0.022   14477     429      35</span></span>
+<span><span class="co">#&gt;  6   563 BOND      14991 IL    0.022   14477     429      35</span></span>
+<span><span class="co">#&gt;  7   564 BOONE     30806 IL    0.017   29344     127      46</span></span>
+<span><span class="co">#&gt;  8   564 BOONE     30806 IL    0.017   29344     127      46</span></span>
+<span><span class="co">#&gt;  9   565 BROWN      5836 IL    0.018    5264     547      14</span></span>
+<span><span class="co">#&gt; 10   565 BROWN      5836 IL    0.018    5264     547      14</span></span>
+<span><span class="co">#&gt; # … with 517 more rows, 4 more variables: popasian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popother &lt;int&gt;, inmetro &lt;int&gt;, category &lt;chr&gt;, and</span></span>
+<span><span class="co">#&gt; #   abbreviated variable names ¹​poptotal, ²​popwhite,</span></span>
+<span><span class="co">#&gt; #   ³​popblack, ⁴​popamerindian</span></span>
+<span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/dim_desc.html">dim_desc</a></span><span class="op">(</span><span class="va">out5_2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "[527 x 12]"</span></span>
+<span><span class="va">out5_2</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">.</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 12</span></span>
+<span><span class="co">#&gt;     PID county poptotal state  area popwhite popbl…¹ popam…²</span></span>
+<span><span class="co">#&gt;   &lt;int&gt;  &lt;int&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1     0      0        0     0     0        0       0       0</span></span>
+<span><span class="co">#&gt; # … with 4 more variables: popasian &lt;int&gt;, popother &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   inmetro &lt;int&gt;, category &lt;int&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   names ¹​popblack, ²​popamerindian</span></span></code></pre></div>
+<p> </p>
+<ol start="6" style="list-style-type: decimal">
+<li>Join <code>data1</code> and <code>data2</code> by the <code>state</code> and <code>county</code> variables such that the unmatched rows in either input dataset are not included in the result. Name the output dataset <code>data</code>.</li>
+</ol>
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data1</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">data2</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"state"</span>,<span class="st">"county"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">data</span></span>
+<span><span class="co">#&gt; # A tibble: 527 × 12</span></span>
+<span><span class="co">#&gt;      PID county  popto…¹ state  area popwh…² popbl…³ popam…⁴</span></span>
+<span><span class="co">#&gt;    &lt;int&gt; &lt;chr&gt;     &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1   561 ADAMS     66090 IL    0.052   63917    1702      98</span></span>
+<span><span class="co">#&gt;  2   561 ADAMS     66090 IL    0.052   63917    1702      98</span></span>
+<span><span class="co">#&gt;  3   562 ALEXAN…   10626 IL    0.014    7054    3496      19</span></span>
+<span><span class="co">#&gt;  4   562 ALEXAN…   10626 IL    0.014    7054    3496      19</span></span>
+<span><span class="co">#&gt;  5   563 BOND      14991 IL    0.022   14477     429      35</span></span>
+<span><span class="co">#&gt;  6   563 BOND      14991 IL    0.022   14477     429      35</span></span>
+<span><span class="co">#&gt;  7   564 BOONE     30806 IL    0.017   29344     127      46</span></span>
+<span><span class="co">#&gt;  8   564 BOONE     30806 IL    0.017   29344     127      46</span></span>
+<span><span class="co">#&gt;  9   565 BROWN      5836 IL    0.018    5264     547      14</span></span>
+<span><span class="co">#&gt; 10   565 BROWN      5836 IL    0.018    5264     547      14</span></span>
+<span><span class="co">#&gt; # … with 517 more rows, 4 more variables: popasian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popother &lt;int&gt;, inmetro &lt;int&gt;, category &lt;chr&gt;, and</span></span>
+<span><span class="co">#&gt; #   abbreviated variable names ¹​poptotal, ²​popwhite,</span></span>
+<span><span class="co">#&gt; #   ³​popblack, ⁴​popamerindian</span></span></code></pre></div>
+<p> </p>
+<ol start="7" style="list-style-type: decimal">
+<li>Remove <code>PID</code> and <code>category</code> from <code>data</code> by selecting all variables except these two. Then, remove all duplicates from the dataset.</li>
+</ol>
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">PID</span>, <span class="va">category</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">data</span></span>
+<span><span class="co">#&gt; # A tibble: 437 × 10</span></span>
+<span><span class="co">#&gt;    county    poptotal state  area popwhite popblack popame…¹</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;        &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;    &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1 ADAMS        66090 IL    0.052    63917     1702       98</span></span>
+<span><span class="co">#&gt;  2 ALEXANDER    10626 IL    0.014     7054     3496       19</span></span>
+<span><span class="co">#&gt;  3 BOND         14991 IL    0.022    14477      429       35</span></span>
+<span><span class="co">#&gt;  4 BOONE        30806 IL    0.017    29344      127       46</span></span>
+<span><span class="co">#&gt;  5 BROWN         5836 IL    0.018     5264      547       14</span></span>
+<span><span class="co">#&gt;  6 BUREAU       35688 IL    0.05     35157       50       65</span></span>
+<span><span class="co">#&gt;  7 CALHOUN       5322 IL    0.017     5298        1        8</span></span>
+<span><span class="co">#&gt;  8 CARROLL      16805 IL    0.027    16519      111       30</span></span>
+<span><span class="co">#&gt;  9 CASS         13437 IL    0.024    13384       16        8</span></span>
+<span><span class="co">#&gt; 10 CHAMPAIGN   173025 IL    0.058   146506    16559      331</span></span>
+<span><span class="co">#&gt; # … with 427 more rows, 3 more variables: popasian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popother &lt;int&gt;, inmetro &lt;int&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   name ¹​popamerindian</span></span></code></pre></div>
+<p> </p>
+<ol start="8" style="list-style-type: decimal">
+<li>
+<p>Add a new variable to the dataset (name it <code>popdensity</code>), which represents a population density in each county (in order to compute a population density you need to divide the total population by the corresponding area).</p>
+<p>Then, for each racial group, add a new variable to the dataset that will represent the percentage of the total population that belongs to this group (name them <code>percwhite</code>, <code>percblack</code>, <code>percamerindan</code>, <code>percasian</code>, and <code>percother</code>, respectively).</p>
+</li>
+</ol>
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>popdensity<span class="op">=</span><span class="va">poptotal</span><span class="op">/</span><span class="va">area</span>, </span>
+<span>         percwhite<span class="op">=</span><span class="fl">100</span><span class="op">*</span><span class="va">popwhite</span><span class="op">/</span><span class="va">poptotal</span>,</span>
+<span>         percblack<span class="op">=</span><span class="fl">100</span><span class="op">*</span><span class="va">popblack</span><span class="op">/</span><span class="va">poptotal</span>,</span>
+<span>         percamerindian<span class="op">=</span><span class="fl">100</span><span class="op">*</span><span class="va">popamerindian</span><span class="op">/</span><span class="va">poptotal</span>,</span>
+<span>         percasian<span class="op">=</span><span class="fl">100</span><span class="op">*</span><span class="va">popasian</span><span class="op">/</span><span class="va">poptotal</span>,</span>
+<span>         percother<span class="op">=</span><span class="fl">100</span><span class="op">*</span><span class="va">popother</span><span class="op">/</span><span class="va">poptotal</span><span class="op">)</span></span>
+<span><span class="va">data</span><span class="op">[</span><span class="fl">8</span><span class="op">:</span><span class="fl">13</span><span class="op">]</span></span>
+<span><span class="co">#&gt; # A tibble: 437 × 6</span></span>
+<span><span class="co">#&gt;    popasian popother inmetro popdensity percwhite percblack</span></span>
+<span><span class="co">#&gt;       &lt;int&gt;    &lt;int&gt;   &lt;int&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1      249      124       0   1270962.      96.7    2.58  </span></span>
+<span><span class="co">#&gt;  2       48        9       0    759000       66.4   32.9   </span></span>
+<span><span class="co">#&gt;  3       16       34       0    681409.      96.6    2.86  </span></span>
+<span><span class="co">#&gt;  4      150     1139       1   1812118.      95.3    0.412 </span></span>
+<span><span class="co">#&gt;  5        5        6       0    324222.      90.2    9.37  </span></span>
+<span><span class="co">#&gt;  6      195      221       0    713760       98.5    0.140 </span></span>
+<span><span class="co">#&gt;  7       15        0       0    313059.      99.5    0.0188</span></span>
+<span><span class="co">#&gt;  8       61       84       0    622407.      98.3    0.661 </span></span>
+<span><span class="co">#&gt;  9       23        6       0    559875       99.6    0.119 </span></span>
+<span><span class="co">#&gt; 10     8033     1596       1   2983190.      84.7    9.57  </span></span>
+<span><span class="co">#&gt; # … with 427 more rows</span></span></code></pre></div>
+<p> </p>
+<ol start="9" style="list-style-type: decimal">
+<li>Join <code>data</code> and <code>Dataset_3</code> by the <code>state</code> and <code>county</code> variables such that the unmatched rows in either input dataset are not included in the result.</li>
+</ol>
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data3</span> <span class="op">&lt;-</span> <span class="va">Dataset_3</span></span>
+<span><span class="va">data3</span></span>
+<span><span class="co">#&gt; # A tibble: 437 × 10</span></span>
+<span><span class="co">#&gt;    county    state popadults perchsd perco…¹ percp…² percb…³</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 ADAMS     IL        43298    75.1    19.6    4.36   13.2 </span></span>
+<span><span class="co">#&gt;  2 ALEXANDER IL         6724    59.7    11.2    2.87   32.2 </span></span>
+<span><span class="co">#&gt;  3 BOND      IL         9669    69.3    17.0    4.49   12.1 </span></span>
+<span><span class="co">#&gt;  4 BOONE     IL        19272    75.5    17.3    4.20    7.21</span></span>
+<span><span class="co">#&gt;  5 BROWN     IL         3979    68.9    14.5    3.37   13.5 </span></span>
+<span><span class="co">#&gt;  6 BUREAU    IL        23444    76.6    18.9    3.28   10.4 </span></span>
+<span><span class="co">#&gt;  7 CALHOUN   IL         3583    62.8    11.9    3.21   15.1 </span></span>
+<span><span class="co">#&gt;  8 CARROLL   IL        11323    76.0    16.2    3.06   11.7 </span></span>
+<span><span class="co">#&gt;  9 CASS      IL         8825    72.3    14.1    3.21   13.9 </span></span>
+<span><span class="co">#&gt; 10 CHAMPAIGN IL        95971    87.5    41.3   17.8    15.6 </span></span>
+<span><span class="co">#&gt; # … with 427 more rows, 3 more variables:</span></span>
+<span><span class="co">#&gt; #   percchildbelowpovert &lt;dbl&gt;, percadultpoverty &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   percelderlypoverty &lt;dbl&gt;, and abbreviated variable</span></span>
+<span><span class="co">#&gt; #   names ¹​percollege, ²​percprof, ³​percbelowpoverty</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">data3</span>, by<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"state"</span>,<span class="st">"county"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">data</span></span>
+<span><span class="co">#&gt; # A tibble: 437 × 24</span></span>
+<span><span class="co">#&gt;    county    poptotal state  area popwhite popblack popame…¹</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;        &lt;int&gt; &lt;chr&gt; &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;    &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1 ADAMS        66090 IL    0.052    63917     1702       98</span></span>
+<span><span class="co">#&gt;  2 ALEXANDER    10626 IL    0.014     7054     3496       19</span></span>
+<span><span class="co">#&gt;  3 BOND         14991 IL    0.022    14477      429       35</span></span>
+<span><span class="co">#&gt;  4 BOONE        30806 IL    0.017    29344      127       46</span></span>
+<span><span class="co">#&gt;  5 BROWN         5836 IL    0.018     5264      547       14</span></span>
+<span><span class="co">#&gt;  6 BUREAU       35688 IL    0.05     35157       50       65</span></span>
+<span><span class="co">#&gt;  7 CALHOUN       5322 IL    0.017     5298        1        8</span></span>
+<span><span class="co">#&gt;  8 CARROLL      16805 IL    0.027    16519      111       30</span></span>
+<span><span class="co">#&gt;  9 CASS         13437 IL    0.024    13384       16        8</span></span>
+<span><span class="co">#&gt; 10 CHAMPAIGN   173025 IL    0.058   146506    16559      331</span></span>
+<span><span class="co">#&gt; # … with 427 more rows, 17 more variables: popasian &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   popother &lt;int&gt;, inmetro &lt;int&gt;, popdensity &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   percwhite &lt;dbl&gt;, percblack &lt;dbl&gt;, percamerindian &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   percasian &lt;dbl&gt;, percother &lt;dbl&gt;, popadults &lt;int&gt;,</span></span>
+<span><span class="co">#&gt; #   perchsd &lt;dbl&gt;, percollege &lt;dbl&gt;, percprof &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   percbelowpoverty &lt;dbl&gt;, percchildbelowpovert &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   percadultpoverty &lt;dbl&gt;, percelderlypoverty &lt;dbl&gt;, and …</span></span></code></pre></div>
+<p> </p>
+<ol start="10" style="list-style-type: decimal">
+<li>Add new variables to the dataset that correspond to the <code>percbelowpoverty</code> and <code>percadultpoverty</code> variables and represent the actual number of people that belong to these groups. Name these variables <code>popcbelowpoverty</code>, and <code>popcadultpoverty</code>, respectively.</li>
+</ol>
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>popcbelowpoverty<span class="op">=</span><span class="va">poptotal</span><span class="op">*</span><span class="va">percbelowpoverty</span>,</span>
+<span>         popcadultpoverty<span class="op">=</span><span class="va">popadults</span><span class="op">*</span><span class="va">percadultpoverty</span><span class="op">)</span></span>
+<span><span class="va">data</span><span class="op">[</span><span class="fl">24</span><span class="op">:</span><span class="fl">26</span><span class="op">]</span></span>
+<span><span class="co">#&gt; # A tibble: 437 × 3</span></span>
+<span><span class="co">#&gt;    percelderlypoverty popcbelowpoverty popcadultpoverty</span></span>
+<span><span class="co">#&gt;                 &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1              12.4           869179.          476701.</span></span>
+<span><span class="co">#&gt;  2              25.2           342628.          184141.</span></span>
+<span><span class="co">#&gt;  3              12.7           180924.          104929.</span></span>
+<span><span class="co">#&gt;  4               6.22          222081.          106690.</span></span>
+<span><span class="co">#&gt;  5              19.2            78904.           44339.</span></span>
+<span><span class="co">#&gt;  6              11.0           371142.          191755.</span></span>
+<span><span class="co">#&gt;  7              21.1            80627.           46337.</span></span>
+<span><span class="co">#&gt;  8               9.53          196799.          113536.</span></span>
+<span><span class="co">#&gt;  9              13.7           186440.          105144.</span></span>
+<span><span class="co">#&gt; 10               8.11         2694421.         1685513.</span></span>
+<span><span class="co">#&gt; # … with 427 more rows</span></span></code></pre></div>
+<p> </p>
+<ol start="11" style="list-style-type: decimal">
+<li>Move the <code>inmetro</code> variable to the end of the dataset; change the position of the <code>poptotal</code> variable so that it comes after the <code>area</code> variables; change the position of the <code>popdensity</code> variable so that it comes after the <code>poptotal</code> variables.</li>
+</ol>
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">inmetro</span>, .after<span class="op">=</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">last_col</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">poptotal</span>, .after<span class="op">=</span><span class="va">area</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/relocate.html">relocate</a></span><span class="op">(</span><span class="va">popdensity</span>, .after<span class="op">=</span><span class="va">poptotal</span><span class="op">)</span></span>
+<span><span class="va">data</span><span class="op">[</span><span class="fl">3</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span></span>
+<span><span class="co">#&gt; # A tibble: 437 × 6</span></span>
+<span><span class="co">#&gt;     area poptotal popdensity popwhite popblack popamerindian</span></span>
+<span><span class="co">#&gt;    &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;         &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1 0.052    66090   1270962.    63917     1702            98</span></span>
+<span><span class="co">#&gt;  2 0.014    10626    759000      7054     3496            19</span></span>
+<span><span class="co">#&gt;  3 0.022    14991    681409.    14477      429            35</span></span>
+<span><span class="co">#&gt;  4 0.017    30806   1812118.    29344      127            46</span></span>
+<span><span class="co">#&gt;  5 0.018     5836    324222.     5264      547            14</span></span>
+<span><span class="co">#&gt;  6 0.05     35688    713760     35157       50            65</span></span>
+<span><span class="co">#&gt;  7 0.017     5322    313059.     5298        1             8</span></span>
+<span><span class="co">#&gt;  8 0.027    16805    622407.    16519      111            30</span></span>
+<span><span class="co">#&gt;  9 0.024    13437    559875     13384       16             8</span></span>
+<span><span class="co">#&gt; 10 0.058   173025   2983190.   146506    16559           331</span></span>
+<span><span class="co">#&gt; # … with 427 more rows</span></span>
+<span><span class="va">data</span><span class="op">[</span><span class="fl">23</span><span class="op">:</span><span class="fl">26</span><span class="op">]</span></span>
+<span><span class="co">#&gt; # A tibble: 437 × 4</span></span>
+<span><span class="co">#&gt;    percelderlypoverty popcbelowpoverty popcadultpo…¹ inmetro</span></span>
+<span><span class="co">#&gt;                 &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;   &lt;int&gt;</span></span>
+<span><span class="co">#&gt;  1              12.4           869179.       476701.       0</span></span>
+<span><span class="co">#&gt;  2              25.2           342628.       184141.       0</span></span>
+<span><span class="co">#&gt;  3              12.7           180924.       104929.       0</span></span>
+<span><span class="co">#&gt;  4               6.22          222081.       106690.       1</span></span>
+<span><span class="co">#&gt;  5              19.2            78904.        44339.       0</span></span>
+<span><span class="co">#&gt;  6              11.0           371142.       191755.       0</span></span>
+<span><span class="co">#&gt;  7              21.1            80627.        46337.       0</span></span>
+<span><span class="co">#&gt;  8               9.53          196799.       113536.       0</span></span>
+<span><span class="co">#&gt;  9              13.7           186440.       105144.       0</span></span>
+<span><span class="co">#&gt; 10               8.11         2694421.      1685513.       1</span></span>
+<span><span class="co">#&gt; # … with 427 more rows, and abbreviated variable name</span></span>
+<span><span class="co">#&gt; #   ¹​popcadultpoverty</span></span></code></pre></div>
+<p> </p>
+<ol start="12" style="list-style-type: decimal">
+<li>What is the biggest/smallest state by the total population? What is the biggest/smallest state by the total area? What is the average population density in each state? In each state, compare the population densities of counties that are in metro area to counties that are not. Hint: you might want to use the grouping functions.</li>
+</ol>
+<p>The state with minimum total population is “WI”, the state with maximum total population is “IL”.</p>
+<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>tot_pop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">poptotal</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">tot_pop</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 2</span></span>
+<span><span class="co">#&gt;   state  tot_pop</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;int&gt;</span></span>
+<span><span class="co">#&gt; 1 WI     4891769</span></span>
+<span><span class="co">#&gt; 2 IN     5544159</span></span>
+<span><span class="co">#&gt; 3 MI     9295297</span></span>
+<span><span class="co">#&gt; 4 OH    10847115</span></span>
+<span><span class="co">#&gt; 5 IL    11430602</span></span></code></pre></div>
+<p>The state with minimum total area is “IN”, the state with maximum total area is “MI”.</p>
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>tot_area <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">area</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="va">tot_area</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 2</span></span>
+<span><span class="co">#&gt;   state tot_area</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;    &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 IN        2.13</span></span>
+<span><span class="co">#&gt; 2 OH        2.42</span></span>
+<span><span class="co">#&gt; 3 WI        3.29</span></span>
+<span><span class="co">#&gt; 4 IL        3.30</span></span>
+<span><span class="co">#&gt; 5 MI        3.36</span></span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>avg_popdensity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">popdensity</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 2</span></span>
+<span><span class="co">#&gt;   state avg_popdensity</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;          &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 IL          2823731.</span></span>
+<span><span class="co">#&gt; 2 IN          2573130.</span></span>
+<span><span class="co">#&gt; 3 MI          3010809.</span></span>
+<span><span class="co">#&gt; 4 OH          4639024.</span></span>
+<span><span class="co">#&gt; 5 WI          2372694.</span></span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span>, <span class="va">inmetro</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>avg_popdensity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">popdensity</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `summarise()` has grouped output by 'state'. You can</span></span>
+<span><span class="co">#&gt; override using the `.groups` argument.</span></span>
+<span><span class="co">#&gt; # A tibble: 10 × 3</span></span>
+<span><span class="co">#&gt; # Groups:   state [5]</span></span>
+<span><span class="co">#&gt;    state inmetro avg_popdensity</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;   &lt;int&gt;          &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 IL          0        773783.</span></span>
+<span><span class="co">#&gt;  2 IL          1       8241451.</span></span>
+<span><span class="co">#&gt;  3 IN          0       1183804.</span></span>
+<span><span class="co">#&gt;  4 IN          1       4638344.</span></span>
+<span><span class="co">#&gt;  5 MI          0        743790.</span></span>
+<span><span class="co">#&gt;  6 MI          1       8270292.</span></span>
+<span><span class="co">#&gt;  7 OH          0       1506462.</span></span>
+<span><span class="co">#&gt;  8 OH          1       8398098.</span></span>
+<span><span class="co">#&gt;  9 WI          0        674527.</span></span>
+<span><span class="co">#&gt; 10 WI          1       6787929.</span></span></code></pre></div>
+<p> </p>
+<ol start="13" style="list-style-type: decimal">
+<li>In all states combined, what is the average percentage of each racial group? In each state separately, what is the average percentage of each racial group? In each state separately, compare the average percentage of each racial group in metro areas to non-metro areas. Discuss the results you obtained.</li>
+</ol>
+<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="va">percwhite</span><span class="op">:</span><span class="va">percother</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 1 × 5</span></span>
+<span><span class="co">#&gt;   percwhite percblack percamerindian percasian percother</span></span>
+<span><span class="co">#&gt;       &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1      95.6      2.68          0.799     0.487     0.479</span></span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="va">percwhite</span><span class="op">:</span><span class="va">percother</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 6</span></span>
+<span><span class="co">#&gt;   state percwhite percblack percamerindian percasian perco…¹</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;     &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 IL         95.0     3.65           0.174     0.564   0.653</span></span>
+<span><span class="co">#&gt; 2 IN         97.2     1.89           0.222     0.383   0.298</span></span>
+<span><span class="co">#&gt; 3 MI         94.4     3.07           1.37      0.507   0.617</span></span>
+<span><span class="co">#&gt; 4 OH         95.4     3.51           0.184     0.433   0.471</span></span>
+<span><span class="co">#&gt; 5 WI         95.8     0.822          2.52      0.556   0.315</span></span>
+<span><span class="co">#&gt; # … with abbreviated variable name ¹​percother</span></span></code></pre></div>
+<p>Percentages of white are higher in non-metro area. Percentages of black are higher in metro area. Percentages of American indian are higher in non-metro area. Percentages of Asian are higher in metro area. Percentages of other race groups are higher in metro area.</p>
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span>, <span class="va">inmetro</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="va">percwhite</span><span class="op">:</span><span class="va">percother</span>, <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `summarise()` has grouped output by 'state'. You can</span></span>
+<span><span class="co">#&gt; override using the `.groups` argument.</span></span>
+<span><span class="co">#&gt; # A tibble: 10 × 7</span></span>
+<span><span class="co">#&gt; # Groups:   state [5]</span></span>
+<span><span class="co">#&gt;    state inmetro percwhite percblack perca…¹ perca…² perco…³</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;   &lt;int&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 IL          0      96.5     2.70    0.169   0.338   0.317</span></span>
+<span><span class="co">#&gt;  2 IL          1      90.9     6.17    0.186   1.16    1.54 </span></span>
+<span><span class="co">#&gt;  3 IN          0      98.4     0.881   0.233   0.259   0.209</span></span>
+<span><span class="co">#&gt;  4 IN          1      95.4     3.39    0.206   0.567   0.430</span></span>
+<span><span class="co">#&gt;  5 MI          0      96.5     1.06    1.73    0.307   0.366</span></span>
+<span><span class="co">#&gt;  6 MI          1      89.6     7.71    0.508   0.970   1.20 </span></span>
+<span><span class="co">#&gt;  7 OH          0      97.4     1.61    0.188   0.319   0.521</span></span>
+<span><span class="co">#&gt;  8 OH          1      93.0     5.80    0.179   0.569   0.410</span></span>
+<span><span class="co">#&gt;  9 WI          0      95.9     0.248   3.27    0.321   0.217</span></span>
+<span><span class="co">#&gt; 10 WI          1      95.4     2.31    0.564   1.17    0.571</span></span>
+<span><span class="co">#&gt; # … with abbreviated variable names ¹​percamerindian,</span></span>
+<span><span class="co">#&gt; #   ²​percasian, ³​percother</span></span></code></pre></div>
+<p> </p>
+<ol start="14" style="list-style-type: decimal">
+<li>For each, state calculate the average percentage of the total population who are below poverty. Now using the same measurement, compare the metro areas to non-metro areas in each state. What do you observe? Now filter out counties with less than 50000 population and repeat the previous step. What do you observe?</li>
+</ol>
+<div class="sourceCode" id="cb343"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">percbelowpoverty</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 5 × 2</span></span>
+<span><span class="co">#&gt;   state `mean(percbelowpoverty)`</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;                    &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 IL                        13.1</span></span>
+<span><span class="co">#&gt; 2 IN                        10.3</span></span>
+<span><span class="co">#&gt; 3 MI                        14.2</span></span>
+<span><span class="co">#&gt; 4 OH                        13.0</span></span>
+<span><span class="co">#&gt; 5 WI                        11.9</span></span></code></pre></div>
+<p>Percentages below poverty are higher in non-metro area.</p>
+<div class="sourceCode" id="cb344"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span>, <span class="va">inmetro</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">percbelowpoverty</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `summarise()` has grouped output by 'state'. You can</span></span>
+<span><span class="co">#&gt; override using the `.groups` argument.</span></span>
+<span><span class="co">#&gt; # A tibble: 10 × 3</span></span>
+<span><span class="co">#&gt; # Groups:   state [5]</span></span>
+<span><span class="co">#&gt;    state inmetro `mean(percbelowpoverty)`</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;   &lt;int&gt;                    &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 IL          0                    14.4 </span></span>
+<span><span class="co">#&gt;  2 IL          1                     9.56</span></span>
+<span><span class="co">#&gt;  3 IN          0                    10.8 </span></span>
+<span><span class="co">#&gt;  4 IN          1                     9.59</span></span>
+<span><span class="co">#&gt;  5 MI          0                    15.5 </span></span>
+<span><span class="co">#&gt;  6 MI          1                    11.3 </span></span>
+<span><span class="co">#&gt;  7 OH          0                    14.3 </span></span>
+<span><span class="co">#&gt;  8 OH          1                    11.5 </span></span>
+<span><span class="co">#&gt;  9 WI          0                    13.0 </span></span>
+<span><span class="co">#&gt; 10 WI          1                     9.01</span></span></code></pre></div>
+<p>The significance of the percentages of below-poverty in non-metro area higher than that of metro area becomes less.</p>
+<div class="sourceCode" id="cb345"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">poptotal</span> <span class="op">&gt;=</span> <span class="fl">50000</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">state</span>, <span class="va">inmetro</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">percbelowpoverty</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `summarise()` has grouped output by 'state'. You can</span></span>
+<span><span class="co">#&gt; override using the `.groups` argument.</span></span>
+<span><span class="co">#&gt; # A tibble: 10 × 3</span></span>
+<span><span class="co">#&gt; # Groups:   state [5]</span></span>
+<span><span class="co">#&gt;    state inmetro `mean(percbelowpoverty)`</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;   &lt;int&gt;                    &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 IL          0                    15.7 </span></span>
+<span><span class="co">#&gt;  2 IL          1                    10.6 </span></span>
+<span><span class="co">#&gt;  3 IN          0                    10.6 </span></span>
+<span><span class="co">#&gt;  4 IN          1                    10.6 </span></span>
+<span><span class="co">#&gt;  5 MI          0                    13.0 </span></span>
+<span><span class="co">#&gt;  6 MI          1                    11.3 </span></span>
+<span><span class="co">#&gt;  7 OH          0                    13.8 </span></span>
+<span><span class="co">#&gt;  8 OH          1                    11.8 </span></span>
+<span><span class="co">#&gt;  9 WI          0                     8.70</span></span>
+<span><span class="co">#&gt; 10 WI          1                     8.82</span></span></code></pre></div>
+
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="problem-set-2.html">Problem Set 2</a></div>
+<div class="next"><a href="module-8.html">Module 8</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#ps-2-solutions">PS 2 Solutions</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/PS2_solutions.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/PS2_solutions.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2023-06-22.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
