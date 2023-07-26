@@ -376,19 +376,18 @@ f(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma} e^{\frac{-(x - \mu)^2}{2\sigma^2
 <div class="sourceCode" id="cb473"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">3</span>, sd <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] -0.52711769 -3.24022011  5.60732657  7.98494058</span></span>
-<span><span class="co">#&gt;  [5]  3.30136268  5.92960566  5.72930879  1.67258555</span></span>
-<span><span class="co">#&gt;  [9]  0.07446109 -4.55392386</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1]  4.6500249  2.1313959  6.4990196 13.1911978  1.3297190</span></span>
+<span><span class="co">#&gt;  [6]  0.0550374 -0.7174499  2.3916713  8.4985591  2.9105729</span></span></code></pre></div>
 <div class="sourceCode" id="cb474"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">3</span>, sd <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1]  4.2559431  2.3579255 -0.5941688  7.8496901  0.2835305</span></span>
-<span><span class="co">#&gt;  [6]  1.4535843  5.2583488  1.6895225  5.9364717  1.2319979</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1]  1.0774161  1.6008258 -0.4275018  6.3616882  4.6207695</span></span>
+<span><span class="co">#&gt;  [6] 10.4532917  5.3599261  8.1471953  4.6811378 -1.3051444</span></span></code></pre></div>
 <div class="sourceCode" id="cb475"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">3</span>, sd <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1]  6.401554 -2.137234  1.725130  0.587484  2.135431</span></span>
-<span><span class="co">#&gt;  [6] -3.643413  4.507226  5.976942  6.413471  7.115429</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1]  2.2672642  0.7761253  0.5805340 -4.7092038 -1.6356578</span></span>
+<span><span class="co">#&gt;  [6]  3.8371681 -2.4071575  8.3720870  5.6959128  7.8556984</span></span></code></pre></div>
 <p>As you notice, every time you generate a sample of random numbers, it generates a different set of values, because it is done random.</p>
 <p>After generating random numbers, you may often want to reproduce the same sequence of “random” numbers every time your program executes. That way, you get the same results from run to run.</p>
 <p>In R, the <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> function sets the random number generator to a known state. The function takes one argument, an integer. Any positive integer will work, but you must use the same one in order to get the same initial state.</p>
@@ -516,7 +515,7 @@ f(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma} e^{\frac{-(x - \mu)^2}{2\sigma^2
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2023-06-22.</p>
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2023-07-26.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
