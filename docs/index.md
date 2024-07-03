@@ -1,7 +1,7 @@
 --- 
 title: "Summer R Bootcamp"
 author: "Alex Pijyan"
-date: "2023-07-26"
+date: "2024-07-03"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -28,18 +28,22 @@ Welcome to **_Summer R Bootcamp_**. This website contains comprehensive notes an
 
 &nbsp;
 
-**Objectives**: Summer R Bootcamp aims to help current/incoming MA students gain an understanding of core concepts of R programming and improve their coding skills in order to successfully complete the MA program curriculum. 
+**Objectives**: Summer R Bootcamp is designed to equip our current/incoming students with a solid foundation in R, one of the most powerful and versatile programming languages in the data science community. 
 
-Students will be exposed to various topics of R programming through tutorials, examples, and exercises. Those who successfully complete the summer bootcamp will be able to
+It aims to help current/incoming students gain an understanding of core concepts of R programming, give them experience with statistical procedures, and improve their coding skills in order to successfully complete the MA program curriculum.
 
-* Manipulate and wrangle data with different structures
-* Explore data via visualization and basic models for exploratory data analysis
-* Tackle familiar statistical concepts
-* Communicate results
+Over the course of four weeks, you will dive into the essentials of R, from basic programming concepts to advanced data analysis techniques. You will be exposed to various topics of R programming through lecture notes, examples, and exercises. Those who successfully complete the summer bootcamp will be able to
+
+* Manipulate and wrangle data with different structures.
+* Develop skills to clean, manipulate, and analyze data.
+* Explore data via visualization and basic modeling for exploratory data analysis (EDA).
+* Tackle familiar statistical concepts.
+* Communicate results.
+
 
 &nbsp;
 
-**Timeline**: July 5 – August 2 (4 weeks)
+**Timeline**: July 8 – August 2 (4 weeks)
 
 &nbsp;
 

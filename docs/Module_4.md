@@ -103,7 +103,7 @@ new_function
 #>   }
 #>   
 #> }
-#> <bytecode: 0x000001994a238660>
+#> <bytecode: 0x0000018e87af4600>
 ```
 
 
@@ -375,7 +375,7 @@ fun_8 <- function(x){
 ```r
 
 print(b)
-#> Error in print(b): object 'b' not found
+#> Error in eval(expr, envir, enclos): object 'b' not found
 ```
 
 

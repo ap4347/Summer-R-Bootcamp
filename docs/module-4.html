@@ -7,7 +7,7 @@
 <title>Module 4 | Summer R Bootcamp</title>
 <meta name="author" content="Alex Pijyan">
 <meta name="description" content="  Functions Now, it’s time to discuss one of the most essential concepts of R programming, that is, R functions. Writing functions is a core activity of an R programmer. Functions are often used...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.38 with bs4_book()">
 <meta property="og:title" content="Module 4 | Summer R Bootcamp">
 <meta property="og:type" content="book">
 <meta property="og:description" content="  Functions Now, it’s time to discuss one of the most essential concepts of R programming, that is, R functions. Writing functions is a core activity of an R programmer. Functions are often used...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="  Functions Now, it’s time to discuss one of the most essential concepts of R programming, that is, R functions. Writing functions is a core activity of an R programmer. Functions are often used...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -52,25 +52,6 @@
 <li><a class="active" href="module-4.html">Module 4</a></li>
 <li><a class="" href="problem-set-1.html">Problem Set 1</a></li>
 <li><a class="" href="ps-1-solutions.html">PS 1 Solutions</a></li>
-<li class="book-part">Week 2</li>
-<li><a class="" href="module-5.html">Module 5</a></li>
-<li><a class="" href="module-6.html">Module 6</a></li>
-<li><a class="" href="module-7.html">Module 7</a></li>
-<li><a class="" href="problem-set-2.html">Problem Set 2</a></li>
-<li><a class="" href="ps-2-solutions.html">PS 2 Solutions</a></li>
-<li class="book-part">Week 3</li>
-<li><a class="" href="module-8.html">Module 8</a></li>
-<li><a class="" href="module-9.html">Module 9</a></li>
-<li><a class="" href="module-10.html">Module 10</a></li>
-<li><a class="" href="module-11.html">Module 11</a></li>
-<li><a class="" href="problem-set-3.html">Problem Set 3</a></li>
-<li><a class="" href="ps-3-solutions.html">PS 3 Solutions</a></li>
-<li class="book-part">Week 4</li>
-<li><a class="" href="module-12.html">Module 12</a></li>
-<li><a class="" href="module-13.html">Module 13</a></li>
-<li><a class="" href="module-14.html">Module 14</a></li>
-<li><a class="" href="problem-set-4.html">Problem Set 4</a></li>
-<li><a class="" href="ps-4-solutions.html">PS 4 Solutions</a></li>
 </ul>
 
         <div class="book-extra">
@@ -92,11 +73,11 @@
 </h3>
 <p>A function is a set of statements organized together to perform a specific task. R has a large number of <code>in-built functions</code> and the user can create their own functions. In R, a function is an object so the R interpreter is able to pass control to the function, along with arguments that may be necessary for the function to accomplish the actions.</p>
 <p>An <code>R function</code> is created by using the <code>function()</code> function (Yeah, too many functions). The basic syntax of an R function is as follows:</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="module-4.html#cb110-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb110-2"><a href="module-4.html#cb110-2" aria-hidden="true" tabindex="-1"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(arg_1, arg_2, ...) {</span>
-<span id="cb110-3"><a href="module-4.html#cb110-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb110-4"><a href="module-4.html#cb110-4" aria-hidden="true" tabindex="-1"></a>   Function body </span>
-<span id="cb110-5"><a href="module-4.html#cb110-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="module-4.html#cb110-1" tabindex="-1"></a></span>
+<span id="cb110-2"><a href="module-4.html#cb110-2" tabindex="-1"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(arg_1, arg_2, ...) {</span>
+<span id="cb110-3"><a href="module-4.html#cb110-3" tabindex="-1"></a>  </span>
+<span id="cb110-4"><a href="module-4.html#cb110-4" tabindex="-1"></a>   Function body </span>
+<span id="cb110-5"><a href="module-4.html#cb110-5" tabindex="-1"></a>}</span></code></pre></div>
 <p>The main components of an R function are:</p>
 <ul>
 <li>
@@ -154,7 +135,7 @@
 <span><span class="co">#&gt;   }</span></span>
 <span><span class="co">#&gt;   </span></span>
 <span><span class="co">#&gt; }</span></span>
-<span><span class="co">#&gt; &lt;bytecode: 0x000001994a238660&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; &lt;bytecode: 0x0000018e87af4600&gt;</span></span></code></pre></div>
 </div>
 <div id="function-arguments" class="section level3 unnumbered">
 <h3>Function Arguments<a class="anchor" aria-label="anchor" href="#function-arguments"><i class="fas fa-link"></i></a>
@@ -329,7 +310,7 @@
 <div class="sourceCode" id="cb137"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">b</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in print(b): object 'b' not found</span></span></code></pre></div>
+<span><span class="co">#&gt; Error in eval(expr, envir, enclos): object 'b' not found</span></span></code></pre></div>
 <p>Now, if you want to create an object inside of a function that will be accessibly in global environment as well, then you should use <code>&lt;&lt;-</code> operator:</p>
 <div class="sourceCode" id="cb138"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
@@ -402,7 +383,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2023-07-26.</p>
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2024-07-03.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
