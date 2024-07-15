@@ -7,14 +7,16 @@
 ```r
 
 library(tidyverse)
-#> ── Attaching packages ─────────────────── tidyverse 1.3.2 ──
-#> ✔ ggplot2 3.3.6      ✔ purrr   0.3.5 
-#> ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-#> ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-#> ✔ readr   2.1.3      ✔ forcats 0.5.2 
+#> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
+#> ✔ dplyr     1.1.4     ✔ readr     2.1.5
+#> ✔ forcats   1.0.0     ✔ stringr   1.5.1
+#> ✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+#> ✔ purrr     1.0.2     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
+#> ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
 Dataset_1 <- as_tibble(read.csv("C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_1.csv"))
 
@@ -46,7 +48,7 @@ data1
 #>  8   568 CARROLL      16805 IL    0.027
 #>  9   569 CASS         13437 IL    0.024
 #> 10   570 CHAMPAIGN   173025 IL    0.058
-#> # … with 447 more rows
+#> # ℹ 447 more rows
 ```
 
 &nbsp;
@@ -59,21 +61,21 @@ data2 <- Dataset_2 %>%
   separate(race, into=c("popwhite", "popblack", "popamerindian", "popasian", "popother"), sep="/", convert=T)
 data2
 #> # A tibble: 487 × 9
-#>    county    state popwhite popblack popam…¹ popas…² popot…³
-#>    <chr>     <chr>    <int>    <int>   <int>   <int>   <int>
-#>  1 ADAMS     IL       63917     1702      98     249     124
-#>  2 ALEXANDER IL        7054     3496      19      48       9
-#>  3 BOND      IL       14477      429      35      16      34
-#>  4 BOONE     IL       29344      127      46     150    1139
-#>  5 BROWN     IL        5264      547      14       5       6
-#>  6 BUREAU    IL       35157       50      65     195     221
-#>  7 CALHOUN   IL        5298        1       8      15       0
-#>  8 CARROLL   IL       16519      111      30      61      84
-#>  9 CASS      IL       13384       16       8      23       6
-#> 10 CHAMPAIGN IL      146506    16559     331    8033    1596
-#> # … with 477 more rows, 2 more variables: inmetro <int>,
-#> #   category <chr>, and abbreviated variable names
-#> #   ¹​popamerindian, ²​popasian, ³​popother
+#>    county    state popwhite popblack popamerindian popasian
+#>    <chr>     <chr>    <int>    <int>         <int>    <int>
+#>  1 ADAMS     IL       63917     1702            98      249
+#>  2 ALEXANDER IL        7054     3496            19       48
+#>  3 BOND      IL       14477      429            35       16
+#>  4 BOONE     IL       29344      127            46      150
+#>  5 BROWN     IL        5264      547            14        5
+#>  6 BUREAU    IL       35157       50            65      195
+#>  7 CALHOUN   IL        5298        1             8       15
+#>  8 CARROLL   IL       16519      111            30       61
+#>  9 CASS      IL       13384       16             8       23
+#> 10 CHAMPAIGN IL      146506    16559           331     8033
+#> # ℹ 477 more rows
+#> # ℹ 3 more variables: popother <int>, inmetro <int>,
+#> #   category <chr>
 ```
 
 &nbsp;
@@ -86,72 +88,80 @@ data2
 ```r
 out3_1 <- data1 %>%
   left_join(data2, by="state")
+#> Warning in left_join(., data2, by = "state"): Detected an unexpected many-to-many relationship between
+#> `x` and `y`.
+#> ℹ Row 1 of `x` matches multiple rows in `y`.
+#> ℹ Row 1 of `y` matches multiple rows in `x`.
+#> ℹ If a many-to-many relationship is expected, set
+#>   `relationship = "many-to-many"` to silence this warning.
 out3_1
 #> # A tibble: 46,825 × 13
-#>      PID count…¹ popto…² state  area count…³ popwh…⁴ popbl…⁵
-#>    <int> <chr>     <int> <chr> <dbl> <chr>     <int>   <int>
-#>  1   561 ADAMS     66090 IL    0.052 ADAMS     63917    1702
-#>  2   561 ADAMS     66090 IL    0.052 ALEXAN…    7054    3496
-#>  3   561 ADAMS     66090 IL    0.052 BOND      14477     429
-#>  4   561 ADAMS     66090 IL    0.052 BOONE     29344     127
-#>  5   561 ADAMS     66090 IL    0.052 BROWN      5264     547
-#>  6   561 ADAMS     66090 IL    0.052 BUREAU    35157      50
-#>  7   561 ADAMS     66090 IL    0.052 CALHOUN    5298       1
-#>  8   561 ADAMS     66090 IL    0.052 CARROLL   16519     111
-#>  9   561 ADAMS     66090 IL    0.052 CASS      13384      16
-#> 10   561 ADAMS     66090 IL    0.052 CHAMPA…  146506   16559
-#> # … with 46,815 more rows, 5 more variables:
-#> #   popamerindian <int>, popasian <int>, popother <int>,
-#> #   inmetro <int>, category <chr>, and abbreviated variable
-#> #   names ¹​county.x, ²​poptotal, ³​county.y, ⁴​popwhite,
-#> #   ⁵​popblack
+#>      PID county.x poptotal state  area county.y  popwhite
+#>    <int> <chr>       <int> <chr> <dbl> <chr>        <int>
+#>  1   561 ADAMS       66090 IL    0.052 ADAMS        63917
+#>  2   561 ADAMS       66090 IL    0.052 ALEXANDER     7054
+#>  3   561 ADAMS       66090 IL    0.052 BOND         14477
+#>  4   561 ADAMS       66090 IL    0.052 BOONE        29344
+#>  5   561 ADAMS       66090 IL    0.052 BROWN         5264
+#>  6   561 ADAMS       66090 IL    0.052 BUREAU       35157
+#>  7   561 ADAMS       66090 IL    0.052 CALHOUN       5298
+#>  8   561 ADAMS       66090 IL    0.052 CARROLL      16519
+#>  9   561 ADAMS       66090 IL    0.052 CASS         13384
+#> 10   561 ADAMS       66090 IL    0.052 CHAMPAIGN   146506
+#> # ℹ 46,815 more rows
+#> # ℹ 6 more variables: popblack <int>, popamerindian <int>,
+#> #   popasian <int>, popother <int>, inmetro <int>,
+#> #   category <chr>
 dim_desc(out3_1)
 #> [1] "[46,825 x 13]"
 out3_1 %>%
   summarize(across(everything(), ~sum(is.na(.))))
 #> # A tibble: 1 × 13
-#>     PID county.x popto…¹ state  area count…² popwh…³ popbl…⁴
-#>   <int>    <int>   <int> <int> <int>   <int>   <int>   <int>
-#> 1     0        0       0     0     0       0       0       0
-#> # … with 5 more variables: popamerindian <int>,
+#>     PID county.x poptotal state  area county.y popwhite
+#>   <int>    <int>    <int> <int> <int>    <int>    <int>
+#> 1     0        0        0     0     0        0        0
+#> # ℹ 6 more variables: popblack <int>, popamerindian <int>,
 #> #   popasian <int>, popother <int>, inmetro <int>,
-#> #   category <int>, and abbreviated variable names
-#> #   ¹​poptotal, ²​county.y, ³​popwhite, ⁴​popblack
+#> #   category <int>
 ```
 
 
 ```r
 out3_2 <- data1 %>%
   left_join(data2, by=c("state", "county"))
+#> Warning in left_join(., data2, by = c("state", "county")): Detected an unexpected many-to-many relationship between
+#> `x` and `y`.
+#> ℹ Row 1 of `x` matches multiple rows in `y`.
+#> ℹ Row 1 of `y` matches multiple rows in `x`.
+#> ℹ If a many-to-many relationship is expected, set
+#>   `relationship = "many-to-many"` to silence this warning.
 out3_2
 #> # A tibble: 527 × 12
-#>      PID county  popto…¹ state  area popwh…² popbl…³ popam…⁴
-#>    <int> <chr>     <int> <chr> <dbl>   <int>   <int>   <int>
-#>  1   561 ADAMS     66090 IL    0.052   63917    1702      98
-#>  2   561 ADAMS     66090 IL    0.052   63917    1702      98
-#>  3   562 ALEXAN…   10626 IL    0.014    7054    3496      19
-#>  4   562 ALEXAN…   10626 IL    0.014    7054    3496      19
-#>  5   563 BOND      14991 IL    0.022   14477     429      35
-#>  6   563 BOND      14991 IL    0.022   14477     429      35
-#>  7   564 BOONE     30806 IL    0.017   29344     127      46
-#>  8   564 BOONE     30806 IL    0.017   29344     127      46
-#>  9   565 BROWN      5836 IL    0.018    5264     547      14
-#> 10   565 BROWN      5836 IL    0.018    5264     547      14
-#> # … with 517 more rows, 4 more variables: popasian <int>,
-#> #   popother <int>, inmetro <int>, category <chr>, and
-#> #   abbreviated variable names ¹​poptotal, ²​popwhite,
-#> #   ³​popblack, ⁴​popamerindian
+#>      PID county    poptotal state  area popwhite popblack
+#>    <int> <chr>        <int> <chr> <dbl>    <int>    <int>
+#>  1   561 ADAMS        66090 IL    0.052    63917     1702
+#>  2   561 ADAMS        66090 IL    0.052    63917     1702
+#>  3   562 ALEXANDER    10626 IL    0.014     7054     3496
+#>  4   562 ALEXANDER    10626 IL    0.014     7054     3496
+#>  5   563 BOND         14991 IL    0.022    14477      429
+#>  6   563 BOND         14991 IL    0.022    14477      429
+#>  7   564 BOONE        30806 IL    0.017    29344      127
+#>  8   564 BOONE        30806 IL    0.017    29344      127
+#>  9   565 BROWN         5836 IL    0.018     5264      547
+#> 10   565 BROWN         5836 IL    0.018     5264      547
+#> # ℹ 517 more rows
+#> # ℹ 5 more variables: popamerindian <int>, popasian <int>,
+#> #   popother <int>, inmetro <int>, category <chr>
 dim_desc(out3_2)
 #> [1] "[527 x 12]"
 out3_2 %>%
   summarize(across(everything(), ~sum(is.na(.))))
 #> # A tibble: 1 × 12
-#>     PID county poptotal state  area popwhite popbl…¹ popam…²
-#>   <int>  <int>    <int> <int> <int>    <int>   <int>   <int>
-#> 1     0      0        0     0     0        0       0       0
-#> # … with 4 more variables: popasian <int>, popother <int>,
-#> #   inmetro <int>, category <int>, and abbreviated variable
-#> #   names ¹​popblack, ²​popamerindian
+#>     PID county poptotal state  area popwhite popblack
+#>   <int>  <int>    <int> <int> <int>    <int>    <int>
+#> 1     0      0        0     0     0        0        0
+#> # ℹ 5 more variables: popamerindian <int>, popasian <int>,
+#> #   popother <int>, inmetro <int>, category <int>
 ```
    
 &nbsp;
@@ -164,37 +174,41 @@ out3_2 %>%
 ```r
 out4_1 <- data1 %>%
   right_join(data2, by="state")
+#> Warning in right_join(., data2, by = "state"): Detected an unexpected many-to-many relationship between
+#> `x` and `y`.
+#> ℹ Row 1 of `x` matches multiple rows in `y`.
+#> ℹ Row 1 of `y` matches multiple rows in `x`.
+#> ℹ If a many-to-many relationship is expected, set
+#>   `relationship = "many-to-many"` to silence this warning.
 out4_1
 #> # A tibble: 46,825 × 13
-#>      PID count…¹ popto…² state  area count…³ popwh…⁴ popbl…⁵
-#>    <int> <chr>     <int> <chr> <dbl> <chr>     <int>   <int>
-#>  1   561 ADAMS     66090 IL    0.052 ADAMS     63917    1702
-#>  2   561 ADAMS     66090 IL    0.052 ALEXAN…    7054    3496
-#>  3   561 ADAMS     66090 IL    0.052 BOND      14477     429
-#>  4   561 ADAMS     66090 IL    0.052 BOONE     29344     127
-#>  5   561 ADAMS     66090 IL    0.052 BROWN      5264     547
-#>  6   561 ADAMS     66090 IL    0.052 BUREAU    35157      50
-#>  7   561 ADAMS     66090 IL    0.052 CALHOUN    5298       1
-#>  8   561 ADAMS     66090 IL    0.052 CARROLL   16519     111
-#>  9   561 ADAMS     66090 IL    0.052 CASS      13384      16
-#> 10   561 ADAMS     66090 IL    0.052 CHAMPA…  146506   16559
-#> # … with 46,815 more rows, 5 more variables:
-#> #   popamerindian <int>, popasian <int>, popother <int>,
-#> #   inmetro <int>, category <chr>, and abbreviated variable
-#> #   names ¹​county.x, ²​poptotal, ³​county.y, ⁴​popwhite,
-#> #   ⁵​popblack
+#>      PID county.x poptotal state  area county.y  popwhite
+#>    <int> <chr>       <int> <chr> <dbl> <chr>        <int>
+#>  1   561 ADAMS       66090 IL    0.052 ADAMS        63917
+#>  2   561 ADAMS       66090 IL    0.052 ALEXANDER     7054
+#>  3   561 ADAMS       66090 IL    0.052 BOND         14477
+#>  4   561 ADAMS       66090 IL    0.052 BOONE        29344
+#>  5   561 ADAMS       66090 IL    0.052 BROWN         5264
+#>  6   561 ADAMS       66090 IL    0.052 BUREAU       35157
+#>  7   561 ADAMS       66090 IL    0.052 CALHOUN       5298
+#>  8   561 ADAMS       66090 IL    0.052 CARROLL      16519
+#>  9   561 ADAMS       66090 IL    0.052 CASS         13384
+#> 10   561 ADAMS       66090 IL    0.052 CHAMPAIGN   146506
+#> # ℹ 46,815 more rows
+#> # ℹ 6 more variables: popblack <int>, popamerindian <int>,
+#> #   popasian <int>, popother <int>, inmetro <int>,
+#> #   category <chr>
 dim_desc(out4_1)
 #> [1] "[46,825 x 13]"
 out4_1 %>%
   summarize(across(everything(), ~sum(is.na(.))))
 #> # A tibble: 1 × 13
-#>     PID county.x popto…¹ state  area count…² popwh…³ popbl…⁴
-#>   <int>    <int>   <int> <int> <int>   <int>   <int>   <int>
-#> 1     0        0       0     0     0       0       0       0
-#> # … with 5 more variables: popamerindian <int>,
+#>     PID county.x poptotal state  area county.y popwhite
+#>   <int>    <int>    <int> <int> <int>    <int>    <int>
+#> 1     0        0        0     0     0        0        0
+#> # ℹ 6 more variables: popblack <int>, popamerindian <int>,
 #> #   popasian <int>, popother <int>, inmetro <int>,
-#> #   category <int>, and abbreviated variable names
-#> #   ¹​poptotal, ²​county.y, ³​popwhite, ⁴​popblack
+#> #   category <int>
 ```
 
 
@@ -202,35 +216,39 @@ out4_1 %>%
 ```r
 out4_2 <- data1 %>%
   right_join(data2, by=c("state","county"))
+#> Warning in right_join(., data2, by = c("state", "county")): Detected an unexpected many-to-many relationship between
+#> `x` and `y`.
+#> ℹ Row 1 of `x` matches multiple rows in `y`.
+#> ℹ Row 1 of `y` matches multiple rows in `x`.
+#> ℹ If a many-to-many relationship is expected, set
+#>   `relationship = "many-to-many"` to silence this warning.
 out4_2
 #> # A tibble: 527 × 12
-#>      PID county  popto…¹ state  area popwh…² popbl…³ popam…⁴
-#>    <int> <chr>     <int> <chr> <dbl>   <int>   <int>   <int>
-#>  1   561 ADAMS     66090 IL    0.052   63917    1702      98
-#>  2   561 ADAMS     66090 IL    0.052   63917    1702      98
-#>  3   562 ALEXAN…   10626 IL    0.014    7054    3496      19
-#>  4   562 ALEXAN…   10626 IL    0.014    7054    3496      19
-#>  5   563 BOND      14991 IL    0.022   14477     429      35
-#>  6   563 BOND      14991 IL    0.022   14477     429      35
-#>  7   564 BOONE     30806 IL    0.017   29344     127      46
-#>  8   564 BOONE     30806 IL    0.017   29344     127      46
-#>  9   565 BROWN      5836 IL    0.018    5264     547      14
-#> 10   565 BROWN      5836 IL    0.018    5264     547      14
-#> # … with 517 more rows, 4 more variables: popasian <int>,
-#> #   popother <int>, inmetro <int>, category <chr>, and
-#> #   abbreviated variable names ¹​poptotal, ²​popwhite,
-#> #   ³​popblack, ⁴​popamerindian
+#>      PID county    poptotal state  area popwhite popblack
+#>    <int> <chr>        <int> <chr> <dbl>    <int>    <int>
+#>  1   561 ADAMS        66090 IL    0.052    63917     1702
+#>  2   561 ADAMS        66090 IL    0.052    63917     1702
+#>  3   562 ALEXANDER    10626 IL    0.014     7054     3496
+#>  4   562 ALEXANDER    10626 IL    0.014     7054     3496
+#>  5   563 BOND         14991 IL    0.022    14477      429
+#>  6   563 BOND         14991 IL    0.022    14477      429
+#>  7   564 BOONE        30806 IL    0.017    29344      127
+#>  8   564 BOONE        30806 IL    0.017    29344      127
+#>  9   565 BROWN         5836 IL    0.018     5264      547
+#> 10   565 BROWN         5836 IL    0.018     5264      547
+#> # ℹ 517 more rows
+#> # ℹ 5 more variables: popamerindian <int>, popasian <int>,
+#> #   popother <int>, inmetro <int>, category <chr>
 dim_desc(out4_2)
 #> [1] "[527 x 12]"
 out4_2 %>%
   summarize(across(everything(), ~sum(is.na(.))))
 #> # A tibble: 1 × 12
-#>     PID county poptotal state  area popwhite popbl…¹ popam…²
-#>   <int>  <int>    <int> <int> <int>    <int>   <int>   <int>
-#> 1     0      0        0     0     0        0       0       0
-#> # … with 4 more variables: popasian <int>, popother <int>,
-#> #   inmetro <int>, category <int>, and abbreviated variable
-#> #   names ¹​popblack, ²​popamerindian
+#>     PID county poptotal state  area popwhite popblack
+#>   <int>  <int>    <int> <int> <int>    <int>    <int>
+#> 1     0      0        0     0     0        0        0
+#> # ℹ 5 more variables: popamerindian <int>, popasian <int>,
+#> #   popother <int>, inmetro <int>, category <int>
 ```
 
 &nbsp;
@@ -243,37 +261,41 @@ out4_2 %>%
 ```r
 out5_1 <- data1 %>%
   full_join(data2, by="state")
+#> Warning in full_join(., data2, by = "state"): Detected an unexpected many-to-many relationship between
+#> `x` and `y`.
+#> ℹ Row 1 of `x` matches multiple rows in `y`.
+#> ℹ Row 1 of `y` matches multiple rows in `x`.
+#> ℹ If a many-to-many relationship is expected, set
+#>   `relationship = "many-to-many"` to silence this warning.
 out5_1
 #> # A tibble: 46,825 × 13
-#>      PID count…¹ popto…² state  area count…³ popwh…⁴ popbl…⁵
-#>    <int> <chr>     <int> <chr> <dbl> <chr>     <int>   <int>
-#>  1   561 ADAMS     66090 IL    0.052 ADAMS     63917    1702
-#>  2   561 ADAMS     66090 IL    0.052 ALEXAN…    7054    3496
-#>  3   561 ADAMS     66090 IL    0.052 BOND      14477     429
-#>  4   561 ADAMS     66090 IL    0.052 BOONE     29344     127
-#>  5   561 ADAMS     66090 IL    0.052 BROWN      5264     547
-#>  6   561 ADAMS     66090 IL    0.052 BUREAU    35157      50
-#>  7   561 ADAMS     66090 IL    0.052 CALHOUN    5298       1
-#>  8   561 ADAMS     66090 IL    0.052 CARROLL   16519     111
-#>  9   561 ADAMS     66090 IL    0.052 CASS      13384      16
-#> 10   561 ADAMS     66090 IL    0.052 CHAMPA…  146506   16559
-#> # … with 46,815 more rows, 5 more variables:
-#> #   popamerindian <int>, popasian <int>, popother <int>,
-#> #   inmetro <int>, category <chr>, and abbreviated variable
-#> #   names ¹​county.x, ²​poptotal, ³​county.y, ⁴​popwhite,
-#> #   ⁵​popblack
+#>      PID county.x poptotal state  area county.y  popwhite
+#>    <int> <chr>       <int> <chr> <dbl> <chr>        <int>
+#>  1   561 ADAMS       66090 IL    0.052 ADAMS        63917
+#>  2   561 ADAMS       66090 IL    0.052 ALEXANDER     7054
+#>  3   561 ADAMS       66090 IL    0.052 BOND         14477
+#>  4   561 ADAMS       66090 IL    0.052 BOONE        29344
+#>  5   561 ADAMS       66090 IL    0.052 BROWN         5264
+#>  6   561 ADAMS       66090 IL    0.052 BUREAU       35157
+#>  7   561 ADAMS       66090 IL    0.052 CALHOUN       5298
+#>  8   561 ADAMS       66090 IL    0.052 CARROLL      16519
+#>  9   561 ADAMS       66090 IL    0.052 CASS         13384
+#> 10   561 ADAMS       66090 IL    0.052 CHAMPAIGN   146506
+#> # ℹ 46,815 more rows
+#> # ℹ 6 more variables: popblack <int>, popamerindian <int>,
+#> #   popasian <int>, popother <int>, inmetro <int>,
+#> #   category <chr>
 dim_desc(out5_1)
 #> [1] "[46,825 x 13]"
 out5_1 %>%
   summarize(across(everything(), ~sum(is.na(.))))
 #> # A tibble: 1 × 13
-#>     PID county.x popto…¹ state  area count…² popwh…³ popbl…⁴
-#>   <int>    <int>   <int> <int> <int>   <int>   <int>   <int>
-#> 1     0        0       0     0     0       0       0       0
-#> # … with 5 more variables: popamerindian <int>,
+#>     PID county.x poptotal state  area county.y popwhite
+#>   <int>    <int>    <int> <int> <int>    <int>    <int>
+#> 1     0        0        0     0     0        0        0
+#> # ℹ 6 more variables: popblack <int>, popamerindian <int>,
 #> #   popasian <int>, popother <int>, inmetro <int>,
-#> #   category <int>, and abbreviated variable names
-#> #   ¹​poptotal, ²​county.y, ³​popwhite, ⁴​popblack
+#> #   category <int>
 ```
 
 
@@ -281,35 +303,39 @@ out5_1 %>%
 ```r
 out5_2 <- data1 %>%
   full_join(data2, by=c("state","county"))
+#> Warning in full_join(., data2, by = c("state", "county")): Detected an unexpected many-to-many relationship between
+#> `x` and `y`.
+#> ℹ Row 1 of `x` matches multiple rows in `y`.
+#> ℹ Row 1 of `y` matches multiple rows in `x`.
+#> ℹ If a many-to-many relationship is expected, set
+#>   `relationship = "many-to-many"` to silence this warning.
 out5_2
 #> # A tibble: 527 × 12
-#>      PID county  popto…¹ state  area popwh…² popbl…³ popam…⁴
-#>    <int> <chr>     <int> <chr> <dbl>   <int>   <int>   <int>
-#>  1   561 ADAMS     66090 IL    0.052   63917    1702      98
-#>  2   561 ADAMS     66090 IL    0.052   63917    1702      98
-#>  3   562 ALEXAN…   10626 IL    0.014    7054    3496      19
-#>  4   562 ALEXAN…   10626 IL    0.014    7054    3496      19
-#>  5   563 BOND      14991 IL    0.022   14477     429      35
-#>  6   563 BOND      14991 IL    0.022   14477     429      35
-#>  7   564 BOONE     30806 IL    0.017   29344     127      46
-#>  8   564 BOONE     30806 IL    0.017   29344     127      46
-#>  9   565 BROWN      5836 IL    0.018    5264     547      14
-#> 10   565 BROWN      5836 IL    0.018    5264     547      14
-#> # … with 517 more rows, 4 more variables: popasian <int>,
-#> #   popother <int>, inmetro <int>, category <chr>, and
-#> #   abbreviated variable names ¹​poptotal, ²​popwhite,
-#> #   ³​popblack, ⁴​popamerindian
+#>      PID county    poptotal state  area popwhite popblack
+#>    <int> <chr>        <int> <chr> <dbl>    <int>    <int>
+#>  1   561 ADAMS        66090 IL    0.052    63917     1702
+#>  2   561 ADAMS        66090 IL    0.052    63917     1702
+#>  3   562 ALEXANDER    10626 IL    0.014     7054     3496
+#>  4   562 ALEXANDER    10626 IL    0.014     7054     3496
+#>  5   563 BOND         14991 IL    0.022    14477      429
+#>  6   563 BOND         14991 IL    0.022    14477      429
+#>  7   564 BOONE        30806 IL    0.017    29344      127
+#>  8   564 BOONE        30806 IL    0.017    29344      127
+#>  9   565 BROWN         5836 IL    0.018     5264      547
+#> 10   565 BROWN         5836 IL    0.018     5264      547
+#> # ℹ 517 more rows
+#> # ℹ 5 more variables: popamerindian <int>, popasian <int>,
+#> #   popother <int>, inmetro <int>, category <chr>
 dim_desc(out5_2)
 #> [1] "[527 x 12]"
 out5_2 %>%
   summarize(across(everything(), ~sum(is.na(.))))
 #> # A tibble: 1 × 12
-#>     PID county poptotal state  area popwhite popbl…¹ popam…²
-#>   <int>  <int>    <int> <int> <int>    <int>   <int>   <int>
-#> 1     0      0        0     0     0        0       0       0
-#> # … with 4 more variables: popasian <int>, popother <int>,
-#> #   inmetro <int>, category <int>, and abbreviated variable
-#> #   names ¹​popblack, ²​popamerindian
+#>     PID county poptotal state  area popwhite popblack
+#>   <int>  <int>    <int> <int> <int>    <int>    <int>
+#> 1     0      0        0     0     0        0        0
+#> # ℹ 5 more variables: popamerindian <int>, popasian <int>,
+#> #   popother <int>, inmetro <int>, category <int>
 ```
    
 &nbsp;
@@ -320,24 +346,29 @@ out5_2 %>%
 ```r
 data <- data1 %>%
   inner_join(data2, by=c("state","county"))
+#> Warning in inner_join(., data2, by = c("state", "county")): Detected an unexpected many-to-many relationship between
+#> `x` and `y`.
+#> ℹ Row 1 of `x` matches multiple rows in `y`.
+#> ℹ Row 1 of `y` matches multiple rows in `x`.
+#> ℹ If a many-to-many relationship is expected, set
+#>   `relationship = "many-to-many"` to silence this warning.
 data
 #> # A tibble: 527 × 12
-#>      PID county  popto…¹ state  area popwh…² popbl…³ popam…⁴
-#>    <int> <chr>     <int> <chr> <dbl>   <int>   <int>   <int>
-#>  1   561 ADAMS     66090 IL    0.052   63917    1702      98
-#>  2   561 ADAMS     66090 IL    0.052   63917    1702      98
-#>  3   562 ALEXAN…   10626 IL    0.014    7054    3496      19
-#>  4   562 ALEXAN…   10626 IL    0.014    7054    3496      19
-#>  5   563 BOND      14991 IL    0.022   14477     429      35
-#>  6   563 BOND      14991 IL    0.022   14477     429      35
-#>  7   564 BOONE     30806 IL    0.017   29344     127      46
-#>  8   564 BOONE     30806 IL    0.017   29344     127      46
-#>  9   565 BROWN      5836 IL    0.018    5264     547      14
-#> 10   565 BROWN      5836 IL    0.018    5264     547      14
-#> # … with 517 more rows, 4 more variables: popasian <int>,
-#> #   popother <int>, inmetro <int>, category <chr>, and
-#> #   abbreviated variable names ¹​poptotal, ²​popwhite,
-#> #   ³​popblack, ⁴​popamerindian
+#>      PID county    poptotal state  area popwhite popblack
+#>    <int> <chr>        <int> <chr> <dbl>    <int>    <int>
+#>  1   561 ADAMS        66090 IL    0.052    63917     1702
+#>  2   561 ADAMS        66090 IL    0.052    63917     1702
+#>  3   562 ALEXANDER    10626 IL    0.014     7054     3496
+#>  4   562 ALEXANDER    10626 IL    0.014     7054     3496
+#>  5   563 BOND         14991 IL    0.022    14477      429
+#>  6   563 BOND         14991 IL    0.022    14477      429
+#>  7   564 BOONE        30806 IL    0.017    29344      127
+#>  8   564 BOONE        30806 IL    0.017    29344      127
+#>  9   565 BROWN         5836 IL    0.018     5264      547
+#> 10   565 BROWN         5836 IL    0.018     5264      547
+#> # ℹ 517 more rows
+#> # ℹ 5 more variables: popamerindian <int>, popasian <int>,
+#> #   popother <int>, inmetro <int>, category <chr>
 ```
 
 &nbsp;
@@ -351,21 +382,21 @@ data <- data %>%
   distinct()
 data
 #> # A tibble: 437 × 10
-#>    county    poptotal state  area popwhite popblack popame…¹
-#>    <chr>        <int> <chr> <dbl>    <int>    <int>    <int>
-#>  1 ADAMS        66090 IL    0.052    63917     1702       98
-#>  2 ALEXANDER    10626 IL    0.014     7054     3496       19
-#>  3 BOND         14991 IL    0.022    14477      429       35
-#>  4 BOONE        30806 IL    0.017    29344      127       46
-#>  5 BROWN         5836 IL    0.018     5264      547       14
-#>  6 BUREAU       35688 IL    0.05     35157       50       65
-#>  7 CALHOUN       5322 IL    0.017     5298        1        8
-#>  8 CARROLL      16805 IL    0.027    16519      111       30
-#>  9 CASS         13437 IL    0.024    13384       16        8
-#> 10 CHAMPAIGN   173025 IL    0.058   146506    16559      331
-#> # … with 427 more rows, 3 more variables: popasian <int>,
-#> #   popother <int>, inmetro <int>, and abbreviated variable
-#> #   name ¹​popamerindian
+#>    county    poptotal state  area popwhite popblack
+#>    <chr>        <int> <chr> <dbl>    <int>    <int>
+#>  1 ADAMS        66090 IL    0.052    63917     1702
+#>  2 ALEXANDER    10626 IL    0.014     7054     3496
+#>  3 BOND         14991 IL    0.022    14477      429
+#>  4 BOONE        30806 IL    0.017    29344      127
+#>  5 BROWN         5836 IL    0.018     5264      547
+#>  6 BUREAU       35688 IL    0.05     35157       50
+#>  7 CALHOUN       5322 IL    0.017     5298        1
+#>  8 CARROLL      16805 IL    0.027    16519      111
+#>  9 CASS         13437 IL    0.024    13384       16
+#> 10 CHAMPAIGN   173025 IL    0.058   146506    16559
+#> # ℹ 427 more rows
+#> # ℹ 4 more variables: popamerindian <int>, popasian <int>,
+#> #   popother <int>, inmetro <int>
 ```
 
 &nbsp;
@@ -397,7 +428,7 @@ data[8:13]
 #>  8       61       84       0    622407.      98.3    0.661 
 #>  9       23        6       0    559875       99.6    0.119 
 #> 10     8033     1596       1   2983190.      84.7    9.57  
-#> # … with 427 more rows
+#> # ℹ 427 more rows
 ```
 
 &nbsp;
@@ -409,45 +440,45 @@ data[8:13]
 data3 <- Dataset_3
 data3
 #> # A tibble: 437 × 10
-#>    county    state popadults perchsd perco…¹ percp…² percb…³
-#>    <chr>     <chr>     <int>   <dbl>   <dbl>   <dbl>   <dbl>
-#>  1 ADAMS     IL        43298    75.1    19.6    4.36   13.2 
-#>  2 ALEXANDER IL         6724    59.7    11.2    2.87   32.2 
-#>  3 BOND      IL         9669    69.3    17.0    4.49   12.1 
-#>  4 BOONE     IL        19272    75.5    17.3    4.20    7.21
-#>  5 BROWN     IL         3979    68.9    14.5    3.37   13.5 
-#>  6 BUREAU    IL        23444    76.6    18.9    3.28   10.4 
-#>  7 CALHOUN   IL         3583    62.8    11.9    3.21   15.1 
-#>  8 CARROLL   IL        11323    76.0    16.2    3.06   11.7 
-#>  9 CASS      IL         8825    72.3    14.1    3.21   13.9 
-#> 10 CHAMPAIGN IL        95971    87.5    41.3   17.8    15.6 
-#> # … with 427 more rows, 3 more variables:
+#>    county    state popadults perchsd percollege percprof
+#>    <chr>     <chr>     <int>   <dbl>      <dbl>    <dbl>
+#>  1 ADAMS     IL        43298    75.1       19.6     4.36
+#>  2 ALEXANDER IL         6724    59.7       11.2     2.87
+#>  3 BOND      IL         9669    69.3       17.0     4.49
+#>  4 BOONE     IL        19272    75.5       17.3     4.20
+#>  5 BROWN     IL         3979    68.9       14.5     3.37
+#>  6 BUREAU    IL        23444    76.6       18.9     3.28
+#>  7 CALHOUN   IL         3583    62.8       11.9     3.21
+#>  8 CARROLL   IL        11323    76.0       16.2     3.06
+#>  9 CASS      IL         8825    72.3       14.1     3.21
+#> 10 CHAMPAIGN IL        95971    87.5       41.3    17.8 
+#> # ℹ 427 more rows
+#> # ℹ 4 more variables: percbelowpoverty <dbl>,
 #> #   percchildbelowpovert <dbl>, percadultpoverty <dbl>,
-#> #   percelderlypoverty <dbl>, and abbreviated variable
-#> #   names ¹​percollege, ²​percprof, ³​percbelowpoverty
+#> #   percelderlypoverty <dbl>
 data <- data %>%
   inner_join(data3, by=c("state","county"))
 data
 #> # A tibble: 437 × 24
-#>    county    poptotal state  area popwhite popblack popame…¹
-#>    <chr>        <int> <chr> <dbl>    <int>    <int>    <int>
-#>  1 ADAMS        66090 IL    0.052    63917     1702       98
-#>  2 ALEXANDER    10626 IL    0.014     7054     3496       19
-#>  3 BOND         14991 IL    0.022    14477      429       35
-#>  4 BOONE        30806 IL    0.017    29344      127       46
-#>  5 BROWN         5836 IL    0.018     5264      547       14
-#>  6 BUREAU       35688 IL    0.05     35157       50       65
-#>  7 CALHOUN       5322 IL    0.017     5298        1        8
-#>  8 CARROLL      16805 IL    0.027    16519      111       30
-#>  9 CASS         13437 IL    0.024    13384       16        8
-#> 10 CHAMPAIGN   173025 IL    0.058   146506    16559      331
-#> # … with 427 more rows, 17 more variables: popasian <int>,
+#>    county    poptotal state  area popwhite popblack
+#>    <chr>        <int> <chr> <dbl>    <int>    <int>
+#>  1 ADAMS        66090 IL    0.052    63917     1702
+#>  2 ALEXANDER    10626 IL    0.014     7054     3496
+#>  3 BOND         14991 IL    0.022    14477      429
+#>  4 BOONE        30806 IL    0.017    29344      127
+#>  5 BROWN         5836 IL    0.018     5264      547
+#>  6 BUREAU       35688 IL    0.05     35157       50
+#>  7 CALHOUN       5322 IL    0.017     5298        1
+#>  8 CARROLL      16805 IL    0.027    16519      111
+#>  9 CASS         13437 IL    0.024    13384       16
+#> 10 CHAMPAIGN   173025 IL    0.058   146506    16559
+#> # ℹ 427 more rows
+#> # ℹ 18 more variables: popamerindian <int>, popasian <int>,
 #> #   popother <int>, inmetro <int>, popdensity <dbl>,
 #> #   percwhite <dbl>, percblack <dbl>, percamerindian <dbl>,
 #> #   percasian <dbl>, percother <dbl>, popadults <int>,
 #> #   perchsd <dbl>, percollege <dbl>, percprof <dbl>,
-#> #   percbelowpoverty <dbl>, percchildbelowpovert <dbl>,
-#> #   percadultpoverty <dbl>, percelderlypoverty <dbl>, and …
+#> #   percbelowpoverty <dbl>, percchildbelowpovert <dbl>, …
 ```
 
 &nbsp;
@@ -473,7 +504,7 @@ data[24:26]
 #>  8               9.53          196799.          113536.
 #>  9              13.7           186440.          105144.
 #> 10               8.11         2694421.         1685513.
-#> # … with 427 more rows
+#> # ℹ 427 more rows
 ```
 
 &nbsp;
@@ -500,23 +531,23 @@ data[3:8]
 #>  8 0.027    16805    622407.    16519      111            30
 #>  9 0.024    13437    559875     13384       16             8
 #> 10 0.058   173025   2983190.   146506    16559           331
-#> # … with 427 more rows
+#> # ℹ 427 more rows
 data[23:26]
 #> # A tibble: 437 × 4
-#>    percelderlypoverty popcbelowpoverty popcadultpo…¹ inmetro
-#>                 <dbl>            <dbl>         <dbl>   <int>
-#>  1              12.4           869179.       476701.       0
-#>  2              25.2           342628.       184141.       0
-#>  3              12.7           180924.       104929.       0
-#>  4               6.22          222081.       106690.       1
-#>  5              19.2            78904.        44339.       0
-#>  6              11.0           371142.       191755.       0
-#>  7              21.1            80627.        46337.       0
-#>  8               9.53          196799.       113536.       0
-#>  9              13.7           186440.       105144.       0
-#> 10               8.11         2694421.      1685513.       1
-#> # … with 427 more rows, and abbreviated variable name
-#> #   ¹​popcadultpoverty
+#>    percelderlypoverty popcbelowpoverty popcadultpoverty
+#>                 <dbl>            <dbl>            <dbl>
+#>  1              12.4           869179.          476701.
+#>  2              25.2           342628.          184141.
+#>  3              12.7           180924.          104929.
+#>  4               6.22          222081.          106690.
+#>  5              19.2            78904.           44339.
+#>  6              11.0           371142.          191755.
+#>  7              21.1            80627.           46337.
+#>  8               9.53          196799.          113536.
+#>  9              13.7           186440.          105144.
+#> 10               8.11         2694421.         1685513.
+#> # ℹ 427 more rows
+#> # ℹ 1 more variable: inmetro <int>
 ```
 
 &nbsp;
@@ -618,14 +649,14 @@ data %>%
   group_by(state) %>%
   summarise(across(percwhite:percother, ~mean(.x)))
 #> # A tibble: 5 × 6
-#>   state percwhite percblack percamerindian percasian perco…¹
-#>   <chr>     <dbl>     <dbl>          <dbl>     <dbl>   <dbl>
-#> 1 IL         95.0     3.65           0.174     0.564   0.653
-#> 2 IN         97.2     1.89           0.222     0.383   0.298
-#> 3 MI         94.4     3.07           1.37      0.507   0.617
-#> 4 OH         95.4     3.51           0.184     0.433   0.471
-#> 5 WI         95.8     0.822          2.52      0.556   0.315
-#> # … with abbreviated variable name ¹​percother
+#>   state percwhite percblack percamerindian percasian
+#>   <chr>     <dbl>     <dbl>          <dbl>     <dbl>
+#> 1 IL         95.0     3.65           0.174     0.564
+#> 2 IN         97.2     1.89           0.222     0.383
+#> 3 MI         94.4     3.07           1.37      0.507
+#> 4 OH         95.4     3.51           0.184     0.433
+#> 5 WI         95.8     0.822          2.52      0.556
+#> # ℹ 1 more variable: percother <dbl>
 ```
 
 Percentages of white are higher in non-metro area. Percentages of black are higher in metro area. Percentages of American indian are higher in non-metro area. Percentages of Asian are higher in metro area. Percentages of other race groups are higher in metro area.
@@ -639,20 +670,19 @@ data %>%
 #> override using the `.groups` argument.
 #> # A tibble: 10 × 7
 #> # Groups:   state [5]
-#>    state inmetro percwhite percblack perca…¹ perca…² perco…³
-#>    <chr>   <int>     <dbl>     <dbl>   <dbl>   <dbl>   <dbl>
-#>  1 IL          0      96.5     2.70    0.169   0.338   0.317
-#>  2 IL          1      90.9     6.17    0.186   1.16    1.54 
-#>  3 IN          0      98.4     0.881   0.233   0.259   0.209
-#>  4 IN          1      95.4     3.39    0.206   0.567   0.430
-#>  5 MI          0      96.5     1.06    1.73    0.307   0.366
-#>  6 MI          1      89.6     7.71    0.508   0.970   1.20 
-#>  7 OH          0      97.4     1.61    0.188   0.319   0.521
-#>  8 OH          1      93.0     5.80    0.179   0.569   0.410
-#>  9 WI          0      95.9     0.248   3.27    0.321   0.217
-#> 10 WI          1      95.4     2.31    0.564   1.17    0.571
-#> # … with abbreviated variable names ¹​percamerindian,
-#> #   ²​percasian, ³​percother
+#>    state inmetro percwhite percblack percamerindian
+#>    <chr>   <int>     <dbl>     <dbl>          <dbl>
+#>  1 IL          0      96.5     2.70           0.169
+#>  2 IL          1      90.9     6.17           0.186
+#>  3 IN          0      98.4     0.881          0.233
+#>  4 IN          1      95.4     3.39           0.206
+#>  5 MI          0      96.5     1.06           1.73 
+#>  6 MI          1      89.6     7.71           0.508
+#>  7 OH          0      97.4     1.61           0.188
+#>  8 OH          1      93.0     5.80           0.179
+#>  9 WI          0      95.9     0.248          3.27 
+#> 10 WI          1      95.4     2.31           0.564
+#> # ℹ 2 more variables: percasian <dbl>, percother <dbl>
 ```
 
 
