@@ -7,7 +7,7 @@
 <title>Module 11 | Summer R Bootcamp</title>
 <meta name="author" content="Alex Pijyan">
 <meta name="description" content="  R Markdown Files R Markdown provides an easy way to produce a rich, fully-documented reproducible analysis. It combines your code, results, commentary, and all metadata needed to reproduce your...">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.38 with bs4_book()">
 <meta property="og:title" content="Module 11 | Summer R Bootcamp">
 <meta property="og:type" content="book">
 <meta property="og:description" content="  R Markdown Files R Markdown provides an easy way to produce a rich, fully-documented reproducible analysis. It combines your code, results, commentary, and all metadata needed to reproduce your...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="  R Markdown Files R Markdown provides an easy way to produce a rich, fully-documented reproducible analysis. It combines your code, results, commentary, and all metadata needed to reproduce your...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -65,12 +65,6 @@
 <li><a class="active" href="module-11.html">Module 11</a></li>
 <li><a class="" href="problem-set-3.html">Problem Set 3</a></li>
 <li><a class="" href="ps-3-solutions.html">PS 3 Solutions</a></li>
-<li class="book-part">Week 4</li>
-<li><a class="" href="module-12.html">Module 12</a></li>
-<li><a class="" href="module-13.html">Module 13</a></li>
-<li><a class="" href="module-14.html">Module 14</a></li>
-<li><a class="" href="problem-set-4.html">Problem Set 4</a></li>
-<li><a class="" href="ps-4-solutions.html">PS 4 Solutions</a></li>
 </ul>
 
         <div class="book-extra">
@@ -138,8 +132,8 @@
 <h5>Block Quotes<a class="anchor" aria-label="anchor" href="#block-quotes"><i class="fas fa-link"></i></a>
 </h5>
 <p>You can create a block quote using <code>&gt;</code> operator. For example the line below</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="module-11.html#cb440-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb440-2"><a href="module-11.html#cb440-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Your first block quote</span></code></pre></div>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="module-11.html#cb440-1" tabindex="-1"></a></span>
+<span id="cb440-2"><a href="module-11.html#cb440-2" tabindex="-1"></a><span class="sc">&gt;</span> Your first block quote</span></code></pre></div>
 <p>will produce the following result:</p>
 <blockquote>
 <p>Your first block quote</p>
@@ -149,13 +143,13 @@
 <h5>Lists<a class="anchor" aria-label="anchor" href="#lists-1"><i class="fas fa-link"></i></a>
 </h5>
 <p>In R Markdown you can create both ordered and unordered lists. To create an unordered list, use <code>*</code> operator:</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="module-11.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> Bullet point <span class="dv">1</span></span>
-<span id="cb441-2"><a href="module-11.html#cb441-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb441-3"><a href="module-11.html#cb441-3" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> Bullet point <span class="dv">2</span></span>
-<span id="cb441-4"><a href="module-11.html#cb441-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb441-5"><a href="module-11.html#cb441-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">*</span> bullet point 2a</span>
-<span id="cb441-6"><a href="module-11.html#cb441-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb441-7"><a href="module-11.html#cb441-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">*</span> bullet point 2b</span></code></pre></div>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="module-11.html#cb441-1" tabindex="-1"></a><span class="sc">*</span> Bullet point <span class="dv">1</span></span>
+<span id="cb441-2"><a href="module-11.html#cb441-2" tabindex="-1"></a></span>
+<span id="cb441-3"><a href="module-11.html#cb441-3" tabindex="-1"></a><span class="sc">*</span> Bullet point <span class="dv">2</span></span>
+<span id="cb441-4"><a href="module-11.html#cb441-4" tabindex="-1"></a></span>
+<span id="cb441-5"><a href="module-11.html#cb441-5" tabindex="-1"></a>  <span class="sc">*</span> bullet point 2a</span>
+<span id="cb441-6"><a href="module-11.html#cb441-6" tabindex="-1"></a></span>
+<span id="cb441-7"><a href="module-11.html#cb441-7" tabindex="-1"></a>  <span class="sc">*</span> bullet point 2b</span></code></pre></div>
 <ul>
 <li>Bullet point 1</li>
 <li>Bullet point 2
@@ -166,11 +160,11 @@
 </li>
 </ul>
 <p>To create an ordered lists, simply use numbers:</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="module-11.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Bullet point <span class="dv">1</span></span>
-<span id="cb442-2"><a href="module-11.html#cb442-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb442-3"><a href="module-11.html#cb442-3" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Bullet point <span class="dv">2</span></span>
-<span id="cb442-4"><a href="module-11.html#cb442-4" aria-hidden="true" tabindex="-1"></a>   <span class="sc">*</span> bullet point 2a</span>
-<span id="cb442-5"><a href="module-11.html#cb442-5" aria-hidden="true" tabindex="-1"></a>   <span class="sc">*</span> bullet point 2b</span></code></pre></div>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="module-11.html#cb442-1" tabindex="-1"></a><span class="fl">1.</span> Bullet point <span class="dv">1</span></span>
+<span id="cb442-2"><a href="module-11.html#cb442-2" tabindex="-1"></a></span>
+<span id="cb442-3"><a href="module-11.html#cb442-3" tabindex="-1"></a><span class="fl">2.</span> Bullet point <span class="dv">2</span></span>
+<span id="cb442-4"><a href="module-11.html#cb442-4" tabindex="-1"></a>   <span class="sc">*</span> bullet point 2a</span>
+<span id="cb442-5"><a href="module-11.html#cb442-5" tabindex="-1"></a>   <span class="sc">*</span> bullet point 2b</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Bullet point 1</li>
 <li>Bullet point 2
@@ -185,10 +179,10 @@
 <h5>Tables<a class="anchor" aria-label="anchor" href="#tables"><i class="fas fa-link"></i></a>
 </h5>
 <p>Use the following formatting style to create tables in R Markdown:</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="module-11.html#cb443-1" aria-hidden="true" tabindex="-1"></a>First Header  <span class="sc">|</span> Second Header</span>
-<span id="cb443-2"><a href="module-11.html#cb443-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-------------</span> <span class="er">|</span> <span class="sc">-------------</span></span>
-<span id="cb443-3"><a href="module-11.html#cb443-3" aria-hidden="true" tabindex="-1"></a>Content Cell  <span class="sc">|</span> Content Cell</span>
-<span id="cb443-4"><a href="module-11.html#cb443-4" aria-hidden="true" tabindex="-1"></a>Content Cell  <span class="sc">|</span> Content Cell</span></code></pre></div>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="module-11.html#cb443-1" tabindex="-1"></a>First Header  <span class="sc">|</span> Second Header</span>
+<span id="cb443-2"><a href="module-11.html#cb443-2" tabindex="-1"></a><span class="sc">-------------</span> <span class="er">|</span> <span class="sc">-------------</span></span>
+<span id="cb443-3"><a href="module-11.html#cb443-3" tabindex="-1"></a>Content Cell  <span class="sc">|</span> Content Cell</span>
+<span id="cb443-4"><a href="module-11.html#cb443-4" tabindex="-1"></a>Content Cell  <span class="sc">|</span> Content Cell</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>First Header</th>
@@ -210,7 +204,7 @@
 <h5>Links<a class="anchor" aria-label="anchor" href="#links"><i class="fas fa-link"></i></a>
 </h5>
 <p>Use the following format to insert a link into your text:</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="module-11.html#cb444-1" aria-hidden="true" tabindex="-1"></a>[Your first link](http<span class="sc">:</span><span class="er">//</span>posit.co)</span></code></pre></div>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="module-11.html#cb444-1" tabindex="-1"></a>[Your first link](http<span class="sc">:</span><span class="er">//</span>posit.co)</span></code></pre></div>
 <p>It produces a link to the desired webpage and can be included in your text: <a href="http://posit.co">Your first link</a></p>
 </div>
 <div id="inline-equations" class="section level5 unnumbered">
@@ -222,18 +216,18 @@
 <h5>Line Breaks<a class="anchor" aria-label="anchor" href="#line-breaks"><i class="fas fa-link"></i></a>
 </h5>
 <p>In order to start a new paragraph or new line, you will need to be sure that white space exists between the two paragraphs/line:</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="module-11.html#cb445-1" aria-hidden="true" tabindex="-1"></a>This is the first lines.</span>
-<span id="cb445-2"><a href="module-11.html#cb445-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb445-3"><a href="module-11.html#cb445-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb445-4"><a href="module-11.html#cb445-4" aria-hidden="true" tabindex="-1"></a>And here we have another line.</span></code></pre></div>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="module-11.html#cb445-1" tabindex="-1"></a>This is the first lines.</span>
+<span id="cb445-2"><a href="module-11.html#cb445-2" tabindex="-1"></a></span>
+<span id="cb445-3"><a href="module-11.html#cb445-3" tabindex="-1"></a></span>
+<span id="cb445-4"><a href="module-11.html#cb445-4" tabindex="-1"></a>And here we have another line.</span></code></pre></div>
 <p>This is the first lines.</p>
 <p>And here we have another line.</p>
 <p>Another useful way to divide up different parts of your file is by including horizontal lines. We can achieve it by using <code>***</code> operator:</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="module-11.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="sc">**</span><span class="er">*</span></span></code></pre></div>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="module-11.html#cb446-1" tabindex="-1"></a><span class="sc">**</span><span class="er">*</span></span></code></pre></div>
 <p>It will produce the horizontal line below.</p>
 <hr>
 <p>Finally, if you want start a paragraph or a line on a new page, use <code>\newpage</code> command:</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="module-11.html#cb447-1" aria-hidden="true" tabindex="-1"></a>\newpage</span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="module-11.html#cb447-1" tabindex="-1"></a>\newpage</span></code></pre></div>
 </div>
 </div>
 <div id="r-chunks-of-code" class="section level4 unnumbered">
@@ -333,7 +327,7 @@ print(2 + 2)
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2023-07-26.</p>
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2024-07-22.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
