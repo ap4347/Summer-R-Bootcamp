@@ -7,7 +7,7 @@
 <title>Module 14 | Summer R Bootcamp</title>
 <meta name="author" content="Alex Pijyan">
 <meta name="description" content="  Modeling  Introduction Patterns in your data provide clues about relationships among variables. If a systematic relationship exists between two variables it will appear as a pattern in the data....">
-<meta name="generator" content="bookdown 0.32 with bs4_book()">
+<meta name="generator" content="bookdown 0.38 with bs4_book()">
 <meta property="og:title" content="Module 14 | Summer R Bootcamp">
 <meta property="og:type" content="book">
 <meta property="og:description" content="  Modeling  Introduction Patterns in your data provide clues about relationships among variables. If a systematic relationship exists between two variables it will appear as a pattern in the data....">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="  Modeling  Introduction Patterns in your data provide clues about relationships among variables. If a systematic relationship exists between two variables it will appear as a pattern in the data....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -196,7 +196,13 @@ E(Y_i) = \beta_0 + \beta_1 X_i  \quad  for  \quad  i = 1, \dots, n
 <span></span>
 <span><span class="va">gg</span> <span class="op">+</span> </span>
 <span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="va">mean_lungcap</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="va">mean_lungcap</span>, size <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: Using `size` aesthetic for lines was deprecated in ggplot2</span></span>
+<span><span class="co">#&gt; 3.4.0.</span></span>
+<span><span class="co">#&gt; ℹ Please use `linewidth` instead.</span></span>
+<span><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
+<span><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where</span></span>
+<span><span class="co">#&gt; this warning was generated.</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_14_files/figure-html/unnamed-chunk-3-1.png" width="672"></div>
 <p>In the plot above, we see this doesn’t seem to do a very good job. Many of the data points are very far from the line representing the mean value of the response variable. This is an example of <strong>underfitting</strong>. The obvious fix is to make the fitted model actually depend on the predictor. Below we illustrate a few of these models:</p>
 <div class="sourceCode" id="cb497"><pre class="downlit sourceCode r">
@@ -218,7 +224,7 @@ E(Y_i) = \beta_0 + \beta_1 X_i  \quad  for  \quad  i = 1, \dots, n
 <p><span class="math display">\[\begin{align*}
 Y_i - \hat{Y}_i
 \end{align*}\]</span></p>
-<pre><code>#&gt; `geom_smooth()` using formula 'y ~ x'</code></pre>
+<pre><code>#&gt; `geom_smooth()` using formula = 'y ~ x'</code></pre>
 <div class="inline-figure"><img src="Module_14_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
 <p>Next, we need some way to compute an overall distance between the predicted and actual values. One common way to do this in statistics is to use the sum of squared deviations (also known as <strong>Error Sum of Squares (SSE)</strong>). We compute the difference between actual and predicted, square them, and add them up:</p>
 <p> </p>
@@ -305,7 +311,7 @@ b_0 = \bar{y} - b_1\bar{x}
 <span><span class="va">gg</span> <span class="op">+</span></span>
 <span>  </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">'lm'</span><span class="op">)</span></span>
-<span><span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span></span></code></pre></div>
+<span><span class="co">#&gt; `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_14_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
 <p>Set <code>se = FALSE</code> if you want to remove the confidence band around the regression line:</p>
 <div class="sourceCode" id="cb502"><pre class="downlit sourceCode r">
@@ -313,7 +319,7 @@ b_0 = \bar{y} - b_1\bar{x}
 <span><span class="va">gg</span> <span class="op">+</span></span>
 <span>  </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="st">'lm'</span>, se <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; `geom_smooth()` using formula 'y ~ x'</span></span></code></pre></div>
+<span><span class="co">#&gt; `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_14_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p> </p>
 </div>
@@ -384,7 +390,7 @@ e = Y - \hat{Y}
 <div class="sourceCode" id="cb507"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">residuals</a></span><span class="op">(</span><span class="va">model</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] -1.496546e-14</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] -2.658464e-14</span></span></code></pre></div>
 <p> </p>
 </div>
 <div id="variance-estimation" class="section level4 unnumbered">
@@ -651,7 +657,7 @@ t^{*} = \frac{b_{1} - 2}{s(b_{1})}
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2023-07-26.</p>
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2024-07-29.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

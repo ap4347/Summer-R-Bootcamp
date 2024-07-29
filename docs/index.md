@@ -1,7 +1,7 @@
 --- 
 title: "Summer R Bootcamp"
 author: "Alex Pijyan"
-date: "2024-07-22"
+date: "2024-07-29"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
