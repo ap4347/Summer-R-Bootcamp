@@ -37,7 +37,7 @@ The possible outputs of these operations are either `TRUE` or `FALSE`. Here are 
 
 
 
-```r
+``` r
 
 print (5 == 5)
 #> [1] TRUE
@@ -62,7 +62,7 @@ print(5 <= 4)
 When applied to vectors, these operators do element-wise comparisons (the first element of the first vector is compared to the first element of the second vector and so on). Suppose we have the following two vectors:
 
 
-```r
+``` r
 
 x <- c(1, 2, 3, 4)
 
@@ -78,7 +78,7 @@ print(y)
 Then,
 
 
-```r
+``` r
 
 print(x == y)
 #> [1] FALSE  TRUE  TRUE FALSE
@@ -107,7 +107,7 @@ $|$   | Element-wise Logical OR operator. It returns TRUE if one of the statemen
 Here are some examples:
 
 
-```r
+``` r
 
 ##  & Operator
 
@@ -174,7 +174,7 @@ print(!(2 == 2 & 3 < 4))
 An "if statement" is written with the `if` keyword, and it is used to specify a block of code to be executed if a condition is `TRUE`:
 
 
-```r
+``` r
 
 if (5 > 2) {
   
@@ -187,13 +187,14 @@ if (5 > 2) {
 No code will be executed if the conditional statement inside the parentheses is `FALSE`. Check it yourself:
 
 
-```r
+``` r
 
 if (5 < 2) {
   
   print("5 is greater than 2")
   
 }
+
 ```
 
 
@@ -202,7 +203,7 @@ if (5 < 2) {
 The `if-else` combination is probably the most commonly used control structure in R. This structure allows you to test a condition and act on it depending on whether it’s `TRUE` or `FALSE`. If the condition is `TRUE`, then the code given in curly brackets after the `if` clause will be executed. If it is `FALSE`, then the code in curly brackets after the `else` clause will be executed:
 
 
-```r
+``` r
 
 a <- 5 ; b <- 2
 
@@ -222,7 +223,7 @@ Now try this example:
 
 
 
-```r
+``` r
 
 a <- 2 ; b <- 5
 
@@ -241,7 +242,7 @@ if (b > a) {
 You can pass as many conditions as you would like to by adding `else if` clause:
 
 
-```r
+``` r
 if (b > a) {
   
   print ("b is greater than a")
@@ -262,7 +263,7 @@ if (b > a) {
 Try again with different values:
 
 
-```r
+``` r
 a <- 2; b <- 2
 
 if (b > a) {
@@ -288,7 +289,7 @@ You can also have `if` statements inside `if` statements, this is called `nested
 
 
 
-```r
+``` r
 
 x <- 50
 
@@ -319,7 +320,7 @@ Now try it with `x = 15` and `x = 5`:
 
 
 
-```r
+``` r
 
 x <- 15
 
@@ -348,7 +349,7 @@ if (x > 10) {
 
 
 
-```r
+``` r
 
 x <- 5
 
@@ -379,7 +380,7 @@ You can have multiple conditional statements in the `if-else` clause combined to
 
 
 
-```r
+``` r
 
 a <- 200; b <- 33; c <- 500
 
@@ -416,7 +417,7 @@ if (a > b | c == a) {
 Given that `if` only works with a single `TRUE` or `FALSE`, you might wonder what to do if you have a vector of logical values. `ifelse()` can handle vectors of logical values. The first argument of `ifelse()` function is a vector of logical values,the second argument is a value that it produces if the element of the logical vector is `TRUE`, and the third argument is a value that it produces if the element of the logical vector is `FALSE`. Check this example out:
 
 
-```r
+``` r
 x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 
 ifelse(x %% 2 == 0, "even", "odd")
@@ -430,7 +431,7 @@ ifelse(x %% 2 == 0, "even", "odd")
 `any()` and `all()` functions come in handy when you work with conditional statement. Here are some examples:
 
 
-```r
+``` r
 x <- c(-2, -1, 0, 1, 2)
 
 ## all(). It return TRUE if all elements of a vector satisfy the condition
@@ -466,7 +467,7 @@ There may be a situation when you need to execute a block of code multiple times
 Programming languages provide various control structures that allow for more complicated execution paths. A loop statement allows us to execute a statement or groups of statements multiple times (**iterate**). It is a sequence of instructions that is repeated until a certain condition is reached. The most basic and commonly used type of loops is a `for` loop. The general format of a `for` loop is as follows:
 
 
-```r
+``` r
 
 for(loop.object in loop.vector) {
 
@@ -488,7 +489,7 @@ There are three key aspects of loops: The `loop object`, the `loop vector`, and 
 Below you can find a few examples on how for loops can be utilized:
 
 
-```r
+``` r
 
 ## Printing numbers from 1 to 10
 
@@ -511,7 +512,7 @@ for (i in 1:10){
 
 
 
-```r
+``` r
 
 ## Printing elements of the vector x
 
@@ -531,7 +532,7 @@ for (i in 1:length(x)){
 
 
 
-```r
+``` r
 
 ## Creating and populating an empty vector z
 
@@ -550,7 +551,7 @@ print(z)
 
 
 
-```r
+``` r
 
 ## Creating and populating an empty list
 
@@ -564,21 +565,21 @@ for (i in 1:4){
 
 print(a)
 #> [[1]]
-#> [1] 1.858668
+#> [1] 0.3451388
 #> 
 #> [[2]]
-#> [1] -0.07453658  0.70422023
+#> [1]  1.272307 -1.610901
 #> 
 #> [[3]]
-#> [1] -1.287425  0.933536 -1.147979
+#> [1] -0.6418412  2.4108838  1.0226394
 #> 
 #> [[4]]
-#> [1] -1.4285506  0.4121117  0.5470766 -0.4287068
+#> [1] -1.1686092  0.6299771  0.9816175 -2.3577108
 ```
 
 
 
-```r
+``` r
 
 ## Updating elements of the vector x
 
@@ -596,7 +597,7 @@ print(x)
 ```
 
 
-```r
+``` r
 ## Summing up numbers from 1 to 100
 
 current.sum <- 0
@@ -616,7 +617,7 @@ for(i in 1:100) {
 Loop control statements change execution from its normal sequence. `Break` statement stops the execution of a `for` loop when the condition specified is met. In other words, it stops before it has looped through all the items For example,
 
 
-```r
+``` r
 
 for(i in 1:60) {
   
@@ -651,7 +652,7 @@ for(i in 1:60) {
 With the `next` statement, you can skip an undesired iteration without terminating the loop:
 
 
-```r
+``` r
 ## Skipping even numbers
 
 for(i in 1:100) {
@@ -722,7 +723,7 @@ for(i in 1:100) {
 You can even combine for loops with `if-else` statements:
 
 
-```r
+``` r
 
 x <- 1:10
 
@@ -757,7 +758,7 @@ Nested loops are commonly needed for multidimensional or hierarchical data struc
 
 
 
-```r
+``` r
 
 ## Creating and populating an empty matrix
 
@@ -788,7 +789,7 @@ print(matrix1)
 `While` loops begin by testing a condition. If it is `TRUE`, then they execute the loop body. Once the loop body is executed, the condition is tested again, and so forth, until the condition is `FALSE`, after which the loop exits.
 
 
-```r
+``` r
 
 i <- 1
 
@@ -815,7 +816,7 @@ while (i < 10){
 While loops can be combined with `next` statements:
 
 
-```r
+``` r
 
 # Printing odd numbers that are less than 15
 
@@ -847,7 +848,7 @@ while (i < 15){
 While loops can potentially result in infinite loops if not written properly. Use with care! If you accidentally created and executed infinite loops, it will run forever and take up all your storage in R. To stop an infinite while loop, press the red stop sign that shows up in the top right corner of the console. Can you check and tell what is wrong with the while loops given below:
 
 
-```r
+``` r
 
 i <- 1
 
@@ -868,7 +869,7 @@ while (i < 15){
 
 
 
-```r
+``` r
 
 i <- 1
 
@@ -888,7 +889,7 @@ while (i < 15){
 ```
 
 
-```r
+``` r
 
 i <- 1
 
@@ -912,7 +913,7 @@ while (i < 15){
 Similarly, while loops can be combined with `break` statements:
 
 
-```r
+``` r
 
 i <- 1
 
@@ -942,7 +943,7 @@ Can you tell what would be the output of these while loops without running them?
 
 
 
-```r
+``` r
 
 i <- 1
 
@@ -968,7 +969,7 @@ while (i < 20){
 ```
 
 
-```r
+``` r
 
 i <- 1
 

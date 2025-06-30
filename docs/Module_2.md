@@ -32,7 +32,7 @@ We use `matrix()` function to create a matrix. It has the following arguments (i
 let's create a matrix containing `c(1:12)` elements:
 
 
-```r
+``` r
 
 # Elements are arranged sequentially by row
 
@@ -92,7 +92,7 @@ Elements of a matrix can be accessed by using the column and row index of the el
 
 
 
-```r
+``` r
 
 # Accessing the element in 3rd columns and 1st row
 
@@ -128,7 +128,7 @@ matrix_1[c(2,3), ]
 Use `cbind()` function to add additional columns into a matrix:
 
 
-```r
+``` r
 
 print(matrix_1)
 #>      [,1] [,2] [,3]
@@ -151,7 +151,7 @@ print(matrix_5)
 Use `rbind()` function to add additional rows into a matrix:
 
 
-```r
+``` r
 
 print(matrix_1)
 #>      [,1] [,2] [,3]
@@ -175,7 +175,7 @@ print(matrix_6)
 Use `c()` function and negative indexes to remove rows and columns from a matrix:
 
 
-```r
+``` r
 
 # Removing the 1st and 2nd rows and 1st column from a matrix
 
@@ -198,7 +198,7 @@ print(matrix_7)
 ### Assigning Values to Matrix Elements {-}
 
 
-```r
+``` r
 
 # Assigning a single value
 
@@ -245,7 +245,7 @@ print(matrix_1)
 ### Matrix Operations {-}
 
 
-```r
+``` r
 
 matrix_8 <- matrix(1:8, nrow = 4, byrow = T)
 
@@ -340,7 +340,7 @@ print(t(matrix_8))
 Use `dim()` function to check matrix dimensions:
 
 
-```r
+``` r
 
 print(matrix_1)
 #>      [,1] [,2] [,3]
@@ -356,7 +356,7 @@ dim(matrix_1)
 `length()` function, when applied to a matrix, shows how many elements are stored in the matrix:
 
 
-```r
+``` r
 
 length(matrix_1)
 #> [1] 12
@@ -377,7 +377,7 @@ We can use a `data.frame()` function to create a data frame from a set of vector
 
 
 
-```r
+``` r
 
 Name <- c("James", "Linda", "Stacy", "Mary", "Tom", "Anna", "Bob", "Jeniffer", "Lucas", "Amy")
 
@@ -406,7 +406,7 @@ print(df)
 We can use `srt()` function to check a structure of the data frame and `summary()` to get a quick summary on the variables stored in this data frame:
 
 
-```r
+``` r
 
 # Data frame structure
 
@@ -441,7 +441,7 @@ summary(df)
 
 
 
-```r
+``` r
 
 head(df)
 #>    Name Age      State Salary
@@ -473,7 +473,7 @@ Use `colnames()` function to get a list of column names or to change the names o
 
 
 
-```r
+``` r
 
 colnames(df)
 #> [1] "Name"   "Age"    "State"  "Salary"
@@ -516,7 +516,7 @@ print(df)
 We can use `[]`, `$`, `[[]]` to extract elements, columns, or rows from a data frame (uses the same rule as matrices):
 
 
-```r
+``` r
 
 # Extracting the first column using its position; output: data frame
 
@@ -637,7 +637,7 @@ df[df$AGE < 50, ]
 Like in matrices, we can use `<-` operator to assign values:
 
 
-```r
+``` r
 
 df[1, 4] <- 100000
 
@@ -661,7 +661,7 @@ print(df)
 
 
 
-```r
+``` r
 
 # Adding a new column using `$` operator
 
@@ -777,7 +777,7 @@ df_3[-11, ]
 In order to re-order columns in a data frame, pass a vector with the desired order of columns using `[]` operator:
 
 
-```r
+``` r
 
 # Re-ordering columns in a data frame
 
@@ -830,7 +830,7 @@ df_3[order(df_3$EXPERIENCE, decreasing = TRUE), ] # Descending order
 ### Checking Dimensions of a Data Frame {-}
 
 
-```r
+``` r
 
 # Data frame dimensions
 
@@ -860,7 +860,7 @@ Factor is a special type of vectors used to categorize data and store it as leve
 Use `factor()` function in R to create a factor:
 
 
-```r
+``` r
 
 vec1 <- c("YES", "NO", "YES", "YES", "YES", "NO", "NO", "YES")
 
@@ -908,7 +908,7 @@ print(fac3)
 To create an ordered factor, use `order` argument inside a `factor()` function:
 
 
-```r
+``` r
 
 fac4 <- factor(vec3, ordered = TRUE)
 
@@ -920,7 +920,7 @@ print(fac4)
 You can convert a numeric variable into a factor by dividing it into intervals (segments) using a `cut()` function:
 
 
-```r
+``` r
 
 age_factored <- cut(df_4$AGE, 3)
 
@@ -934,7 +934,7 @@ print(age_factored)
 You can even add labels for these groups:
 
 
-```r
+``` r
 
 age_factored <- cut(df_4$AGE, 3, labels = c("Group1", "Group2", "Group3"))
 
@@ -949,7 +949,7 @@ print(age_factored)
 Use `levels()` function to see what levels a factor variable has:
 
 
-```r
+``` r
 
 levels(fac1)
 #> [1] "NO"  "YES"
@@ -968,7 +968,7 @@ levels(fac4)
 You can also set the levels by adding the `levels` argument inside the `factor()` function:
 
 
-```r
+``` r
 
 
 vec2 <- c("Jazz", "Rock", "Classic", "Pop", "Classic", "Jazz", "Jazz", "Rock")
@@ -985,7 +985,7 @@ print(fac5)
 You can change the order of levels by passing the `level` argument to a `factor` function with the desired order of levels:
 
 
-```r
+``` r
 
 
 print(fac3)
@@ -1010,7 +1010,7 @@ You can assign a new value to factor elements using the assignment sign `<-`:
 
 
 
-```r
+``` r
 
 print(fac2)
 #> [1] Jazz    Rock    Classic Pop     Classic Jazz    Jazz   
@@ -1029,7 +1029,7 @@ print(fac2)
 But what happens when  you assign a new value that  is not already specified in the factor levels?
 
 
-```r
+``` r
 
 print(fac2)
 #> [1] Classic Rock    Classic Pop     Classic Jazz    Jazz   
@@ -1049,7 +1049,7 @@ print(fac2)
 It will generate `NA`, because there is no `Opera` option among the levels specified in the variable. To add this value, we first need to add it to the levels:
 
 
-```r
+``` r
 
 fac7 <- factor(fac2, levels = c("Classic", "Jazz", "Pop", "Rock", "Other", "Opera"))
 
@@ -1067,7 +1067,7 @@ print(fac7)
 We can generate factor levels by using the `gl()` function. It takes two integers as input which indicates how many levels and how many times each level.
 
 
-```r
+``` r
 
 fac8 <- gl(4, 5, labels = c("Fall", "Winter", "Spring", "Summer"))
 
@@ -1083,7 +1083,7 @@ print(fac8)
 
 
 
-```r
+``` r
 
 # Calculating a number of elements stored in a factor
 
@@ -1102,7 +1102,7 @@ table(fac2)
 ### Converting Numeric Data into Factors and Back {-}
 
 
-```r
+``` r
 
 # Converting numeric data into factors using as.factor() function
 

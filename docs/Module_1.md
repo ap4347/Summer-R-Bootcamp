@@ -32,7 +32,7 @@ There are more data types available in R, but it is beyond the scope of this cla
 As you may expect, `numeric data type` is for numerical values. To create a variable of a numeric data type, simply assign any numeric value to the variable.
 
 
-```r
+``` r
 
 x_num <- 1
 
@@ -42,7 +42,7 @@ print(x_num)
 
 
 
-```r
+``` r
 
 y_num <- -2.35
 
@@ -55,7 +55,7 @@ Use `class()` function to find out what the type of any variable is.
 
 
 
-```r
+``` r
 
 class(x_num)
 #> [1] "numeric"
@@ -72,7 +72,7 @@ An `integers data type` is a special case of the `numeric data type` and is used
 
 
 
-```r
+``` r
 
 x_int <- as.integer(2)
 
@@ -87,7 +87,7 @@ If an input value is not an integer itself (for example, 2.85), `as.integer()` f
 
 
 
-```r
+``` r
 
 y_int <- as.integer(2.85)
 
@@ -102,7 +102,7 @@ Another way of creating a variable of the `integer data type` is to use an integ
 
 
 
-```r
+``` r
 
 z_int <- 4L
 
@@ -121,7 +121,7 @@ class(z_int)
 
 
 
-```r
+``` r
 
 x_comp <- 20 + 6i
 
@@ -140,7 +140,7 @@ A `logical data type` stores _logical_ (also known as _boolean_) values of `TRUE
 
 
 
-```r
+``` r
 
 x_logical <- TRUE
 
@@ -169,7 +169,7 @@ A `character data type` stores character values or strings. Strings in R can con
 
 
 
-```r
+``` r
 
 x_char <- "2102"
 
@@ -199,7 +199,7 @@ In R we can convert values from one data type into another. R has certain rules 
 Before we discuss how to convert any other data type into numeric, let's first introduce `is.numeric()` function that checks whether a variable is of numeric data type:
 
 
-```r
+``` r
 
 is.numeric(x_num)
 #> [1] TRUE
@@ -212,7 +212,7 @@ is.numeric(x_char)
 To convert any other data type into numeric, we can use `as.numeric()` function. When converting integer type data into numeric, `as.numeric()` changes its type and keeps the value as it is; when converting a complex data type, it removes the imaginary part of the number; when converting logical data type, the `TRUE` value is converted to `1`, and `FALSE` is converted to `0`; finally, character values can similarly be converted into numerical values but if the string contains letters or other symbols, then the numeric value becomes `NA`:
 
 
-```r
+``` r
 
 ######################################
 x_comp
@@ -295,7 +295,7 @@ To convert any other data type into integer, we can use `as.integer()` function.
 To convert any other data type into logical, we can utilize `as.logical()` function. It return `FALSE` if the value is zero and `TRUE` if it anything else. Character values when converted by the `as.logical()` function, always return `NA`:
 
 
-```r
+``` r
 
 ######################################
 print(y_num)
@@ -348,7 +348,7 @@ We can convert any data type into character data type using the `as.character()`
 
 
 
-```r
+``` r
 
 ######################################
 print(y_num)
@@ -401,7 +401,7 @@ In this module, we will discuss `vectors` and `lists`. Later, we will go over ot
 Vector is the most basic data structure in R programming language. There are various ways of **creating a vector**. The most common way is using `c()` function:
 
 
-```r
+``` r
 
 vec1 <- c(1, 2, 3, 4, 5)
 
@@ -417,7 +417,7 @@ print(vec2)
 You can also use `:` operator to create a vector:
 
 
-```r
+``` r
 
 vec3 <- 3:11
 
@@ -428,7 +428,7 @@ print(vec3)
 Another way is to use `seq()` function:
 
 
-```r
+``` r
 
 vec4 <- seq(from = 1, to = 5, by = 0.7)
 
@@ -447,7 +447,7 @@ print(vec5)
 We can consider one more function, `rep()`, to create a vector:
 
 
-```r
+``` r
 
 vec6 <- rep(5, times = 3)
 
@@ -473,7 +473,7 @@ print(vec8)
 We can use the `length()` function to check how many elements are stored in vectors:
 
 
-```r
+``` r
 
 print(vec7)
 #> [1] 1 3 4 1 3 4
@@ -488,7 +488,7 @@ length(vec7)
 In order to add new elements to an existing vector, we can utilize `c()` function once again:
 
 
-```r
+``` r
 
 # Adding three elements, c(15, 3, 4), to vec1
 
@@ -508,7 +508,7 @@ print(vec10)
 If you would like to insert an element(s) at the specific position(s) in the vector, use `append()` function:
 
 
-```r
+``` r
 
 # Insert 55 to vec1 at the 2nd position
 
@@ -524,7 +524,7 @@ print(vec11)
 We use square brackets, `[]`, to extract specific elements from vectors:
 
 
-```r
+``` r
 
 # selects the first element of the vec1
 
@@ -574,7 +574,7 @@ Use the assignment operator, `<-`, to assign new values to elements of the exist
 
 
 
-```r
+``` r
 
 # Assigning a new value to the first element of vec1
 
@@ -593,7 +593,7 @@ The main advantage of vectors in R is that you can perform vectorized operations
 
 
 
-```r
+``` r
 
 # Adding 1 to each element of vec1
 
@@ -632,7 +632,7 @@ The main disadvantage of vectors in R is that they can store homogeneous data on
 
 
 
-```r
+``` r
 
 # R will convert all elements of vec12 into characters, because vectors can only 
 #contain homogeneous data
@@ -663,7 +663,7 @@ You can create a list using `list()` function:
 
 
 
-```r
+``` r
 
 list1 <- list(2, 3.5, "fall", 2.7)
 
@@ -700,7 +700,7 @@ print(list2)
 
 
 
-```r
+``` r
 
 # Selecting the first element of the list2 as a list
 
@@ -725,7 +725,7 @@ list2[[1]][2]
 You can merge lists using both `c()` and `list()` functions. Can you tell the difference between the outputs these functions produce? 
 
 
-```r
+``` r
 
 a <- list(1, 2, 3)
 
@@ -786,7 +786,7 @@ You can convert a list into a vector using `unlist()` function:
 
 
 
-```r
+``` r
 
 list3 <- list (c(1,2,3), 45, c(20, -5))
 
@@ -800,7 +800,7 @@ unlist(list3)
 Adding an element to a list:
 
 
-```r
+``` r
 
 print(list3)
 #> [[1]]
@@ -831,7 +831,7 @@ print(list3)
 Removing an element from a list:
 
 
-```r
+``` r
 
 # Removing the second element in the list3
 
@@ -853,7 +853,7 @@ Changing values of elements in a list:
 
 
 
-```r
+``` r
 
 # Changing the second element of the first element of the list3
 

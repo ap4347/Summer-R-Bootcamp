@@ -20,7 +20,7 @@ An `R function` is created by using the `function()` function (Yeah, too many fu
 
 
 
-```r
+``` r
 
 function_name <- function(arg_1, arg_2, ...) {
   
@@ -40,19 +40,20 @@ The main components of an R function are:
 Here is an example of a simple function that prints `"Hello class 2102!"`:
 
 
-```r
+``` r
 
 first_function <- function() { 
   
   print("Hello class 2102!")
   
 }
+
 ```
 
 To call a function , use the function name followed by parenthesis:
 
 
-```r
+``` r
 
 first_function()
 #> [1] "Hello class 2102!"
@@ -62,7 +63,7 @@ first_function()
 Here is another example of a simple function:
 
 
-```r
+``` r
 
 new_function <- function(){
   
@@ -73,11 +74,12 @@ new_function <- function(){
   }
   
 }
+
 ```
 
 
 
-```r
+``` r
 
 new_function()
 #> [1] 1
@@ -91,19 +93,16 @@ new_function()
 To check the collection of statements that a function contains, use the function name without parenthesis:
 
 
-```r
+``` r
 
 new_function
-#> function(){
-#>   
-#>   for(i in 1:5) {
-#>     
-#>     print(i^2)
-#>     
-#>   }
-#>   
+#> function () 
+#> {
+#>     for (i in 1:5) {
+#>         print(i^2)
+#>     }
 #> }
-#> <bytecode: 0x0000022ae7f0b790>
+#> <bytecode: 0x000002288342e1c8>
 ```
 
 
@@ -113,18 +112,19 @@ Information can be passed into functions as arguments. Arguments are specified a
 
 
 
-```r
+``` r
 
 fun_1 <- function(x){
   
   return(x^2)
   
 }
+
 ```
 
 
 
-```r
+``` r
 
 fun_1(x = 5)
 #> [1] 25
@@ -134,18 +134,19 @@ fun_1(x = 5)
 Now let's create a function with two arguments:
 
 
-```r
+``` r
 
 fun_2 <- function(x, y){
   
   return(x - y)
   
 }
+
 ```
 
 
 
-```r
+``` r
 
 fun_2(x = 5, y = 7)
 #> [1] -2
@@ -160,7 +161,7 @@ Calling an R function with arguments can be done in a variety of ways. This may 
 When matched by position, R assigns the first value to the first argument, the second value to second argument and so on. For example, `fun_2(5, 7)` means R will assign `5` to the `x` argument and `7` to the `y`.
 
 
-```r
+``` r
 
 fun_2(5, 7)
 #> [1] -2
@@ -169,7 +170,7 @@ fun_2(5, 7)
 Now try it other way around:
 
 
-```r
+``` r
 
 fun_2(7, 5)
 #> [1] 2
@@ -180,14 +181,14 @@ When specifying the function arguments by name, it doesn’t matter in what orde
 
 
 
-```r
+``` r
 
 fun_2(x = 5, y = 7)
 #> [1] -2
 ```
 
 
-```r
+``` r
 
 fun_2(y = 7, x = 5)
 #> [1] -2
@@ -199,7 +200,7 @@ fun_2(y = 7, x = 5)
 By default, a function must be called with the correct number of arguments. Meaning that if your function expects 2 arguments, you have to call the function with 2 arguments, not more, and not less. Try these examples out and see what you get:
 
 
-```r
+``` r
 
 fun_2(7)
 #> Error in fun_2(7): argument "y" is missing, with no default
@@ -207,7 +208,7 @@ fun_2(7)
 
 
 
-```r
+``` r
 
 fun_2(7, 5, 3)
 #> Error in fun_2(7, 5, 3): unused argument (3)
@@ -220,18 +221,19 @@ You can assign default values to arguments in a function. If you call the functi
 
 
 
-```r
+``` r
 
 fun_3 <- function(x = 2, y){
   
   return (x - y)
   
 }
+
 ```
 
 
 
-```r
+``` r
 
 fun_3(y = 4)
 #> [1] -2
@@ -240,7 +242,7 @@ fun_3(y = 4)
 But you can still pass new values to arguments with default settings:
 
 
-```r
+``` r
 
 fun_3(x = 10, y = 3)
 #> [1] 7
@@ -252,7 +254,7 @@ fun_3(x = 10, y = 3)
 R objects with various data structures can be passed to a function as arguments. For instance, we pass vectors `vec1` and `vec2` to the function `fun_4`:
 
 
-```r
+``` r
 
 vec1 <- c(1, 2, 3, 4, 5)
 
@@ -263,11 +265,12 @@ fun_4 <- function(x, y){
   return(x + y)
   
 }
+
 ```
 
 
 
-```r
+``` r
 
 fun_4(x = vec1, y = vec2)
 #> [1]  2  4  6  8 10
@@ -279,18 +282,19 @@ fun_4(x = vec1, y = vec2)
 Arguments to functions are evaluated **lazily**, so they are evaluated only as needed in the body of the function. For example, the function `fun_5` has two arguments, but it uses only one of them (argument `x`).
 
 
-```r
+``` r
 
 fun_5 <- function(x, y){
   
   return(x + 2)
 }
+
 ```
 
 So calling `fun_5(x = 5)` will not produce an error, because the missing argument `y` is not used inside the body of the function. 
 
 
-```r
+``` r
 
 fun_5(x = 3)
 #> [1] 5
@@ -300,7 +304,7 @@ fun_5(x = 3)
 But if we omit argument `x` while calling the function `fun_5`, it will produce an error, because the body of the function uses `x` argument to produce the output:
 
 
-```r
+``` r
 
 fun_5(y = 3)
 #> Error in fun_5(y = 3): argument "x" is missing, with no default
@@ -319,7 +323,7 @@ When you call an R function, it first searches for objects in the function's env
 
 
 
-```r
+``` r
 
 a <- 5                        # this variable exists in the global environment
 
@@ -336,7 +340,7 @@ fun_6(x  = 2)
 
 
 
-```r
+``` r
 
 a <- 5                        # this variable exists in the global environment
 
@@ -356,7 +360,7 @@ fun_7(x = 2)
 In another example given below, a variable `b` exists in the environment of `func_8` only. So, if you try to print out `b` object separately, R will throw an error, because such an object does not exist in the global environment:
 
 
-```r
+``` r
 
 fun_8 <- function(x){
   
@@ -372,17 +376,17 @@ fun_8 <- function(x){
 
 
 
-```r
+``` r
 
 print(b)
-#> Error in eval(expr, envir, enclos): object 'b' not found
+#> Error: object 'b' not found
 ```
 
 
 Now, if you want to create an object inside of a function that will be accessibly in global environment as well, then you should use `<<-` operator:
 
 
-```r
+``` r
 
 fun_8 <- function(x){
   
@@ -394,6 +398,7 @@ fun_8 <- function(x){
   return(x + a + b)
   
 }
+
 ```
 
 
@@ -403,7 +408,7 @@ Like `for` loops, we can produce **nested functions** by putting one function in
 
 
 
-```r
+``` r
 
 fun_10 <- function(x, y){
   
@@ -416,11 +421,12 @@ fun_10 <- function(x, y){
   return(2*func_11())
   
 }
+
 ```
 
 
 
-```r
+``` r
 
 fun_10(2, 3)
 #> [1] 10

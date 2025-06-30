@@ -1,7 +1,7 @@
 --- 
 title: "Summer R Bootcamp"
 author: "Alex Pijyan"
-date: "2024-07-29"
+date: "2025-06-30"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -43,7 +43,7 @@ Over the course of four weeks, you will dive into the essentials of R, from basi
 
 &nbsp;
 
-**Timeline**: July 8 – August 2 (4 weeks)
+**Timeline**: July 7 – August 3 (4 weeks)
 
 &nbsp;
 
