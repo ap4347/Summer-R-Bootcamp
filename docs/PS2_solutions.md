@@ -4,15 +4,15 @@
 &nbsp;
 
 
-```r
+``` r
 
 library(tidyverse)
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
 #> ✔ dplyr     1.1.4     ✔ readr     2.1.5
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.1
-#> ✔ ggplot2   3.5.0     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-#> ✔ purrr     1.0.2     
+#> ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+#> ✔ purrr     1.0.4     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
@@ -23,6 +23,7 @@ Dataset_1 <- as_tibble(read.csv("C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bo
 Dataset_2 <- as_tibble(read.csv("C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_2.csv"))
 
 Dataset_3 <- as_tibble(read.csv("C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/Dataset_3.csv"))
+
 ```
 
 &nbsp;
@@ -30,7 +31,7 @@ Dataset_3 <- as_tibble(read.csv("C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bo
 1. In **Dataset_1** the `area` variable is spread across multiple columns that represent values of the `state` variable. Transform/Tidy the dataset as follows: move the column names (IL-WI) to the `state` variable and the column values to the `area` variable. Then, remove all the missing value from the dataset. Name the new dataset `data1`.
 
 
-```r
+``` r
 
 data1 <- Dataset_1 %>%
   pivot_longer(IL:WI, names_to="state", values_to="area", values_drop_na=T)
@@ -56,7 +57,7 @@ data1
 2. In **Dataset_2** the `race` variable combines information about the total population for each racial group, given in following order: White, Black, American Indians, Asians, Other. Pull apart this column into multiple columns, by splitting wherever a separator character appers. Name these variables `popwhite`, `popblack`, `popamerindian`, `popasian`, and `popother`, respectively. Name the new dataset `data2`.
 
 
-```r
+``` r
 data2 <- Dataset_2 %>%
   separate(race, into=c("popwhite", "popblack", "popamerindian", "popasian", "popother"), sep="/", convert=T)
 data2
@@ -85,7 +86,7 @@ data2
    Repeat the above procedure again by joining the datasets by the `state` and `county` variables.
    
 
-```r
+``` r
 out3_1 <- data1 %>%
   left_join(data2, by="state")
 #> Warning in left_join(., data2, by = "state"): Detected an unexpected many-to-many relationship between
@@ -126,7 +127,7 @@ out3_1 %>%
 ```
 
 
-```r
+``` r
 out3_2 <- data1 %>%
   left_join(data2, by=c("state", "county"))
 #> Warning in left_join(., data2, by = c("state", "county")): Detected an unexpected many-to-many relationship between
@@ -171,7 +172,7 @@ out3_2 %>%
    Repeat the above procedure again by joining the datasets by the `state` and `county` variables.
 
 
-```r
+``` r
 out4_1 <- data1 %>%
   right_join(data2, by="state")
 #> Warning in right_join(., data2, by = "state"): Detected an unexpected many-to-many relationship between
@@ -213,7 +214,7 @@ out4_1 %>%
 
 
 
-```r
+``` r
 out4_2 <- data1 %>%
   right_join(data2, by=c("state","county"))
 #> Warning in right_join(., data2, by = c("state", "county")): Detected an unexpected many-to-many relationship between
@@ -258,7 +259,7 @@ out4_2 %>%
    Repeat the above procedure again by joining the datasets by the `state` and `county` variables.
    
 
-```r
+``` r
 out5_1 <- data1 %>%
   full_join(data2, by="state")
 #> Warning in full_join(., data2, by = "state"): Detected an unexpected many-to-many relationship between
@@ -300,7 +301,7 @@ out5_1 %>%
 
 
 
-```r
+``` r
 out5_2 <- data1 %>%
   full_join(data2, by=c("state","county"))
 #> Warning in full_join(., data2, by = c("state", "county")): Detected an unexpected many-to-many relationship between
@@ -343,7 +344,7 @@ out5_2 %>%
 6. Join `data1` and `data2` by the `state` and `county` variables such that the unmatched rows in either input dataset are not included in the result. Name the output dataset `data`.
 
 
-```r
+``` r
 data <- data1 %>%
   inner_join(data2, by=c("state","county"))
 #> Warning in inner_join(., data2, by = c("state", "county")): Detected an unexpected many-to-many relationship between
@@ -376,7 +377,7 @@ data
 7. Remove `PID` and `category` from `data` by selecting all variables except these two. Then, remove all duplicates from the dataset.
 
 
-```r
+``` r
 data <- data %>%
   select(!c(PID, category)) %>%
   distinct()
@@ -406,7 +407,7 @@ data
    Then, for each racial group, add a new variable to the dataset that will represent the percentage of the total population that belongs to this group (name them `percwhite`, `percblack`, `percamerindan`, `percasian`, and `percother`, respectively).
    
 
-```r
+``` r
 data <- data %>%
   mutate(popdensity=poptotal/area, 
          percwhite=100*popwhite/poptotal,
@@ -436,7 +437,7 @@ data[8:13]
 9. Join `data` and `Dataset_3` by the `state` and `county` variables such that the unmatched rows in either input dataset are not included in the result.
 
 
-```r
+``` r
 data3 <- Dataset_3
 data3
 #> # A tibble: 437 × 10
@@ -486,7 +487,7 @@ data
 10. Add new variables to the dataset that correspond to the `percbelowpoverty` and `percadultpoverty` variables and represent the actual number of people that belong to these groups. Name these variables `popcbelowpoverty`, and `popcadultpoverty`, respectively.
 
 
-```r
+``` r
 data <- data %>%
   mutate(popcbelowpoverty=poptotal*percbelowpoverty,
          popcadultpoverty=popadults*percadultpoverty)
@@ -512,7 +513,7 @@ data[24:26]
 11. Move the `inmetro` variable to the end of the dataset; change the position of the `poptotal` variable so that it comes after the `area` variables; change the position of the `popdensity` variable so that it comes after the `poptotal` variables.
 
 
-```r
+``` r
 data <- data %>%
   relocate(inmetro, .after=last_col()) %>%
   relocate(poptotal, .after=area) %>%
@@ -558,7 +559,7 @@ The state with minimum total population is "WI", the state with maximum total po
 
 
 
-```r
+``` r
 data %>%
   group_by(state) %>%
   summarise(tot_pop = sum(poptotal)) %>%
@@ -576,7 +577,7 @@ data %>%
 The state with minimum total area is "IN", the state with maximum total area is "MI".
 
 
-```r
+``` r
 data %>%
   group_by(state) %>%
   summarise(tot_area = sum(area)) %>%
@@ -592,7 +593,7 @@ data %>%
 ```
 
 
-```r
+``` r
 data %>%
   group_by(state) %>%
   summarise(avg_popdensity = mean(popdensity))
@@ -607,7 +608,7 @@ data %>%
 ```
 
 
-```r
+``` r
 data %>%
   group_by(state, inmetro) %>%
   summarise(avg_popdensity = mean(popdensity))
@@ -634,7 +635,7 @@ data %>%
 13. In all states combined, what is the average percentage of each racial group? In each state separately, what is the average percentage of each racial group? In each state separately, compare the average percentage of each racial group in metro areas to non-metro areas. Discuss the results you obtained.
 
 
-```r
+``` r
 data %>%
   summarise(across(percwhite:percother, ~mean(.x)))
 #> # A tibble: 1 × 5
@@ -644,7 +645,7 @@ data %>%
 ```
 
 
-```r
+``` r
 data %>%
   group_by(state) %>%
   summarise(across(percwhite:percother, ~mean(.x)))
@@ -662,7 +663,7 @@ data %>%
 Percentages of white are higher in non-metro area. Percentages of black are higher in metro area. Percentages of American indian are higher in non-metro area. Percentages of Asian are higher in metro area. Percentages of other race groups are higher in metro area.
 
 
-```r
+``` r
 data %>%
   group_by(state, inmetro) %>%
   summarise(across(percwhite:percother, ~mean(.x)))
@@ -692,7 +693,7 @@ data %>%
 
 
 
-```r
+``` r
 data %>%
   group_by(state) %>%
   summarise(mean(percbelowpoverty))
@@ -709,7 +710,7 @@ data %>%
 Percentages below poverty are higher in non-metro area.
 
 
-```r
+``` r
 data %>%
   group_by(state, inmetro) %>%
   summarise(mean(percbelowpoverty))
@@ -734,7 +735,7 @@ data %>%
 The significance of the percentages of below-poverty in non-metro area higher than that of metro area becomes less.
 
 
-```r
+``` r
 data %>%
   filter(poptotal >= 50000) %>%
   group_by(state, inmetro) %>%

@@ -7,7 +7,7 @@
 <title>Module 6 | Summer R Bootcamp</title>
 <meta name="author" content="Alex Pijyan">
 <meta name="description" content="  Tidyverse Family of Packages The data frame is a key data structure in statistics and in R. The basic structure of a data frame is that there is one observation per row and each column...">
-<meta name="generator" content="bookdown 0.38 with bs4_book()">
+<meta name="generator" content="bookdown 0.41 with bs4_book()">
 <meta property="og:title" content="Module 6 | Summer R Bootcamp">
 <meta property="og:type" content="book">
 <meta property="og:description" content="  Tidyverse Family of Packages The data frame is a key data structure in statistics and in R. The basic structure of a data frame is that there is one observation per row and each column...">
@@ -16,7 +16,7 @@
 <meta name="twitter:description" content="  Tidyverse Family of Packages The data frame is a key data structure in statistics and in R. The basic structure of a data frame is that there is one observation per row and each column...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -58,19 +58,6 @@
 <li><a class="" href="module-7.html">Module 7</a></li>
 <li><a class="" href="problem-set-2.html">Problem Set 2</a></li>
 <li><a class="" href="ps-2-solutions.html">PS 2 Solutions</a></li>
-<li class="book-part">Week 3</li>
-<li><a class="" href="module-8.html">Module 8</a></li>
-<li><a class="" href="module-9.html">Module 9</a></li>
-<li><a class="" href="module-10.html">Module 10</a></li>
-<li><a class="" href="module-11.html">Module 11</a></li>
-<li><a class="" href="problem-set-3.html">Problem Set 3</a></li>
-<li><a class="" href="ps-3-solutions.html">PS 3 Solutions</a></li>
-<li class="book-part">Week 4</li>
-<li><a class="" href="module-12.html">Module 12</a></li>
-<li><a class="" href="module-13.html">Module 13</a></li>
-<li><a class="" href="module-14.html">Module 14</a></li>
-<li><a class="" href="problem-set-4.html">Problem Set 4</a></li>
-<li><a class="" href="ps-4-solutions.html">PS 4 Solutions</a></li>
 </ul>
 
         <div class="book-extra">
@@ -110,9 +97,9 @@
 <span><span class="co">#&gt; ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──</span></span>
 <span><span class="co">#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.5</span></span>
 <span><span class="co">#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1</span></span>
-<span><span class="co">#&gt; ✔ ggplot2   3.5.0     ✔ tibble    3.2.1</span></span>
-<span><span class="co">#&gt; ✔ lubridate 1.9.3     ✔ tidyr     1.3.1</span></span>
-<span><span class="co">#&gt; ✔ purrr     1.0.2     </span></span>
+<span><span class="co">#&gt; ✔ ggplot2   3.5.1     ✔ tibble    3.2.1</span></span>
+<span><span class="co">#&gt; ✔ lubridate 1.9.4     ✔ tidyr     1.3.1</span></span>
+<span><span class="co">#&gt; ✔ purrr     1.0.4     </span></span>
 <span><span class="co">#&gt; ── Conflicts ────────────────────── tidyverse_conflicts() ──</span></span>
 <span><span class="co">#&gt; ✖ dplyr::filter() masks stats::filter()</span></span>
 <span><span class="co">#&gt; ✖ dplyr::lag()    masks stats::lag()</span></span>
@@ -332,16 +319,16 @@
 <span><span class="co">#&gt; # A tibble: 10 × 19</span></span>
 <span><span class="co">#&gt;     year month   day dep_time sched_dep_time dep_delay</span></span>
 <span><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  1  2013    12    21      939            825        74</span></span>
-<span><span class="co">#&gt;  2  2013     1    13      115           2000       315</span></span>
-<span><span class="co">#&gt;  3  2013     5     6     1553           1557        -4</span></span>
-<span><span class="co">#&gt;  4  2013     6     3      751            755        -4</span></span>
-<span><span class="co">#&gt;  5  2013     6    22      712            715        -3</span></span>
-<span><span class="co">#&gt;  6  2013    11    19      624            629        -5</span></span>
-<span><span class="co">#&gt;  7  2013     7     9      557            600        -3</span></span>
-<span><span class="co">#&gt;  8  2013     9     8     1553           1600        -7</span></span>
-<span><span class="co">#&gt;  9  2013     9    21      555            600        -5</span></span>
-<span><span class="co">#&gt; 10  2013    12     1     1451           1439        12</span></span>
+<span><span class="co">#&gt;  1  2013     9    27     1257           1300        -3</span></span>
+<span><span class="co">#&gt;  2  2013     2    23     1259           1300        -1</span></span>
+<span><span class="co">#&gt;  3  2013     8    29     1848           1850        -2</span></span>
+<span><span class="co">#&gt;  4  2013     8    15     1010           1014        -4</span></span>
+<span><span class="co">#&gt;  5  2013     1     7     1908           1910        -2</span></span>
+<span><span class="co">#&gt;  6  2013    10    16     1757           1717        40</span></span>
+<span><span class="co">#&gt;  7  2013    11    13      814            815        -1</span></span>
+<span><span class="co">#&gt;  8  2013     2     8     1400           1350        10</span></span>
+<span><span class="co">#&gt;  9  2013     1     2     1633           1640        -7</span></span>
+<span><span class="co">#&gt; 10  2013     9    29     2010           2015        -5</span></span>
 <span><span class="co">#&gt; # ℹ 13 more variables: arr_time &lt;int&gt;,</span></span>
 <span><span class="co">#&gt; #   sched_arr_time &lt;int&gt;, arr_delay &lt;int&gt;, carrier &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,</span></span>
@@ -353,16 +340,16 @@
 <span><span class="co">#&gt; # A tibble: 336 × 19</span></span>
 <span><span class="co">#&gt;     year month   day dep_time sched_dep_time dep_delay</span></span>
 <span><span class="co">#&gt;    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;int&gt;</span></span>
-<span><span class="co">#&gt;  1  2013     5    29      754            800        -6</span></span>
-<span><span class="co">#&gt;  2  2013     3    22     2053           2030        23</span></span>
-<span><span class="co">#&gt;  3  2013     8    30     1254           1300        -6</span></span>
-<span><span class="co">#&gt;  4  2013     7    10     2212           1820       232</span></span>
-<span><span class="co">#&gt;  5  2013     3    18     1254           1238        16</span></span>
-<span><span class="co">#&gt;  6  2013    10    26     1206           1206         0</span></span>
-<span><span class="co">#&gt;  7  2013     1    30      600            600         0</span></span>
-<span><span class="co">#&gt;  8  2013     9    17     1523           1530        -7</span></span>
-<span><span class="co">#&gt;  9  2013     5    24     1749           1728        21</span></span>
-<span><span class="co">#&gt; 10  2013     8    29     1343           1310        33</span></span>
+<span><span class="co">#&gt;  1  2013     8     2     1343           1205        98</span></span>
+<span><span class="co">#&gt;  2  2013     4    30     1045           1010        35</span></span>
+<span><span class="co">#&gt;  3  2013     7    12     1912           1725       107</span></span>
+<span><span class="co">#&gt;  4  2013     9    22     1437           1439        -2</span></span>
+<span><span class="co">#&gt;  5  2013     6    26     2323           2051       152</span></span>
+<span><span class="co">#&gt;  6  2013     4     9     2050           2029        21</span></span>
+<span><span class="co">#&gt;  7  2013    10    29     2117           2129       -12</span></span>
+<span><span class="co">#&gt;  8  2013     2    14      559            600        -1</span></span>
+<span><span class="co">#&gt;  9  2013     2    13     1810           1815        -5</span></span>
+<span><span class="co">#&gt; 10  2013     8    30      750            800       -10</span></span>
 <span><span class="co">#&gt; # ℹ 326 more rows</span></span>
 <span><span class="co">#&gt; # ℹ 13 more variables: arr_time &lt;int&gt;,</span></span>
 <span><span class="co">#&gt; #   sched_arr_time &lt;int&gt;, arr_delay &lt;int&gt;, carrier &lt;chr&gt;,</span></span>
@@ -1722,7 +1709,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2024-07-29.</p>
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2025-07-14.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

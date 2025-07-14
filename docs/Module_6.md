@@ -36,7 +36,7 @@ The Tidyverse also includes many other packages with more specialized usage. The
 To install the Tidyverse packages run the following code in the console:
 
 
-```r
+``` r
 
 install.packages("tidyverse")
 
@@ -46,15 +46,15 @@ install.packages("tidyverse")
 Now the Tidyverse is available in R, but it is not activated yet. Whenever you start a new R session and plan to use the Tidyverse packages, you will need to activate the package by calling the `library(tidyverse)` function in the console:
 
 
-```r
+``` r
 
 library(tidyverse)
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
 #> ✔ dplyr     1.1.4     ✔ readr     2.1.5
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.1
-#> ✔ ggplot2   3.5.0     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-#> ✔ purrr     1.0.2     
+#> ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+#> ✔ purrr     1.0.4     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
@@ -69,17 +69,19 @@ We will be working with a `nyc_flights` data set that provides information about
 
 
 
-```r
+``` r
 
 flights <- read.csv(file = "C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/nyc_flights.csv", header = T)
+
 ```
 
 Let's convert our data frame into a `tibble` data frame (don't worry about this function; we use it in this module just for a better representation of results):
 
 
-```r
+``` r
 
 flights <- as_tibble(flights)
+
 ```
 
 
@@ -128,7 +130,7 @@ dplyr aims to provide a function for each basic verb of data manipulation. These
 
 
 
-```r
+``` r
 
 filter(flights, month == 1, day == 1)
 #> # A tibble: 842 × 19
@@ -155,16 +157,17 @@ filter(flights, month == 1, day == 1)
 When you run that line of code, dplyr executes the filtering operation and returns a new data frame. dplyr functions never modify their inputs, so if you want to save the result, you’ll need to use the assignment operator, `<-` :
 
 
-```r
+``` r
 
 jan1 <- filter(flights, month == 1, day == 1)
+
 ```
 
 
 Let's find all flights that departed in November or December:
 
 
-```r
+``` r
 
 filter(flights, month == 11 | month == 12)
 #> # A tibble: 55,403 × 19
@@ -191,7 +194,7 @@ filter(flights, month == 11 | month == 12)
 We could do the same operation using the `%in%` operator:
 
 
-```r
+``` r
 
 filter(flights, month %in% c(11, 12))
 #> # A tibble: 55,403 × 19
@@ -223,7 +226,7 @@ filter(flights, month %in% c(11, 12))
 For instance, let's get observations from rows 5 through 10:
 
 
-```r
+``` r
 
 slice(flights, 5:10)
 #> # A tibble: 6 × 19
@@ -246,7 +249,7 @@ slice(flights, 5:10)
 Let's select all rows except the first four (this option can be used to drop some observations from a data set):
 
 
-```r
+``` r
 
 slice(flights, -(1:4))
 #> # A tibble: 336,772 × 19
@@ -274,7 +277,7 @@ slice(flights, -(1:4))
 Similar to `head()` and `tail()` functions, `slice_head()` and `slice_tail()` can be used to display top and bottom rows in the data set, respectively. Let's print first and last 3 rows in the flights data set:
 
 
-```r
+``` r
 
 slice_head(flights, n = 3)
 #> # A tibble: 3 × 19
@@ -291,7 +294,7 @@ slice_head(flights, n = 3)
 ```
 
 
-```r
+``` r
 
 slice_tail(flights, n = 3)
 #> # A tibble: 3 × 19
@@ -310,22 +313,22 @@ slice_tail(flights, n = 3)
 Use the `slice_sample()` function to randomly select rows. Use the option `prop` to choose a certain proportion of the cases:
 
 
-```r
+``` r
 
 slice_sample(flights, n = 10)
 #> # A tibble: 10 × 19
 #>     year month   day dep_time sched_dep_time dep_delay
 #>    <int> <int> <int>    <int>          <int>     <int>
-#>  1  2013    12    21      939            825        74
-#>  2  2013     1    13      115           2000       315
-#>  3  2013     5     6     1553           1557        -4
-#>  4  2013     6     3      751            755        -4
-#>  5  2013     6    22      712            715        -3
-#>  6  2013    11    19      624            629        -5
-#>  7  2013     7     9      557            600        -3
-#>  8  2013     9     8     1553           1600        -7
-#>  9  2013     9    21      555            600        -5
-#> 10  2013    12     1     1451           1439        12
+#>  1  2013     9    27     1257           1300        -3
+#>  2  2013     2    23     1259           1300        -1
+#>  3  2013     8    29     1848           1850        -2
+#>  4  2013     8    15     1010           1014        -4
+#>  5  2013     1     7     1908           1910        -2
+#>  6  2013    10    16     1757           1717        40
+#>  7  2013    11    13      814            815        -1
+#>  8  2013     2     8     1400           1350        10
+#>  9  2013     1     2     1633           1640        -7
+#> 10  2013     9    29     2010           2015        -5
 #> # ℹ 13 more variables: arr_time <int>,
 #> #   sched_arr_time <int>, arr_delay <int>, carrier <chr>,
 #> #   flight <int>, tailnum <chr>, origin <chr>, dest <chr>,
@@ -334,22 +337,22 @@ slice_sample(flights, n = 10)
 ```
 
 
-```r
+``` r
 
 slice_sample(flights, prop = 0.001)
 #> # A tibble: 336 × 19
 #>     year month   day dep_time sched_dep_time dep_delay
 #>    <int> <int> <int>    <int>          <int>     <int>
-#>  1  2013     5    29      754            800        -6
-#>  2  2013     3    22     2053           2030        23
-#>  3  2013     8    30     1254           1300        -6
-#>  4  2013     7    10     2212           1820       232
-#>  5  2013     3    18     1254           1238        16
-#>  6  2013    10    26     1206           1206         0
-#>  7  2013     1    30      600            600         0
-#>  8  2013     9    17     1523           1530        -7
-#>  9  2013     5    24     1749           1728        21
-#> 10  2013     8    29     1343           1310        33
+#>  1  2013     8     2     1343           1205        98
+#>  2  2013     4    30     1045           1010        35
+#>  3  2013     7    12     1912           1725       107
+#>  4  2013     9    22     1437           1439        -2
+#>  5  2013     6    26     2323           2051       152
+#>  6  2013     4     9     2050           2029        21
+#>  7  2013    10    29     2117           2129       -12
+#>  8  2013     2    14      559            600        -1
+#>  9  2013     2    13     1810           1815        -5
+#> 10  2013     8    30      750            800       -10
 #> # ℹ 326 more rows
 #> # ℹ 13 more variables: arr_time <int>,
 #> #   sched_arr_time <int>, arr_delay <int>, carrier <chr>,
@@ -366,7 +369,7 @@ Use `replace = TRUE` to take a sample with replacement.
 The `arrange()` function is used to change the order of rows in a data set. It takes a data frame and a set of column names (or more complicated expressions) to order by. If you provide more than one column name, each additional column will be used to break ties in the values of preceding columns:
 
 
-```r
+``` r
 
 arrange(flights, year, month, day)
 #> # A tibble: 336,776 × 19
@@ -393,7 +396,7 @@ arrange(flights, year, month, day)
 Use `desc()` to re-order by a column in descending order:
 
 
-```r
+``` r
 
 arrange(flights, desc(dep_delay))
 #> # A tibble: 336,776 × 19
@@ -424,7 +427,7 @@ arrange(flights, desc(dep_delay))
 Often you work with large data sets with many columns but only a few are actually of interest to you. `select()` function allows you to rapidly zoom in on a useful subset. You can select columns by name:
 
 
-```r
+``` r
 
 select(flights, year, month, day)
 #> # A tibble: 336,776 × 3
@@ -446,7 +449,7 @@ select(flights, year, month, day)
 You can select all columns between two variables (inclusive):
 
 
-```r
+``` r
 
 select(flights, year:day)
 #> # A tibble: 336,776 × 3
@@ -468,7 +471,7 @@ select(flights, year:day)
 You can select all columns except some:
 
 
-```r
+``` r
 
 select(flights, -(year:day))
 #> # A tibble: 336,776 × 16
@@ -494,7 +497,7 @@ select(flights, -(year:day))
 You can do the same operation with `!` operator:
 
 
-```r
+``` r
 
 select(flights, !(year:day))
 #> # A tibble: 336,776 × 16
@@ -520,7 +523,7 @@ select(flights, !(year:day))
 You can use column indexes for column selection:
 
 
-```r
+``` r
 
 select(flights, c(1, 5, 8))
 #> # A tibble: 336,776 × 3
@@ -544,7 +547,7 @@ There are a number of helper functions you can use within `select()`. For exampl
 Let's select all columns that start with "sched":
 
 
-```r
+``` r
 
 select(flights, starts_with("sched"))
 #> # A tibble: 336,776 × 2
@@ -566,7 +569,7 @@ select(flights, starts_with("sched"))
 You can select all columns in the data set that end with "time":
 
 
-```r
+``` r
 
 select(flights, ends_with("time"))
 #> # A tibble: 336,776 × 5
@@ -588,7 +591,7 @@ select(flights, ends_with("time"))
 Or suppose you want to select all columns in the data set that contain "ar":
 
 
-```r
+``` r
 
 select(flights, contains("ar"))
 #> # A tibble: 336,776 × 5
@@ -610,7 +613,7 @@ select(flights, contains("ar"))
 You can even combine these arguments:
 
 
-```r
+``` r
 
 select(flights, starts_with("sched") & ends_with("time"))
 #> # A tibble: 336,776 × 2
@@ -635,7 +638,7 @@ select(flights, starts_with("sched") & ends_with("time"))
 Use `rename()` function to rename columns in a data frame. Suppose we want to rename the "year" and "month" variables and make them uppercase:
 
 
-```r
+``` r
 
 rename(flights, YEAR = year, MONTH = month)
 #> # A tibble: 336,776 × 19
@@ -665,7 +668,7 @@ rename(flights, YEAR = year, MONTH = month)
 `relocate()` function allows to change the positions of columns in a data frame. It has two useful arguments `.before` and `.after` that helps precisely select a location for a variable:
 
 
-```r
+``` r
 
 relocate(flights, year, .after = month)
 #> # A tibble: 336,776 × 19
@@ -690,7 +693,7 @@ relocate(flights, year, .after = month)
 ```
 
 
-```r
+``` r
 
 relocate(flights, c(year, month), .before = dep_delay)
 #> # A tibble: 336,776 × 19
@@ -716,7 +719,7 @@ relocate(flights, c(year, month), .before = dep_delay)
 
 
 
-```r
+``` r
 
 relocate(flights, c(year, month), .after = last_col())
 #> # A tibble: 336,776 × 19
@@ -741,7 +744,7 @@ relocate(flights, c(year, month), .after = last_col())
 ```
 
 
-```r
+``` r
 
 relocate(flights, dep_delay, .before = everything())
 #> # A tibble: 336,776 × 19
@@ -774,16 +777,17 @@ It’s often useful to add new columns that are functions of existing columns. T
 `mutate()` always adds new columns at the end of your data set so we’ll start by creating a narrower data set so we can see the new variables:
 
 
-```r
+``` r
 
 flights_2 <- select(flights, month, ends_with("delay"), distance, air_time)
+
 ```
 
 
 Now let's add "gain" and "speed" columns to the data frame:
 
 
-```r
+``` r
 
 mutate(flights_2, gain = dep_delay - arr_delay, speed = distance / air_time * 60)
 #> # A tibble: 336,776 × 7
@@ -805,7 +809,7 @@ mutate(flights_2, gain = dep_delay - arr_delay, speed = distance / air_time * 60
 Note that you can refer to columns that you've just created:
 
 
-```r
+``` r
 
 mutate(flights_2, gain = dep_delay - arr_delay, hours = air_time/60, gain_per_hour = gain/hours)
 #> # A tibble: 336,776 × 8
@@ -828,7 +832,7 @@ mutate(flights_2, gain = dep_delay - arr_delay, hours = air_time/60, gain_per_ho
 If you only want to keep the new variable, use `transmute()` function:
 
 
-```r
+``` r
 
 transmute(flights_2, gain = dep_delay - arr_delay, hours = air_time/60, gain_per_hour = gain/hours)
 #> # A tibble: 336,776 × 3
@@ -853,7 +857,7 @@ transmute(flights_2, gain = dep_delay - arr_delay, hours = air_time/60, gain_per
 The dplyr functions are functional in the sense that function calls don’t have side-effects. You must always save their results. This doesn’t lead to particularly elegant code, especially if you want to do many operations at once. You either have to do it step-by-step or if you don’t want to name the intermediate results, you need to wrap the function calls inside each other, which lead to a messy and complex code:
 
 
-```r
+``` r
 
 select(filter(flights, month == 11 | month == 12), starts_with("sched") & ends_with("time"))
 #> # A tibble: 55,403 × 2
@@ -879,7 +883,7 @@ This is difficult to read because the order of the operations is from inside to 
 
 
 
-```r
+``` r
 
 flights %>% 
   
@@ -907,7 +911,7 @@ Try to understand what the following code is doing:
 
 
 
-```r
+``` r
 
 flights %>% 
   
@@ -945,7 +949,7 @@ flights %>%
 Most data operations are done on groups defined by variables. `dplyr` verbs are particularly powerful when you apply them to grouped data frames. The most important grouping verb is `group_by()`. It takes an existing data frame and converts it into a grouped data frame where operations are performed "by group". In other words, it takes a data frame and one or more variables to group by:
 
 
-```r
+``` r
 
 by_origin <- flights %>% group_by(origin)
 
@@ -973,7 +977,7 @@ by_origin
 ```
 
 
-```r
+``` r
 
 by_origin_carrier <- flights %>% group_by(origin, carrier)
 
@@ -1008,7 +1012,7 @@ Grouping is most useful when used in conjunction with the `summarise()` function
 For instance, let's calculate the average arrival delay time for each group in the `by_origin` grouped data:
 
 
-```r
+``` r
 
 by_origin %>% summarise(Mean = mean(arr_delay, na.rm = T))
 #> # A tibble: 3 × 2
@@ -1022,7 +1026,7 @@ by_origin %>% summarise(Mean = mean(arr_delay, na.rm = T))
 You can even pass several variables to it:
 
 
-```r
+``` r
 
 by_origin %>% 
   
@@ -1057,7 +1061,7 @@ Logical | `any()`, `all()`
 
 
 
-```r
+``` r
 
 by_carrier <- flights %>% group_by(carrier)
 
@@ -1084,7 +1088,7 @@ by_carrier %>%
 If you need to remove grouping and return to operations on ungrouped data, use `ungroup()`:
 
 
-```r
+``` r
 
 by_carrier %>%
   
@@ -1102,7 +1106,7 @@ It’s often useful to perform the same operation on multiple columns, but copyi
 
 
 
-```r
+``` r
 
 flights %>% 
   
@@ -1137,7 +1141,7 @@ flights %>%
 Instead, we can use `across()` function, which  lets you rewrite the previous code more succinctly:
 
 
-```r
+``` r
 
 flights %>% 
   
@@ -1173,7 +1177,7 @@ flights %>%
 `across()` has two primary arguments: (1) the first argument, `.col`, selects the columns you want to operate on; (2) the second argument, `.fns`, is a function or list of functions to apply to each column. Here are some examples:
 
 
-```r
+``` r
 
 flights %>% 
   
@@ -1183,7 +1187,7 @@ flights %>%
 
 
 
-```r
+``` r
 
 flights %>% 
   
@@ -1205,7 +1209,7 @@ flights %>%
 You can transform each variable with more than one function by supplying a named list of functions or lambda functions in the second argument:
 
 
-```r
+``` r
 
 
 min_max <- list(
@@ -1238,7 +1242,7 @@ flights %>%
 You can control how the names are created with the `.names` argument:
 
 
-```r
+``` r
 
 flights %>% 
   
@@ -1298,7 +1302,7 @@ The output is always a new table. By default, if an observation in `x` matches m
 To illustrative how these functions work, we will be using the following toy data frames:
 
 
-```r
+``` r
 
 df1 <- data.frame(
   
@@ -1321,7 +1325,7 @@ print(df1)
 
 
 
-```r
+``` r
 
 df2 <- data.frame(
   
@@ -1353,7 +1357,7 @@ The simplest type of join is the **inner join**. An inner join matches pairs of 
 Below are some examples of inner join:
 
 
-```r
+``` r
 
 # Merging tables by the "a" variable
 
@@ -1377,7 +1381,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 # Merging tables by the "a" and "b" variable
 
@@ -1391,7 +1395,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 ## Merging tables by the "c" and "z" variable (Have different variable names)
 
@@ -1406,7 +1410,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 ## Merging tables by the "c" and "z" variable (Have different variable names) and keeping both key variables in the output table
 
@@ -1425,7 +1429,7 @@ df1 %>%
 `left_join()` includes all observations in `x`, regardless of whether they match or not. This is the most commonly used join because it ensures that you don’t lose observations from your primary table:
 
 
-```r
+``` r
 
 # Merging tables by the "a" variable
 
@@ -1450,7 +1454,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 # Merging tables by the "a" and "b" variable
 
@@ -1467,7 +1471,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 ## Merging tables by the "c" and "z" variable (Have different variable names)
 
@@ -1489,7 +1493,7 @@ df1 %>%
 `right_join()` includes all observations in `y`:
 
 
-```r
+``` r
 
 # Merging tables by the "a" variable
 
@@ -1515,7 +1519,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 # Merging tables by the "a" and "b" variable
 
@@ -1533,7 +1537,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 ## Merging tables by the "c" and "z" variable (Have different variable names)
 
@@ -1555,7 +1559,7 @@ df1 %>%
 `full_join()` includes all observations from both `x` and `y`:
 
 
-```r
+``` r
 
 # Merging tables by the "a" variable
 
@@ -1582,7 +1586,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 # Merging tables by the "a" and "b" variable
 
@@ -1603,7 +1607,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 ## Merging tables by the "c" and "z" variable (Have different variable names)
 
@@ -1631,7 +1635,7 @@ Filtering joins match observations in the same way as mutating joins, but affect
 
 
 
-```r
+``` r
 
 df1 %>%
   
@@ -1645,7 +1649,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 df1 %>%
   
@@ -1657,7 +1661,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 df1 %>%
   
@@ -1668,7 +1672,7 @@ df1 %>%
 
 
 
-```r
+``` r
 
 df1 %>%
   
@@ -1693,7 +1697,7 @@ We will first create toy data frames and then apply these functions to them:
 
 
 
-```r
+``` r
 
 df1 <- data.frame(
   
@@ -1713,7 +1717,7 @@ df1
 ```
 
 
-```r
+``` r
 
 df2 <- data.frame(
   
@@ -1733,7 +1737,7 @@ df2
 ```
 
 
-```r
+``` r
 
 intersect(df1, df2)
 #>   a  b
@@ -1742,7 +1746,7 @@ intersect(df1, df2)
 ```
 
 
-```r
+``` r
 
 union(df1, df2)
 #>   a  b
@@ -1757,7 +1761,7 @@ union(df1, df2)
 ```
 
 
-```r
+``` r
 
 setdiff(df1, df2)
 #>   a  b
@@ -1767,7 +1771,7 @@ setdiff(df1, df2)
 ```
 
 
-```r
+``` r
 
 setdiff(df2, df1)
 #>   a  b
@@ -1785,7 +1789,7 @@ Here are two data sets that you can use to practice two-table verbs:
 
 
 
-```r
+``` r
 
 data1 <- data.frame(
   
@@ -1822,7 +1826,7 @@ data1
 
 
 
-```r
+``` r
 
 data2 <- data.frame(
   
