@@ -24,7 +24,7 @@ You can install _TinyTeX_ with the R package **tinytex**. Run the following code
 
 
 
-```r
+``` r
 tinytex:: install_tinytex()
 
 ```
@@ -56,7 +56,7 @@ Markdown is designed to be easy to read, write, and learn. Below you can find th
 You can create headers in your text using `#` operator and control their size by simply adding one or more `#` in front of the text you would like to denote the header. 
 
 
-```r
+``` r
 
 # Top Level Header (For example, Question 1)
 
@@ -74,7 +74,7 @@ You can create headers in your text using `#` operator and control their size by
 You can create a block quote using `>` operator. For example the line below
 
 
-```r
+``` r
 
 > Your first block quote
 
@@ -91,7 +91,7 @@ In R Markdown you can create both ordered and unordered lists. To create an unor
 
 
 
-```r
+``` r
 * Bullet point 1
 
 * Bullet point 2
@@ -114,7 +114,7 @@ In R Markdown you can create both ordered and unordered lists. To create an unor
 To create an ordered lists, simply use numbers:
 
 
-```r
+``` r
 1. Bullet point 1
 
 2. Bullet point 2
@@ -136,7 +136,7 @@ Use the following formatting style to create tables in R Markdown:
 
 
 
-```r
+``` r
 First Header  | Second Header
 ------------- | -------------
 Content Cell  | Content Cell
@@ -155,7 +155,7 @@ Content Cell  | Content Cell
 Use the following format to insert a link into your text:
 
 
-```r
+``` r
 [Your first link](http://posit.co)
 ```
 
@@ -173,7 +173,7 @@ Use `$ $` operator to include equations in your text. For example, $A = \pi*r^{2
 In order to start a new paragraph or new line, you will need to be sure that white space exists between the two paragraphs/line:
 
 
-```r
+``` r
 This is the first lines.
 
 
@@ -190,7 +190,7 @@ And here we have another line.
 Another useful way to divide up different parts of your file is by including horizontal lines. We can achieve it by using `***` operator:
 
 
-```r
+``` r
 ***
 ```
 
@@ -202,7 +202,7 @@ Finally, if you want start a paragraph or a line on a new page, use `\newpage` c
 
 
 
-```r
+``` r
 \newpage
 ```
 

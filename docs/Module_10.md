@@ -6,15 +6,15 @@
 ## ggplot2 Package (Cont'd) {-}
 
 
-```r
+``` r
 
 library(tidyverse)
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
 #> ✔ dplyr     1.1.4     ✔ readr     2.1.5
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.1
-#> ✔ ggplot2   3.5.0     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-#> ✔ purrr     1.0.2     
+#> ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+#> ✔ purrr     1.0.4     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
@@ -23,6 +23,8 @@ library(tidyverse)
 library(ggExtra)
 
 library(patchwork)
+#> Warning: package 'patchwork' was built under R version
+#> 4.4.3
 
 dataset1 <- read.table(file = "C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/lung_capacity.txt",
                    
@@ -45,7 +47,7 @@ We continue exploring the `ggplot2` package. In this module we will be using the
 As mentioned in `Module 08`, barplots refer to a graph where bars represent the count of cases in each category of a categorical variable. This is similar to a histogram, but with a discrete instead of a continuous x-axis. To generate a barplot with `ggplot2` package, add another layer to a ggplot object using a `geom_bar()` function. Here we have a `dataset1` dataset and we want to generate a barplot for the `Status` variable, which is a categorical variable with 4 levels (categories):
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -58,7 +60,7 @@ geom_bar(mapping = aes(x = Status))
 As of now, we have a basic barplot. Let's modify its features to make it look better. We can change the color and the width of bins. This is done by adding two more arguments to the function: `fill` - used to change the color of bins; `width` - used to change the width of bins:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -74,7 +76,7 @@ geom_bar(mapping = aes(x = Status),
 Let's change the values and see how it affects the plot:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -93,7 +95,7 @@ You might also want to change the color of outlines. This is done by adding the 
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -110,7 +112,7 @@ geom_bar(mapping = aes(x = Status),
 If you want the colors of bars be automatically controlled by the levels of the categorical variable, pass the `fill` argument inside the `aes()` function:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -124,7 +126,7 @@ geom_bar(mapping = aes(x = Status, fill = Status),
 Sometimes you are not interested in displaying all bars together. Instead, you want to focus on certain groups that you are particularly interested in. This can be done using `scale_x_discrete()` and its argument `limits`. Let's display bars corresponding to the  `Healthy` and `Stage_3` categories only:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -142,7 +144,7 @@ scale_x_discrete(limits = c("HEALTHY", "STAGE_3"))
 You can also use this function to change the order in which bars appear in your plot:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -162,7 +164,7 @@ To do so, we need to add the `geom_text()` function as shown in the code below. 
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -190,7 +192,7 @@ geom_text(aes(x = Status,label = ..count..),
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -215,7 +217,7 @@ geom_text(aes(x = Status,label = ..count..),
 We can even convert frequencies into percentages:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -240,7 +242,7 @@ Let's make our barplot more self-explanatory by adding labels to it. By setting 
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -272,7 +274,7 @@ Stacked and grouped barplots are used to reflect other categorical variables in 
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -284,7 +286,7 @@ geom_bar(mapping = aes(x = Status, fill = Sex))
 Now we can even change the colors of segments manually:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -302,7 +304,7 @@ Like we did with a simple barplot, we can add labels to the segments of a stacke
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -332,7 +334,7 @@ geom_text(aes(x = Status, fill = Sex, label = ..count..),
 Having the bars of the same heights helps us to compare the proportions of segments rather than their actual counts. To achieve this, use the `position` argument and pass `fill` to it:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -347,7 +349,7 @@ geom_bar(mapping = aes(x = Status, fill = Sex),
 Grouped barplots display bars corresponding to other categorical variables next to each other instead of on top of each other. To display a grouped barplot, you need to add the `position` argument to the `geom_bar()` function and pass `position_dodge()` to it:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -366,7 +368,7 @@ Let's add the labels to these bars to reflect the actual count of the groups:
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -400,7 +402,7 @@ geom_text(aes(x = Status, fill = Sex,label = ..count..),
 Sometimes you will want to add an extra touch to your barplots. For instance, you can add a horizontal line to it to visually filter out groups that have more/less observations than a certain value. This is done by adding a `geom_hline()` function. Suppose you want to see which groups have more than 100 observations:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -431,7 +433,7 @@ Finally, use `coord_flip()` to turn a vertical barplot into a horizontal one:
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -458,7 +460,7 @@ In short, boxplots are used to visualize 5-number summary. It is an excellent da
 Let's start off with a simple boxplot that we are going to create for the `Age` variable. This is done using the `geom_boxplot()` function:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -472,7 +474,7 @@ Changing colors and other features of a boxplot is similar to what we did with b
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -488,7 +490,7 @@ geom_boxplot(aes(y = Age),
 Often, you’ll want to visualize multiple boxplots on a single chart, each representing a distribution of the variable with some filter condition applied. For instance, you can visualize the distribution of `Age` for every possible level of the `Status` variable:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -500,7 +502,7 @@ geom_boxplot(aes(x = Status, y = Age))
 Let's change the color of boxplots that will reflect the levels of `Status`:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -514,7 +516,7 @@ You can also create multiple boxplots for each level of the `Status` variable th
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -527,7 +529,7 @@ The previous boxplot contained an outlier - an observation that stands out from 
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -546,7 +548,7 @@ geom_boxplot(aes(x = Status, y = Age, fill = Sex),
 As mentioned earlier, boxplots visualize 5-number summary of data. They don't display the actual observations. If you want to add datapoints to your boxplot, you need to add the `geom_dotplot()` function:
 
 
-```r
+``` r
 
 ggplot(data = dataset1, aes(x = Status, y = Age)) +
   
@@ -567,7 +569,7 @@ geom_dotplot(binaxis = "y",
 Boxplots show the median as a thick line somewhere in the box. But what if you also want to show the mean value? The `stat_summary()` function does the trick. You can use this function to specify any function and shape, but let's stick with the mean value:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
   
@@ -588,7 +590,7 @@ stat_summary(aes(x = Status, y = Age, fill = Status),
 Quite often you will need to show relationships between variables as a scatterplot, and on the margins, you will also need to show the distribution of each variable. `ggplot2` itself does not provide this functionality, so we have to install an additional package called `ggExtra`:
 
 
-```r
+``` r
 
 library(ggExtra)
 
@@ -613,7 +615,7 @@ ggMarginal(gg, type = "boxplot")
 Histograms are used to describe the distribution of a continuous variable. A basic histogram can be created using the `geom_histogram()` function. All it requires is a continuous variable:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
     
@@ -627,7 +629,7 @@ geom_histogram(aes(x = LungCap))
 Similar to barplots and boxplots, you can change histogram features by adding arguments to the function. Let's change the color and width of bins, and make them transparent at some extend; also let's change the outline type:
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
     
@@ -650,7 +652,7 @@ You can also add new features to a histogram. For instance, let's add a vertical
 
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
     
@@ -676,7 +678,7 @@ geom_vline(aes(xintercept = mean(LungCap)),
 `ggplot2` allows you to add density curves to a histogram. This is done using the `geom_density()` function:
 
 
-```r
+``` r
 ggplot(data = dataset1) +
     
 geom_histogram(aes(x = LungCap, y = ..density..),
@@ -699,7 +701,7 @@ geom_density(aes(x = LungCap),
 Now let's change the color of bins so that it will reflect another categorical feature (for example, the `Sex` variable):
 
 
-```r
+``` r
 
 ggplot(data = dataset1) +
     
@@ -716,7 +718,7 @@ Let's add vertical lines that correspond to the mean values of these two groups:
 
 
 
-```r
+``` r
 
 # Preparing inputs 
 
@@ -758,7 +760,7 @@ Often you would want to show two or more plots side by side to show different as
 At it’s heart, `patchwork` is a package that extends `ggplot2`’s use of the `+` operator to work between multiple plots, as well as add additional operators for specialized compositions and working with compositions of plots. To illustrate its functionality, first let's create a few ggplot objects:
 
 
-```r
+``` r
 g1 <- ggplot(data = dataset1) +
   
       geom_bar(mapping = aes(x = Status, fill = Status), width = 0.9) +
@@ -788,7 +790,7 @@ g3 <-   ggplot(data = dataset1) +
 The most simple use of patchwork is to use + to add plots together thus creating an assemble of plots to display together:
 
 
-```r
+``` r
 
 g1 + g2
 ```
@@ -799,7 +801,7 @@ g1 + g2
 
 
 
-```r
+``` r
 
 g1 + g2 + g3
 #> `stat_bin()` using `bins = 30`. Pick better value with
@@ -811,7 +813,7 @@ g1 + g2 + g3
 It is often that the automatically created grid is not what you want and it is of course possible to control it. The most direct and powerful way is to do this is to add a `plot_layout()` specification to the plot:
 
 
-```r
+``` r
 
 g1 + g2 + g3 +
   
@@ -825,7 +827,7 @@ plot_layout(ncol = 2)
 A common scenario is wanting to force a single row or column. patchwork provides two operators, `|` and `/` respectively:
 
 
-```r
+``` r
 
 g1/g2
 ```
@@ -834,7 +836,7 @@ g1/g2
 
 
 
-```r
+``` r
 
 g1|g2
 ```
@@ -844,7 +846,7 @@ g1|g2
 Patchwork allows nesting layouts which means that it is possible to create various layouts using just these two operators:
 
 
-```r
+``` r
 
 g1 | (g2/g3)
 #> `stat_bin()` using `bins = 30`. Pick better value with

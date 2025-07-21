@@ -16,7 +16,7 @@ We will use `mpg` dataset to illustrate functionality of the `ggplot2` package. 
 
 
 
-```r
+``` r
 
 print(mpg)
 #> # A tibble: 234 × 11
@@ -48,9 +48,10 @@ Among the variables in `mpg` are:
 Before we start exploring the `ggplot2` package, let's convert one of the variables into a factor:
 
 
-```r
+``` r
 
 mpg$cyl <- as.factor(mpg$cyl)
+
 ```
 
 
@@ -65,7 +66,7 @@ Every ggplot2 plot has three key components:
 To produce a scatterplot, you need to pass your data to `ggplot()` function:
 
 
-```r
+``` r
 
 ggplot(data = mpg)
 ```
@@ -75,7 +76,7 @@ ggplot(data = mpg)
 As you can notice, it creates a plot object but does not display data. To add datapoints to this object, we add a `geom_point()` function with a `+` sign and inside the function we specify `x` and `y` variables from the dataset, which will be `x` and `y` axes, respectively:
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
   
@@ -92,7 +93,7 @@ Note that we’ve put each command on a new line. It is recommended doing this i
 We can change the color, size, and shape of the datapoints by passing these arguments to the `geom_point()` function:
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     
@@ -111,7 +112,7 @@ We can change the color, size, and shape of the datapoints by passing these argu
 In this plot the color, size, and shape of points are static, meaning that they are the same for every point. If you want the color to change based on another variable in the dataset to reflect its categories, you need to specify this inside the `aes()` function:
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     
@@ -126,7 +127,7 @@ In this plot the color, size, and shape of points are static, meaning that they 
 
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     
@@ -149,7 +150,7 @@ In this plot the color, size, and shape of points are static, meaning that they 
 You can also change the shape of points to reflect another variable in the dataset:
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     
@@ -171,7 +172,7 @@ Or you can do so by changing the transparency of the points:
 
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     
@@ -188,7 +189,7 @@ To change the legend title, add `labs()` function and use `color` argument:
 
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     
@@ -205,7 +206,7 @@ To change the legend title, add `labs()` function and use `color` argument:
 Let's save the ggplot object. We will be adding new layers to this object shortly:
 
 
-```r
+``` r
 
   gg <-   ggplot(data = mpg) + 
     
@@ -214,6 +215,7 @@ Let's save the ggplot object. We will be adding new layers to this object shortl
                size = 3) +
     
     labs(color = "Number of Cylinders")
+
 ```
 
 
@@ -223,7 +225,7 @@ Let's save the ggplot object. We will be adding new layers to this object shortl
 To add labels to your ggplot object, you can use `labs()` function once again. Inside this function, you specify the plot title, subtitle, labels of `x` and `y` axes:
 
 
-```r
+``` r
 
 gg <- gg +
   
@@ -250,7 +252,7 @@ You can change the axis limits using `xlim()` and `ylim()` functions. You need t
 
 
 
-```r
+``` r
 
   gg +
   
@@ -266,7 +268,7 @@ You can change the axis limits using `xlim()` and `ylim()` functions. You need t
 The limitation of this approach is that it deletes the points outside the specified range. The other approach is to change the `x` and `y` limits by zooming in to the region of interest without deleting points. It is achieved using the `coord_cartesian()` function:
 
 
-```r
+``` r
 
   gg +
   
@@ -281,7 +283,7 @@ The limitation of this approach is that it deletes the points outside the specif
 There is a primary argument that affects the appearance of the ticks on the axes: `breaks`. Breaks controls the position of the ticks, or the values associated with the keys. You pass this argument to either `scale_x_continuous()` or `scale_y_continuous()` functions, depending which axis you want to modify:
 
 
-```r
+``` r
 
   gg <- gg +
     
@@ -301,7 +303,7 @@ print(gg)
 You can customize the non-data elements of your plot with a `theme()` function. For example, you can change the background of the plot:
 
 
-```r
+``` r
 
   gg +
    
@@ -312,7 +314,7 @@ You can customize the non-data elements of your plot with a `theme()` function. 
 
 
 
-```r
+``` r
 
   gg +
    
@@ -323,7 +325,7 @@ You can customize the non-data elements of your plot with a `theme()` function. 
 
 
 
-```r
+``` r
 
   gg +
    
@@ -334,7 +336,7 @@ You can customize the non-data elements of your plot with a `theme()` function. 
 
 
 
-```r
+``` r
 
   gg +
    
@@ -345,7 +347,7 @@ You can customize the non-data elements of your plot with a `theme()` function. 
 
 
 
-```r
+``` r
 
   gg +
    
@@ -356,7 +358,7 @@ You can customize the non-data elements of your plot with a `theme()` function. 
 
 
 
-```r
+``` r
 
   gg +
    
@@ -366,7 +368,7 @@ You can customize the non-data elements of your plot with a `theme()` function. 
 <img src="Module_9_files/figure-html/unnamed-chunk-22-1.png" width="672" />
 
 
-```r
+``` r
 
   gg +
    
@@ -380,17 +382,18 @@ Let's select `theme_bw()` option and update our plot:
 
 
 
-```r
+``` r
 
   gg <- gg +
     
     theme_bw()
+
 ```
 
 Further, we can change the color and size of titles, size and angle of ticks on axes, and the location of legends:
 
 
-```r
+``` r
 
   gg <- gg +
     
@@ -420,7 +423,7 @@ When working with categorical variables, it becomes particularly useful to split
 To facet your plot by a single variable, use the `facet_wrap()` function. The first argument of `facet_wrap()` should be a formula, which you create with `~` followed by a variable name (here “formula” is the name of a data structure in R, not a synonym for “equation”). The variable that you pass to `facet_wrap()` should be discrete. Let's plot `displ` against `hwy` for each level of the `class` variable separately:
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     
@@ -434,7 +437,7 @@ To facet your plot by a single variable, use the `facet_wrap()` function. The fi
 You can decide how the plots should be displayed by specifying the number of rows in the final plot:
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     
@@ -449,7 +452,7 @@ You can decide how the plots should be displayed by specifying the number of row
 To facet your plot on the combination of two variables, add `facet_grid()` to your plot call. Let's plot `displ` against `hwy` for different combinations of levels of the `class` and `drv` variables:
 
 
-```r
+``` r
 
   ggplot(data = mpg) + 
     

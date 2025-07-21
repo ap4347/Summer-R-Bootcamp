@@ -14,9 +14,10 @@ We have already learned how to use R built-in functions to compute basic numeric
 We will be using the same data set as before (**Lung Capacity** data set), which is available on Courseworks.
 
 
-```r
+``` r
 
 data <- read.table(file = "C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp/lung_capacity.txt", header = T, sep = "", stringsAsFactors = TRUE)
+
 ```
 
 ### Histograms {-}
@@ -24,7 +25,7 @@ data <- read.table(file = "C:/Users/alexp/OneDrive/Desktop/R Bootcamp/R_bootcamp
 Histograms display a distribution of numerical data. They represent the frequencies of values of a variable bucketed into ranges. The function `hist()` is used to plot histograms. Let's plot a histogram of the `Age` variable:
 
 
-```r
+``` r
 
 hist(data$Age)
 ```
@@ -35,7 +36,7 @@ You can change labels of a histogram by passing `xlab`, `ylab`, and `main` argum
 
 
 
-```r
+``` r
 
 hist(data$Age,
      
@@ -52,7 +53,7 @@ The x-axis contains a range of values of the variable. Histograms divide it into
 
 
 
-```r
+``` r
 
 hist(data$Age,
      
@@ -74,7 +75,7 @@ You can change the color of bins and corresponding borders:
 
 
 
-```r
+``` r
 
 hist(data$Age,
      
@@ -98,7 +99,7 @@ You can display specific parts of a histogram by passing `xlim()` arguments. It 
 
 
 
-```r
+``` r
 
 hist(data$Age,
      
@@ -128,7 +129,7 @@ Barplots are similar to histograms but are used for categorical/qualitative vari
 
 
 
-```r
+``` r
 
 barplot(table(data$Status))
 ```
@@ -139,7 +140,7 @@ barplot(table(data$Status))
 Like histgorams, barplots can be customized. Let's add labels to your barplot:
 
 
-```r
+``` r
 
 barplot(table(data$Status),
         
@@ -157,7 +158,7 @@ barplot(table(data$Status),
 Now, let's change the color of bins and borders:
 
 
-```r
+``` r
 
 barplot(table(data$Status),
         
@@ -179,7 +180,7 @@ barplot(table(data$Status),
 You can even make a horizontal barplot:
 
 
-```r
+``` r
 
 barplot(table(data$Status),
         
@@ -204,7 +205,7 @@ In R, you can create clustered barplots. For the two examples given below, guess
 
 
 
-```r
+``` r
 
 barplot(table(data[, c("Sex", "Status")]),
         
@@ -224,7 +225,7 @@ barplot(table(data[, c("Sex", "Status")]),
 <img src="Module_8_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 
 
-```r
+``` r
 
 barplot(table(data[, c("Sex", "Status")]),
         
@@ -251,7 +252,7 @@ barplot(table(data[, c("Sex", "Status")]),
 Boxplots are used to visualize a 5-Number summary (Minimum, Q1 (first quartile, also known as 25th percentile), median, Q3 (third quartile, also known as 75th percentile), and Maximum). Below is a boxplot for the `Age` variable:
 
 
-```r
+``` r
 
 boxplot(data$Age)
 ```
@@ -261,7 +262,7 @@ boxplot(data$Age)
 Let's add labels to it and change the colors:
 
 
-```r
+``` r
 
 boxplot(data$Age,
         
@@ -281,7 +282,7 @@ boxplot(data$Age,
 You can even add a notch to it if you want to: 
 
 
-```r
+``` r
 
 boxplot(data$Age,
         
@@ -303,7 +304,7 @@ boxplot(data$Age,
 You can change the shape and size of points in the plot by passing `pch` and `cex` arguments, respectfully. Type `?pch` in the console to see what shapes are available.
 
 
-```r
+``` r
 
 boxplot(data$Age,
         
@@ -329,7 +330,7 @@ boxplot(data$Age,
 Often you will be using boxplots to compare a numerical variable for different levels of other categorical variables (that is, levels of a factor). Let's compare boxplots of the `Age` variable for female and male patients:
 
 
-```r
+``` r
 
 boxplot(data$Age ~ data$Sex,
         
@@ -351,7 +352,7 @@ boxplot(data$Age ~ data$Sex,
 Let's make it more complicated:
 
 
-```r
+``` r
 
 boxplot(data$Age ~ data$Sex:data$Smoke,
         
@@ -378,7 +379,7 @@ boxplot(data$Age ~ data$Sex:data$Smoke,
 As mentioned earlier, before building a statistical model, it is recommended to visualize a relationship among variables. Suppose, you want to build a regression model that will describe the relationship between `Age` and `Lung Capacity` variables. First, we will visualize the data using `plot()` function:
 
 
-```r
+``` r
 
 plot(x = data$Age, y = data$LungCap)
 ```
@@ -388,7 +389,7 @@ plot(x = data$Age, y = data$LungCap)
 As you can observe, there is a linear trend between these two variables, so this suggests that a linear regression model might be appropriate. Now let's customize the plot by labeling it and changing the color, shape, and size of the points:
 
 
-```r
+``` r
 
 plot(x = data$Age,
      
@@ -412,7 +413,7 @@ plot(x = data$Age,
 You can focus on specific parts of the plot by adding `xlim()` argument:
 
 
-```r
+``` r
 
 plot(x = data$Age,
      
@@ -439,7 +440,7 @@ plot(x = data$Age,
 You can change the color (or the size) of points based on other factor variables. For example, we can make observation that belong to the female patients be displayed as red dots and observation that belong to the male patients be displayed as blue ones. In addition, we can add legends to clarify the meaning of colors in the plot:
 
 
-```r
+``` r
 
 colors <- c("red", "blue")
 
@@ -468,7 +469,7 @@ legend("topleft", legend = c("FEMALE", "MALE"), pch = 20, col = colors)
 Finally, in R you are able to display multiple plots in a single image. To do so, you need to use `par()` function. You pass an `mfrow()` argument to this function that specifies dimensions of your final plot. For example, if you want to plot two images in one row (that is, 1 row and 2 columns), then you execute `par(mfrow = c(1, 2))` function followed by the plots that you aim to include in it: 
 
 
-```r
+``` r
 
 par(mfrow = c(1, 2))
 

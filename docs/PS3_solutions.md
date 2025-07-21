@@ -10,7 +10,7 @@
 1. Compare the average age of local population for the US and non-US stores by displaying their boxplots. Customize your boxplots as follows: add labels, change the colors, and add notches.
 
 
-```r
+``` r
 data1 <- read.csv(file = "carseats.csv", header = T, stringsAsFactors = T)
 
 boxplot(data1$Age ~ data1$US,
@@ -37,7 +37,7 @@ boxplot(data1$Age ~ data1$US,
 2. Summarize the quality of shelving locations by displaying its barplot. Customize it as discussed in the previous question ( no notches here).
 
 
-```r
+``` r
 barplot(table(data1$ShelveLoc),
         
         xlab = "Quality of Shelving Loc.",
@@ -58,7 +58,7 @@ barplot(table(data1$ShelveLoc),
 3. Plot a side-by-side barplots displaying the frequency of `ShelveLoc` variable in urban and rural areas. Customize your plot as discussed above.
 
 
-```r
+``` r
 barplot(table(data1[, c("ShelveLoc", "Urban")]),
         
         beside = TRUE,
@@ -81,7 +81,7 @@ barplot(table(data1[, c("ShelveLoc", "Urban")]),
 4. Plot the `Sales` variable against the `Price` variable. Label the plot and axes accordingly, change the shape of points to triangular, change the color of points based on whether the store is located in urban (orange color) or rural (green color) area and add the corresponding legend to the plot, change the size of points to 0.9.
 
 
-```r
+``` r
 colors <- c("green", "orange")
 
 plot(x = data1$Price,
@@ -111,7 +111,7 @@ legend("topleft", legend = c("Rural", "Urban"), pch = 2, col = colors)
 5. Combine a histogram of the `Price` variable and a boxplot of the `Population` variable in one image. Customize both plots as discussed in part (1) (no notches for the histogram).
 
 
-```r
+``` r
 par(mfrow = c(1, 2))
 
 hist(data1$Price,
@@ -151,7 +151,7 @@ boxplot(data1$Population,
 1. Plot a histogram of the `Sale_Price` variable: add labels (title, subtitle, x and y labels); adjust the limits of the x axis by adding new ticks to it (step size = 100,000) and changing the angle of ticks to 60; change the theme to minimal; change the colors of bins and bin outlines (it is up to you to pick colors); add a blue vertical line that represents the mean value of the variable. 
 
 
-```r
+``` r
 
 data <- read.csv("ames_housing.csv", header = T, stringsAsFactors = TRUE)
 
@@ -159,9 +159,9 @@ library(tidyverse)
 #> ── Attaching core tidyverse packages ──── tidyverse 2.0.0 ──
 #> ✔ dplyr     1.1.4     ✔ readr     2.1.5
 #> ✔ forcats   1.0.0     ✔ stringr   1.5.1
-#> ✔ ggplot2   3.5.0     ✔ tibble    3.2.1
-#> ✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-#> ✔ purrr     1.0.2     
+#> ✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+#> ✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+#> ✔ purrr     1.0.4     
 #> ── Conflicts ────────────────────── tidyverse_conflicts() ──
 #> ✖ dplyr::filter() masks stats::filter()
 #> ✖ dplyr::lag()    masks stats::lag()
@@ -215,7 +215,7 @@ geom_histogram(aes(x = Sale_Price),
 2. Use a stacked barplot to visualize the relationship between these two categorical variables (make sure the bars have the same height); add labels to the plot (title, subtitle, x and y labels).
 
 
-```r
+``` r
 ggplot(data = data) +
   
   geom_bar(mapping = aes(x = Roof_Style, fill = Fence),
@@ -238,7 +238,7 @@ ggplot(data = data) +
 3. Plot a boxplot of the `Sales_Price` variable reflecting the `North_Ames` and `College_Creek` neighborhoods; add black dots to these boxplots that represent the average prices in these groups; make boxplots transparent (use transparency rate of 0.45).
 
 
-```r
+``` r
 
 data1 <- data %>% filter(Neighborhood %in% c("College_Creek", "North_Ames"))
 
@@ -264,7 +264,7 @@ stat_summary(aes(x = Neighborhood, y = Sale_Price),
    Plot a barplot of the `Rooms` variable: add labels to this barplot that display the exact frequency of each category. Plot another barplot of the `Rooms` variable with labels that display the frequency of each category as percentages. Now create a composition (assemble) of these plots (it is up to you to pick a layout). In other words, combine these barplots in one plot.
    
 
-```r
+``` r
 categorize <- function(x) {
   
   case_when(x<=4 & x>=2 ~ "2-4",
@@ -283,7 +283,7 @@ data <- data %>%
 ```
 
 
-```r
+``` r
 gg1 <- ggplot(data = data) +
   
   geom_bar(mapping = aes(x = Rooms), fill = "gray70") +
@@ -312,6 +312,8 @@ gg2 <- ggplot(data2, aes(x = Rooms, y = perc)) +
   labs(y = "Percentage")
 
 library(patchwork)
+#> Warning: package 'patchwork' was built under R version
+#> 4.4.3
 
 gg1/gg2
 #> Warning: The dot-dot notation (`..count..`) was deprecated in
@@ -330,7 +332,7 @@ gg1/gg2
 5. Plot the `Sale_Price` variable (Y) against the `Gr_Liv_Area` variable (X): add labels to the scatterplot (title, subtitle, caption, x and y labels) and change their colors; change the size and shape of datapoints; change the color of datapoints based on the `Rooms` variable; move the legends to the left.
 
 
-```r
+``` r
   ggplot(data = data) + 
   
   geom_point(mapping = aes(x = Gr_Liv_Area, y = Sale_Price, color = Rooms),
@@ -365,7 +367,7 @@ gg1/gg2
 6. Plot the `Sale_Price` variable (Y) against the `Gr_Liv_Area` variable (X) for each level of the `Rooms` variable separately, using facets. 
 
 
-```r
+``` r
 
 ggplot(data = data) + 
     
