@@ -1,7 +1,7 @@
 --- 
-title: "Summer R Bootcamp"
+title: "Summer Coding Bootcamp"
 author: "Alex Pijyan"
-date: "2025-07-28"
+date: "2026-07-06"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
@@ -24,30 +24,36 @@ csl: "chicago-fullnote-bibliography.csl"
 
 &nbsp;
 
-Welcome to **_Summer R Bootcamp_**. This website contains comprehensive notes and tutorials on topics covered in the bootcamp.
+Welcome to **_Summer Coding Bootcamp_**. This website contains comprehensive notes and tutorials on topics covered in the **R** portion of the bootcamp.
 
 &nbsp;
 
-**Objectives**: Summer R Bootcamp is designed to equip our current/incoming students with a solid foundation in R, one of the most powerful and versatile programming languages in the data science community. 
+**Introduction**: The Summer R/Python Bootcamp is designed to equip incoming MA students with a strong foundation in R and Python, two of the most widely used and versatile programming languages in statistics, data science, and quantitative research. As computational proficiency has become an essential component of graduate training and professional practice, this bootcamp aims to ensure that students begin the MA program with the technical skills, confidence, and preparation needed to succeed in a rigorous and increasingly data-driven curriculum.
 
-It aims to help current/incoming students gain an understanding of core concepts of R programming, give them experience with statistical procedures, and improve their coding skills in order to successfully complete the MA program curriculum.
+The bootcamp is intended to help students develop a solid understanding of core programming concepts, strengthen their coding abilities, and gain practical experience applying both R and Python to data manipulation, visualization, and problem solving.
 
-Over the course of four weeks, you will dive into the essentials of R, from basic programming concepts to advanced data analysis techniques. You will be exposed to various topics of R programming through lecture notes, examples, and exercises. Those who successfully complete the summer bootcamp will be able to
+Over the course of four weeks, students will be introduced to both foundational and more advanced aspects of programming in R and Python. The curriculum will guide them from basic programming principles to essential techniques in data analysis and statistical computing, exposing them to a broad range of topics through structured lecture notes, worked examples, and hands-on exercises. 
 
-* Manipulate and wrangle data with different structures.
-* Develop skills to clean, manipulate, and analyze data.
-* Explore data via visualization and basic modeling for exploratory data analysis (EDA).
-* Tackle familiar statistical concepts.
-* Communicate results.
 
 
 &nbsp;
 
-**Timeline**: July 7 – August 3 (4 weeks)
+**Objectives**: Students who successfully complete the summer bootcamp will be able to:
+
+* Develop a solid foundation in the basic programming concepts and syntax of R and Python. 
+* Import, manage, and work with data in a variety of formats and structures. 
+* In R, clean, transform, and manipulate data effectively for analysis. For Python, these topics will be covered more extensively in the regular Fall course, STAT GR5206.
+* In R, use appropriate data wrangling techniques to organize and prepare datasets for downstream tasks. For Python, these topics will be covered more extensively in the regular Fall course, STAT GR5206.
+* Create clear and informative visualizations to explore and summarize data. 
+* Apply basic exploratory data analysis methods to identify patterns, trends, and potential issues in datasets. 
+* Reinforce and apply familiar statistical concepts through computational examples and data-based exercises. 
+* Communicate analytical findings clearly through well-structured code, visual displays, and concise written interpretation.
+
+
 
 &nbsp;
 
-Below are topics covered in the Summer R Bootcamp:
+Below are topics covered in the **R** portion of the bootcamp:
 
 **Week 1: Base R**
 
@@ -55,30 +61,15 @@ Below are topics covered in the Summer R Bootcamp:
 * Data Structures
 * Conditional Statements (Control Structures) &amp; Loops
 * Functions
+* Rmarkdown Files
 
 **Week 2: Functional Programming and Tidyverse packages**
 
 * Functional Programming
 * Dplyr Package
 * Tidyr Package
+* ggplot2 Package
 
-**Week 3: Data Visualization, Communication, and Reporting Tools**
-
-* Data Visualization (Base R and ggplot2 package)
-* Rmarkdown Files
-
-**Week 4: Basic Applied Statistics and Probability**
-
-* Generating Probability Distributions and Random Samples
-* Statistical Inference
-* Linear Regression Models
-
-&nbsp;
-
-**Assignments**: There will be **no requirement** to complete/submit homework assignments. Every week you will have a chance to complete self-assessment assignments (**Problem Sets**), which will
-**NOT** be graded (Solutions to these assignments will be provided).
-
-In addition, you will be supported by teaching assistants (TAs), who will address your questions and walk you through tutorials and assignments (if needed) during the help room hours.
 
 
 

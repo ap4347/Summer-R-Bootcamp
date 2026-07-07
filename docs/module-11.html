@@ -50,27 +50,7 @@
 <li><a class="" href="module-2.html">Module 2</a></li>
 <li><a class="" href="module-3.html">Module 3</a></li>
 <li><a class="" href="module-4.html">Module 4</a></li>
-<li><a class="" href="problem-set-1.html">Problem Set 1</a></li>
-<li><a class="" href="ps-1-solutions.html">PS 1 Solutions</a></li>
-<li class="book-part">Week 2</li>
-<li><a class="" href="module-5.html">Module 5</a></li>
-<li><a class="" href="module-6.html">Module 6</a></li>
-<li><a class="" href="module-7.html">Module 7</a></li>
-<li><a class="" href="problem-set-2.html">Problem Set 2</a></li>
-<li><a class="" href="ps-2-solutions.html">PS 2 Solutions</a></li>
-<li class="book-part">Week 3</li>
-<li><a class="" href="module-8.html">Module 8</a></li>
-<li><a class="" href="module-9.html">Module 9</a></li>
-<li><a class="" href="module-10.html">Module 10</a></li>
 <li><a class="active" href="module-11.html">Module 11</a></li>
-<li><a class="" href="problem-set-3.html">Problem Set 3</a></li>
-<li><a class="" href="ps-3-solutions.html">PS 3 Solutions</a></li>
-<li class="book-part">Week 4</li>
-<li><a class="" href="module-12.html">Module 12</a></li>
-<li><a class="" href="module-13.html">Module 13</a></li>
-<li><a class="" href="module-14.html">Module 14</a></li>
-<li><a class="" href="problem-set-4.html">Problem Set 4</a></li>
-<li><a class="" href="ps-4-solutions.html">PS 4 Solutions</a></li>
 </ul>
 
         <div class="book-extra">
@@ -95,7 +75,7 @@
 <p>You can create a new R Markdown file with <em>File &gt; New File &gt; R Markdown…</em> (on the top panel; top left corner)</p>
 <p>As mentioned earlier, R Markdown can produce files of various formats (<code>PDF</code>, <code>Word</code>, <code>HTML</code> etc.). In this bootcamp, we will focus on the <code>PDF</code> output format. PDF output format requires installing <code>LaTex</code> distribution on your machine. There are several traditional options including <em>MikTeX</em>, <em>MacTeX</em>, and <em>TeX Live</em>, but it is recommended to use <em>TinyTeX</em>.</p>
 <p>You can install <em>TinyTeX</em> with the R package <strong>tinytex</strong>. Run the following code in your console:</p>
-<div class="sourceCode" id="cb438"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb141"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">tinytex</span><span class="fu">::</span> <span class="fu"><a href="https://rdrr.io/pkg/tinytex/man/install_tinytex.html">install_tinytex</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="r-markdown-file-components" class="section level3 unnumbered">
@@ -124,7 +104,7 @@
 <h5>Headers<a class="anchor" aria-label="anchor" href="#headers"><i class="fas fa-link"></i></a>
 </h5>
 <p>You can create headers in your text using <code>#</code> operator and control their size by simply adding one or more <code>#</code> in front of the text you would like to denote the header.</p>
-<div class="sourceCode" id="cb439"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb142"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="co"># Top Level Header (For example, Question 1)</span></span>
 <span></span>
@@ -138,8 +118,8 @@
 <h5>Block Quotes<a class="anchor" aria-label="anchor" href="#block-quotes"><i class="fas fa-link"></i></a>
 </h5>
 <p>You can create a block quote using <code>&gt;</code> operator. For example the line below</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="module-11.html#cb440-1" tabindex="-1"></a></span>
-<span id="cb440-2"><a href="module-11.html#cb440-2" tabindex="-1"></a><span class="sc">&gt;</span> Your first block quote</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="module-11.html#cb143-1" tabindex="-1"></a></span>
+<span id="cb143-2"><a href="module-11.html#cb143-2" tabindex="-1"></a><span class="sc">&gt;</span> Your first block quote</span></code></pre></div>
 <p>will produce the following result:</p>
 <blockquote>
 <p>Your first block quote</p>
@@ -149,13 +129,13 @@
 <h5>Lists<a class="anchor" aria-label="anchor" href="#lists-1"><i class="fas fa-link"></i></a>
 </h5>
 <p>In R Markdown you can create both ordered and unordered lists. To create an unordered list, use <code>*</code> operator:</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="module-11.html#cb441-1" tabindex="-1"></a><span class="sc">*</span> Bullet point <span class="dv">1</span></span>
-<span id="cb441-2"><a href="module-11.html#cb441-2" tabindex="-1"></a></span>
-<span id="cb441-3"><a href="module-11.html#cb441-3" tabindex="-1"></a><span class="sc">*</span> Bullet point <span class="dv">2</span></span>
-<span id="cb441-4"><a href="module-11.html#cb441-4" tabindex="-1"></a></span>
-<span id="cb441-5"><a href="module-11.html#cb441-5" tabindex="-1"></a>  <span class="sc">*</span> bullet point <span class="dv">2</span>a</span>
-<span id="cb441-6"><a href="module-11.html#cb441-6" tabindex="-1"></a></span>
-<span id="cb441-7"><a href="module-11.html#cb441-7" tabindex="-1"></a>  <span class="sc">*</span> bullet point <span class="dv">2</span>b</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="module-11.html#cb144-1" tabindex="-1"></a><span class="sc">*</span> Bullet point <span class="dv">1</span></span>
+<span id="cb144-2"><a href="module-11.html#cb144-2" tabindex="-1"></a></span>
+<span id="cb144-3"><a href="module-11.html#cb144-3" tabindex="-1"></a><span class="sc">*</span> Bullet point <span class="dv">2</span></span>
+<span id="cb144-4"><a href="module-11.html#cb144-4" tabindex="-1"></a></span>
+<span id="cb144-5"><a href="module-11.html#cb144-5" tabindex="-1"></a>  <span class="sc">*</span> bullet point <span class="dv">2</span>a</span>
+<span id="cb144-6"><a href="module-11.html#cb144-6" tabindex="-1"></a></span>
+<span id="cb144-7"><a href="module-11.html#cb144-7" tabindex="-1"></a>  <span class="sc">*</span> bullet point <span class="dv">2</span>b</span></code></pre></div>
 <ul>
 <li>Bullet point 1</li>
 <li>Bullet point 2
@@ -166,11 +146,11 @@
 </li>
 </ul>
 <p>To create an ordered lists, simply use numbers:</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="module-11.html#cb442-1" tabindex="-1"></a><span class="fl">1.</span> Bullet point <span class="dv">1</span></span>
-<span id="cb442-2"><a href="module-11.html#cb442-2" tabindex="-1"></a></span>
-<span id="cb442-3"><a href="module-11.html#cb442-3" tabindex="-1"></a><span class="fl">2.</span> Bullet point <span class="dv">2</span></span>
-<span id="cb442-4"><a href="module-11.html#cb442-4" tabindex="-1"></a>   <span class="sc">*</span> bullet point <span class="dv">2</span>a</span>
-<span id="cb442-5"><a href="module-11.html#cb442-5" tabindex="-1"></a>   <span class="sc">*</span> bullet point <span class="dv">2</span>b</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="module-11.html#cb145-1" tabindex="-1"></a><span class="fl">1.</span> Bullet point <span class="dv">1</span></span>
+<span id="cb145-2"><a href="module-11.html#cb145-2" tabindex="-1"></a></span>
+<span id="cb145-3"><a href="module-11.html#cb145-3" tabindex="-1"></a><span class="fl">2.</span> Bullet point <span class="dv">2</span></span>
+<span id="cb145-4"><a href="module-11.html#cb145-4" tabindex="-1"></a>   <span class="sc">*</span> bullet point <span class="dv">2</span>a</span>
+<span id="cb145-5"><a href="module-11.html#cb145-5" tabindex="-1"></a>   <span class="sc">*</span> bullet point <span class="dv">2</span>b</span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li>Bullet point 1</li>
 <li>Bullet point 2
@@ -185,10 +165,10 @@
 <h5>Tables<a class="anchor" aria-label="anchor" href="#tables"><i class="fas fa-link"></i></a>
 </h5>
 <p>Use the following formatting style to create tables in R Markdown:</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="module-11.html#cb443-1" tabindex="-1"></a>First Header  <span class="sc">|</span> Second Header</span>
-<span id="cb443-2"><a href="module-11.html#cb443-2" tabindex="-1"></a><span class="sc">-------------</span> <span class="er">|</span> <span class="sc">-------------</span></span>
-<span id="cb443-3"><a href="module-11.html#cb443-3" tabindex="-1"></a>Content Cell  <span class="sc">|</span> Content Cell</span>
-<span id="cb443-4"><a href="module-11.html#cb443-4" tabindex="-1"></a>Content Cell  <span class="sc">|</span> Content Cell</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="module-11.html#cb146-1" tabindex="-1"></a>First Header  <span class="sc">|</span> Second Header</span>
+<span id="cb146-2"><a href="module-11.html#cb146-2" tabindex="-1"></a><span class="sc">-------------</span> <span class="er">|</span> <span class="sc">-------------</span></span>
+<span id="cb146-3"><a href="module-11.html#cb146-3" tabindex="-1"></a>Content Cell  <span class="sc">|</span> Content Cell</span>
+<span id="cb146-4"><a href="module-11.html#cb146-4" tabindex="-1"></a>Content Cell  <span class="sc">|</span> Content Cell</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>First Header</th>
@@ -210,7 +190,7 @@
 <h5>Links<a class="anchor" aria-label="anchor" href="#links"><i class="fas fa-link"></i></a>
 </h5>
 <p>Use the following format to insert a link into your text:</p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="module-11.html#cb444-1" tabindex="-1"></a>[Your first link](http<span class="sc">:</span><span class="er">//</span>posit.co)</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="module-11.html#cb147-1" tabindex="-1"></a>[Your first link](http<span class="sc">:</span><span class="er">//</span>posit.co)</span></code></pre></div>
 <p>It produces a link to the desired webpage and can be included in your text: <a href="http://posit.co">Your first link</a></p>
 </div>
 <div id="inline-equations" class="section level5 unnumbered">
@@ -222,18 +202,18 @@
 <h5>Line Breaks<a class="anchor" aria-label="anchor" href="#line-breaks"><i class="fas fa-link"></i></a>
 </h5>
 <p>In order to start a new paragraph or new line, you will need to be sure that white space exists between the two paragraphs/line:</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="module-11.html#cb445-1" tabindex="-1"></a>This is the first lines.</span>
-<span id="cb445-2"><a href="module-11.html#cb445-2" tabindex="-1"></a></span>
-<span id="cb445-3"><a href="module-11.html#cb445-3" tabindex="-1"></a></span>
-<span id="cb445-4"><a href="module-11.html#cb445-4" tabindex="-1"></a>And here we have another line.</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="module-11.html#cb148-1" tabindex="-1"></a>This is the first lines.</span>
+<span id="cb148-2"><a href="module-11.html#cb148-2" tabindex="-1"></a></span>
+<span id="cb148-3"><a href="module-11.html#cb148-3" tabindex="-1"></a></span>
+<span id="cb148-4"><a href="module-11.html#cb148-4" tabindex="-1"></a>And here we have another line.</span></code></pre></div>
 <p>This is the first lines.</p>
 <p>And here we have another line.</p>
 <p>Another useful way to divide up different parts of your file is by including horizontal lines. We can achieve it by using <code>***</code> operator:</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="module-11.html#cb446-1" tabindex="-1"></a><span class="sc">**</span><span class="er">*</span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="module-11.html#cb149-1" tabindex="-1"></a><span class="sc">**</span><span class="er">*</span></span></code></pre></div>
 <p>It will produce the horizontal line below.</p>
 <hr>
 <p>Finally, if you want start a paragraph or a line on a new page, use <code>\newpage</code> command:</p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="module-11.html#cb447-1" tabindex="-1"></a>\newpage</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="module-11.html#cb150-1" tabindex="-1"></a>\newpage</span></code></pre></div>
 </div>
 </div>
 <div id="r-chunks-of-code" class="section level4 unnumbered">
@@ -302,8 +282,8 @@ print(2 + 2)
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="module-10.html">Module 10</a></div>
-<div class="next"><a href="problem-set-3.html">Problem Set 3</a></div>
+<div class="prev"><a href="module-4.html">Module 4</a></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
@@ -320,8 +300,8 @@ print(2 + 2)
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/Module_11.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/Module_11.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/Module_5.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/Module_5.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -333,7 +313,7 @@ print(2 + 2)
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2025-07-28.</p>
+    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2026-07-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
