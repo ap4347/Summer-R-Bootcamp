@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Module 9 | Summer R Bootcamp</title>
+<title>Module 9 | Summer Coding Bootcamp</title>
 <meta name="author" content="Alex Pijyan">
 <meta name="description" content="  ggplot2 Package We have already learned how to visualize data using Base R. In this (and the following) module(s) we are going to learn how to do it using ggplot2 package. R has several systems...">
 <meta name="generator" content="bookdown 0.41 with bs4_book()">
-<meta property="og:title" content="Module 9 | Summer R Bootcamp">
+<meta property="og:title" content="Module 9 | Summer Coding Bootcamp">
 <meta property="og:type" content="book">
 <meta property="og:description" content="  ggplot2 Package We have already learned how to visualize data using Base R. In this (and the following) module(s) we are going to learn how to do it using ggplot2 package. R has several systems...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Module 9 | Summer R Bootcamp">
+<meta name="twitter:title" content="Module 9 | Summer Coding Bootcamp">
 <meta name="twitter:description" content="  ggplot2 Package We have already learned how to visualize data using Base R. In this (and the following) module(s) we are going to learn how to do it using ggplot2 package. R has several systems...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Summer R Bootcamp</a>
+        <a href="index.html" title="">Summer Coding Bootcamp</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
@@ -50,27 +50,13 @@
 <li><a class="" href="module-2.html">Module 2</a></li>
 <li><a class="" href="module-3.html">Module 3</a></li>
 <li><a class="" href="module-4.html">Module 4</a></li>
-<li><a class="" href="problem-set-1.html">Problem Set 1</a></li>
-<li><a class="" href="ps-1-solutions.html">PS 1 Solutions</a></li>
-<li class="book-part">Week 2</li>
 <li><a class="" href="module-5.html">Module 5</a></li>
+<li class="book-part">Week 2</li>
 <li><a class="" href="module-6.html">Module 6</a></li>
 <li><a class="" href="module-7.html">Module 7</a></li>
-<li><a class="" href="problem-set-2.html">Problem Set 2</a></li>
-<li><a class="" href="ps-2-solutions.html">PS 2 Solutions</a></li>
-<li class="book-part">Week 3</li>
 <li><a class="" href="module-8.html">Module 8</a></li>
 <li><a class="active" href="module-9.html">Module 9</a></li>
 <li><a class="" href="module-10.html">Module 10</a></li>
-<li><a class="" href="module-11.html">Module 11</a></li>
-<li><a class="" href="problem-set-3.html">Problem Set 3</a></li>
-<li><a class="" href="ps-3-solutions.html">PS 3 Solutions</a></li>
-<li class="book-part">Week 4</li>
-<li><a class="" href="module-12.html">Module 12</a></li>
-<li><a class="" href="module-13.html">Module 13</a></li>
-<li><a class="" href="module-14.html">Module 14</a></li>
-<li><a class="" href="problem-set-4.html">Problem Set 4</a></li>
-<li><a class="" href="ps-4-solutions.html">PS 4 Solutions</a></li>
 </ul>
 
         <div class="book-extra">
@@ -87,7 +73,7 @@
 </h2>
 <p>We have already learned how to visualize data using <code>Base R</code>. In this (and the following) module(s) we are going to learn how to do it using <code>ggplot2</code> package. R has several systems for making graphs, but <code>ggplot2</code> is one of the most elegant and most versatile. <code>ggplot2</code> implements the grammar of graphics, a coherent system for describing and building graphs. With <code>ggplot2</code>, you can do more faster by learning one system and applying it in many places.</p>
 <p>We will use <code>mpg</code> dataset to illustrate functionality of the <code>ggplot2</code> package. It contains a subset of the fuel economy data that the EPA makes available. It contains only models which had a new release every year between 1999 and 2008 - this was used as a proxy for the popularity of the car.</p>
-<div class="sourceCode" id="cb369"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb316"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 234 × 11</span></span>
@@ -119,7 +105,7 @@
 <code>drv</code> - the type of drive train</li>
 </ul>
 <p>Before we start exploring the <code>ggplot2</code> package, let’s convert one of the variables into a factor:</p>
-<div class="sourceCode" id="cb370"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb317"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">mpg</span><span class="op">$</span><span class="va">cyl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">$</span><span class="va">cyl</span><span class="op">)</span></span></code></pre></div>
 <div id="creating-a-ggplot-object" class="section level3 unnumbered">
@@ -132,12 +118,12 @@
 <li>At least one layer which describes how to render each observations. Layers are usually created with a <strong>geom</strong> function</li>
 </ul>
 <p>To produce a scatterplot, you need to pass your data to <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function:</p>
-<div class="sourceCode" id="cb371"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb318"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-4-1.png" width="672"></div>
 <p>As you can notice, it creates a plot object but does not display data. To add datapoints to this object, we add a <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> function with a <code>+</code> sign and inside the function we specify <code>x</code> and <code>y</code> variables from the dataset, which will be <code>x</code> and <code>y</code> axes, respectively:</p>
-<div class="sourceCode" id="cb372"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb319"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  </span>
@@ -149,7 +135,7 @@
 <h3>Changing the Color, Size, and Shape of Datapoints<a class="anchor" aria-label="anchor" href="#changing-the-color-size-and-shape-of-datapoints"><i class="fas fa-link"></i></a>
 </h3>
 <p>We can change the color, size, and shape of the datapoints by passing these arguments to the <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> function:</p>
-<div class="sourceCode" id="cb373"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb320"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -162,7 +148,7 @@
 <span>               shape <span class="op">=</span> <span class="fl">24</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
 <p>In this plot the color, size, and shape of points are static, meaning that they are the same for every point. If you want the color to change based on another variable in the dataset to reflect its categories, you need to specify this inside the <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> function:</p>
-<div class="sourceCode" id="cb374"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb321"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -171,7 +157,7 @@
 <span>               size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
 <p><code>ggplot2</code> automatically assigned colors to the levels of <code>cyl</code> variable. If you want to change them manually, you need to do so using <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual()</a></code> function:</p>
-<div class="sourceCode" id="cb375"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb322"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -188,7 +174,7 @@
 <span>                                   `8` <span class="op">=</span> <span class="st">"yellow"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
 <p>You can also change the shape of points to reflect another variable in the dataset:</p>
-<div class="sourceCode" id="cb376"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb323"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -204,7 +190,7 @@
 <span><span class="co">#&gt; the scale range (`geom_point()`).</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
 <p>Or you can do so by changing the transparency of the points:</p>
-<div class="sourceCode" id="cb377"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb324"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -215,7 +201,7 @@
 <span><span class="co">#&gt; advised.</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
 <p>To change the legend title, add <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> function and use <code>color</code> argument:</p>
-<div class="sourceCode" id="cb378"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb325"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -226,7 +212,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>color <span class="op">=</span> <span class="st">"Number of Cylinders"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-11-1.png" width="672"></div>
 <p>Let’s save the ggplot object. We will be adding new layers to this object shortly:</p>
-<div class="sourceCode" id="cb379"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb326"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">&lt;-</span>   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -240,7 +226,7 @@
 <h3>Adding Labels<a class="anchor" aria-label="anchor" href="#adding-labels"><i class="fas fa-link"></i></a>
 </h3>
 <p>To add labels to your ggplot object, you can use <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> function once again. Inside this function, you specify the plot title, subtitle, labels of <code>x</code> and <code>y</code> axes:</p>
-<div class="sourceCode" id="cb380"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb327"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="va">gg</span> <span class="op">&lt;-</span> <span class="va">gg</span> <span class="op">+</span></span>
 <span>  </span>
@@ -261,7 +247,7 @@
 </h3>
 <p>The <code>x</code> and <code>y</code> axes limits can be controlled in 2 ways:</p>
 <p>You can change the axis limits using <code><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim()</a></code> and <code><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim()</a></code> functions. You need to pass a numeric vector of length 2 (with max and min values) or just the max and min values:</p>
-<div class="sourceCode" id="cb381"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb328"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>  </span>
@@ -272,7 +258,7 @@
 <span><span class="co">#&gt; outside the scale range (`geom_point()`).</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-14-1.png" width="672"></div>
 <p>The limitation of this approach is that it deletes the points outside the specified range. The other approach is to change the <code>x</code> and <code>y</code> limits by zooming in to the region of interest without deleting points. It is achieved using the <code><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian()</a></code> function:</p>
-<div class="sourceCode" id="cb382"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb329"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>  </span>
@@ -281,7 +267,7 @@
 <span>                  ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">25</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
 <p>There is a primary argument that affects the appearance of the ticks on the axes: <code>breaks</code>. Breaks controls the position of the ticks, or the values associated with the keys. You pass this argument to either <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous()</a></code> or <code><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous()</a></code> functions, depending which axis you want to modify:</p>
-<div class="sourceCode" id="cb383"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb330"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">&lt;-</span> <span class="va">gg</span> <span class="op">+</span></span>
 <span>    </span>
@@ -297,56 +283,56 @@
 <h3>Themes<a class="anchor" aria-label="anchor" href="#themes"><i class="fas fa-link"></i></a>
 </h3>
 <p>You can customize the non-data elements of your plot with a <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code> function. For example, you can change the background of the plot:</p>
-<div class="sourceCode" id="cb384"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb331"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>   </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-17-1.png" width="672"></div>
-<div class="sourceCode" id="cb385"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb332"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>   </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
-<div class="sourceCode" id="cb386"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb333"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>   </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_dark</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-19-1.png" width="672"></div>
-<div class="sourceCode" id="cb387"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb334"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>   </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_light</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-20-1.png" width="672"></div>
-<div class="sourceCode" id="cb388"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb335"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>   </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-21-1.png" width="672"></div>
-<div class="sourceCode" id="cb389"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb336"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>   </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-22-1.png" width="672"></div>
-<div class="sourceCode" id="cb390"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb337"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">+</span></span>
 <span>   </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span><span class="op">(</span><span class="op">)</span> </span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-23-1.png" width="672"></div>
 <p>Let’s select <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw()</a></code> option and update our plot:</p>
-<div class="sourceCode" id="cb391"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb338"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">&lt;-</span> <span class="va">gg</span> <span class="op">+</span></span>
 <span>    </span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>Further, we can change the color and size of titles, size and angle of ticks on axes, and the location of legends:</p>
-<div class="sourceCode" id="cb392"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb339"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="va">gg</span> <span class="op">&lt;-</span> <span class="va">gg</span> <span class="op">+</span></span>
 <span>    </span>
@@ -370,7 +356,7 @@
 </h3>
 <p>When working with categorical variables, it becomes particularly useful to split your plot into facets, subplots that each display one subset of the data that correspond to the level of the categorical variable.</p>
 <p>To facet your plot by a single variable, use the <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code> function. The first argument of <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code> should be a formula, which you create with <code>~</code> followed by a variable name (here “formula” is the name of a data structure in R, not a synonym for “equation”). The variable that you pass to <code><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap()</a></code> should be discrete. Let’s plot <code>displ</code> against <code>hwy</code> for each level of the <code>class</code> variable separately:</p>
-<div class="sourceCode" id="cb393"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb340"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -379,7 +365,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">class</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-26-1.png" width="672"></div>
 <p>You can decide how the plots should be displayed by specifying the number of rows in the final plot:</p>
-<div class="sourceCode" id="cb394"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb341"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -388,7 +374,7 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">class</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="Module_9_files/figure-html/unnamed-chunk-27-1.png" width="672"></div>
 <p>To facet your plot on the combination of two variables, add <code><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid()</a></code> to your plot call. Let’s plot <code>displ</code> against <code>hwy</code> for different combinations of levels of the <code>class</code> and <code>drv</code> variables:</p>
-<div class="sourceCode" id="cb395"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb342"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>    </span>
@@ -434,7 +420,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Summer R Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2025-07-28.</p>
+    <p>"<strong>Summer Coding Bootcamp</strong>" was written by Alex Pijyan. It was last built on 2026-07-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

@@ -1,7 +1,7 @@
 --- 
 title: "Summer Coding Bootcamp"
 author: "Alex Pijyan"
-date: "2026-07-06"
+date: "2026-07-13"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography:
